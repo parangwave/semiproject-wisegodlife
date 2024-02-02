@@ -30,6 +30,8 @@ if(loginMsg != null && loginMsg.equals("") == false){
 		<script type="text/javascript">
 		alert("로그인되었습니다");
 		location.href = "./main.do";
+		/* 현재 메인페이지가 없어서 메인페이지가 아니라 마이페이지로 움직이게 하는 부분입니다.
+		location.href = "./mycalendar.do"; */
 		</script>
 		<%		
 	}else{
