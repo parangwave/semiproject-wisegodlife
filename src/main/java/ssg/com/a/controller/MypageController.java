@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ssg.com.a.dto.BbsComment;
+import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.MemberDto;
 import ssg.com.a.dto.MygradecalDto;
@@ -41,12 +43,20 @@ public class MypageController {
 		return "mypage/mygradecal";
 	}
 	
-	// 학과일정달력 페이지 이동
-//	@GetMapping("mycalendar.do")
-//	public String mycalendar() {
-//		System.out.println("MypageController mycalendar" + new Date());
-//		return "mypage/mycalendar";
-//	}
+	// 작성한 댓글 및 게시글 이동
+		@GetMapping("mywrite.do")
+		public String mywrite(Model model, HttpServletRequest request) {
+			System.out.println("MypageController mywrite" + new Date());
+			
+			MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+			List<BbsComment> commentList = service.getMyCommentList(login.getId());
+			List<BbsDto> writeList = service.getMyWriteList(login.getId());
+			
+			model.addAttribute("commentList", commentList);
+			model.addAttribute("writeList", writeList);
+			
+			return "mypage/mywrite";
+		}
 	
 	// TODO 학과일정달력 페이지 이동
 	@GetMapping("mycalendar.do")
