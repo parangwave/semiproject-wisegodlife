@@ -134,3 +134,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# target
+m2e-wtp/
