@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mypage">
+<select id="getCalendarList" parameterType="ssg.com.a.dto.CalendarParam" resultType="ssg.com.a.dto.CalendarDto">
+			select seq, id, title, content, rdate, wdate from(select row_number()over(partition by substr(rdate, 1, 8) order by rdate asc) as rnum, seq, id, title, content, rdate, wdate
+			  from calendar
+			 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM}) a
+			 where rnum between 1 and 5
+</select>
+
+</mapper>

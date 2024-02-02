@@ -47,13 +47,13 @@ a {
 
 <table id="leftMenu" border="1">
 	<tr>
-		<th><a href="">기본정보</a></th>
+		<th><a href="mymain.do">기본정보</a></th>
 	</tr>
 	<tr>
 		<th><a href="">수강 시간표 작성</a></th>
 	</tr>	
 	<tr>
-		<th><a href="">학과 일정달력</a></th>
+		<th><a href="mycalendar.do">학과 일정달력</a></th>
 	</tr>	
 	<tr>
 		<th><a href="mygradecal.do">학점 계산기</a></th>
