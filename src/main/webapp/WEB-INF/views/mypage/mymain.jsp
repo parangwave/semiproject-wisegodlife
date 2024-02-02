@@ -64,7 +64,7 @@ a {
 		<th><a href="">친구 정보</a></th>
 	</tr>	
 	<tr>
-		<th><a href="">작성한 댓글 및 게시글</a></th>
+		<th><a href="mywrite.do">작성한 댓글 및 게시글</a></th>
 	</tr>	
 	<tr>
 		<th><a href="">블랙리스트</a></th>

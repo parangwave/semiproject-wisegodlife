@@ -4,10 +4,22 @@
 
 <mapper namespace="mypage">
 <select id="getCalendarList" parameterType="ssg.com.a.dto.CalendarParam" resultType="ssg.com.a.dto.CalendarDto">
-			select seq, id, title, content, rdate, wdate from(select row_number()over(partition by substr(rdate, 1, 8) order by rdate asc) as rnum, seq, id, title, content, rdate, wdate
-			  from calendar
-			 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM}) a
-			 where rnum between 1 and 5
+	select seq, id, title, content, rdate, 
+		   wdate from(select row_number()over(partition by substr(rdate, 1, 8) order by rdate asc) as rnum, 
+		   seq, id, title, content, rdate, wdate
+	  from calendar
+	 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM}) a
+	 where rnum between 1 and 5
+</select>
+<select id="getMyCommentList" parameterType="String" resultType="ssg.com.a.dto.BbsComment">
+	select seq, id, content, wdate
+	  from bbscomment
+	 where id=#{id}
+</select>
+<select id="getMyWriteList" parameterType="String" resultType="ssg.com.a.dto.BbsDto">
+	select seq, id, title, content, wdate, del, readcount
+	  from bbs
+	 where id=#{id}
 </select>
 
 </mapper>
