@@ -32,7 +32,7 @@ a {
 		<th><a href="">슬갓생 </a></th>
 		<th><a href="">게시판</a></th>
 		<th><a href="">학교생활</a></th>
-		<th><a href="">마이페이지</a></th>
+		<th><a href="mymain.do">마이페이지</a></th>
 		<th>
 			<button>라이트모드</button>
 		</th>
