@@ -11,6 +11,7 @@ import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.CalendarParam;
+import ssg.com.a.dto.MemberDto;
 import ssg.com.a.dto.MyblacklistDto;
 
 @Repository
@@ -50,6 +51,17 @@ public class MypageDaoImpl implements MypageDao{
 	@Override
 	public List<MyblacklistDto> getMyBlacklist(String id) {
 		return session.selectList(ns + "getMyBlacklist", id);
+	}
+
+	@Override
+	public int changeMyinfor(MemberDto dto) {
+		return session.update(ns + "changeMyinfor", dto);
+		
+	}
+
+	@Override
+	public MemberDto changelogin(MemberDto dto) {
+		return session.selectOne(ns + "changelogin", dto);
 	}
 
 }

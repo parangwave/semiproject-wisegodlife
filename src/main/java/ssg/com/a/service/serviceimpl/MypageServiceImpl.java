@@ -9,6 +9,7 @@ import ssg.com.a.dao.MypageDao;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
+import ssg.com.a.dto.MemberDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
 
@@ -46,6 +47,16 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public List<MyblacklistDto> getMyBlacklist(String id) {
 		return dao.getMyBlacklist(id);
+	}
+
+	@Override
+	public boolean changeMyinfor(MemberDto dto) {
+		return dao.changeMyinfor(dto)>0?true:false;		
+	}
+
+	@Override
+	public MemberDto changelogin(MemberDto dto) {
+		return dao.changelogin(dto);
 	}
 	
 	

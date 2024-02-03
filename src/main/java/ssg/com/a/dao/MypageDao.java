@@ -5,6 +5,7 @@ import java.util.List;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
+import ssg.com.a.dto.MemberDto;
 import ssg.com.a.dto.MyblacklistDto;
 
 public interface MypageDao {
@@ -21,5 +22,8 @@ public interface MypageDao {
 	void addBlacklistWord(MyblacklistDto dto);
 	List<MyblacklistDto> getMyBlacklist(String id);
 	
+	// 개인정보변경
+	int changeMyinfor(MemberDto dto);
+	MemberDto changelogin(MemberDto dto);
 
 }

@@ -5,11 +5,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
@@ -38,7 +40,15 @@ public class MypageController {
 		return "mypage/mymain";
 	}
 	
-	// 학점계산기 페이지 이동
+	// 마이페이지 개인정보변경 이동
+	@GetMapping("mychange.do")
+	public String mychange() {
+		System.out.println("MypageController mychange" + new Date());
+		
+		return "mypage/mychange";
+	}
+		
+	// 마이페이지 학점계산기 이동
 	@GetMapping("mygradecal.do")
 	public String mygradecal() {
 		System.out.println("MypageController mygradecal" + new Date());
@@ -46,7 +56,7 @@ public class MypageController {
 		return "mypage/mygradecal";
 	}
 	
-	// 작성한 댓글 및 게시글 이동
+	// 마이페이지 작성한 댓글&게시글 이동
 	@GetMapping("mywrite.do")
 	public String mywrite(Model model) {
 		System.out.println("MypageController mywrite" + new Date());
@@ -61,7 +71,7 @@ public class MypageController {
 		return "mypage/mywrite";
 	}
 	
-	// 블랙리스트 항목관리 이동
+	// 마이페이지 블랙리스트 이동
 	@GetMapping("myblacklist.do")
 	public String myblacklist(Model model) {
 		System.out.println("MypageController myblacklist" + new Date());
@@ -72,49 +82,8 @@ public class MypageController {
 		
 		return "mypage/myblacklist";
 	}
-	
-	// TODO 블랙리스트 기능란
-	// 블랙리스트 아이디 차단글 작성 이동
-	@GetMapping("idlistadd.do")
-	public String idlistadd() {
-		System.out.println("MypageController idlistadd" + new Date());
-		
-		return "mypage/idlistadd";
-	}
-	
-	// 블랙리스트 아이디 차단 추가
-	@GetMapping("addBlacklistId.do")
-	public String addBlacklistId(MyblacklistDto dto) {
-		System.out.println("MypageController addBlacklistId" + new Date());
-		
-		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
-		dto.setId(login.getId());
-		service.addBlacklistId(dto);
-		
-		return "mypage/myblacklist";
-	}	
-	
-	// 블랙리스트 단어 차단글 작성 이동
-	@GetMapping("wordlistadd.do")
-	public String wordlistadd() {
-		System.out.println("MypageController wordlistadd" + new Date());
-		
-		return "mypage/wordlistadd";
-	}
-	
-	// 블랙리스트 단어 차단 추가
-	@GetMapping("addBlacklistWord.do")
-	public String addBlacklistWord(MyblacklistDto dto) {
-		System.out.println("MypageController wordlistadd" + new Date());
-		
-		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
-		dto.setId(login.getId());
-		service.addBlacklistWord(dto);
-		
-		return "mypage/myblacklist";
-	}
-		
-	// TODO 학과일정달력 페이지 이동
+			
+	// 마이페이지 학과일정달력 이동
 	@GetMapping("mycalendar.do")
 	public String mycalendar(Model model) {
 		System.out.println("MypageController mycalendar" + new Date());
@@ -183,6 +152,66 @@ public class MypageController {
 		model.addAttribute("dayOfWeek", dayOfWeek);
 		
 		return "mypage/mycalendar";
+	}
+	
+	// TODO 블랙리스트 기능란
+	// 블랙리스트 아이디 차단글 작성 이동
+	@GetMapping("idlistadd.do")
+	public String idlistadd() {
+		System.out.println("MypageController idlistadd" + new Date());
+		
+		return "mypage/idlistadd";
+	}
+	
+	// 블랙리스트 아이디 차단 추가
+	@GetMapping("addBlacklistId.do")
+	public String addBlacklistId(MyblacklistDto dto) {
+		System.out.println("MypageController addBlacklistId" + new Date());
+		
+		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		dto.setId(login.getId());
+		service.addBlacklistId(dto);
+		
+		return "mypage/myblacklist";
+	}	
+	
+	// 블랙리스트 단어 차단글 작성 이동
+	@GetMapping("wordlistadd.do")
+	public String wordlistadd() {
+		System.out.println("MypageController wordlistadd" + new Date());
+		
+		return "mypage/wordlistadd";
+	}
+	
+	// 블랙리스트 단어 차단 추가
+	@GetMapping("addBlacklistWord.do")
+	public String addBlacklistWord(MyblacklistDto dto) {
+		System.out.println("MypageController wordlistadd" + new Date());
+		
+		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		dto.setId(login.getId());
+		service.addBlacklistWord(dto);
+		
+		return "mypage/myblacklist";
+	}
+	
+	// TODO 개인정보변경란
+	// 개인정보 수정
+	@PostMapping("mychangeAf.do")
+	public String changeMyinfor(MemberDto dto, Model model, HttpSession se) {
+		System.out.println("MypageController changeMyinfor" + new Date());
+		MemberDto login;
+		
+		boolean isS = service.changeMyinfor(dto);
+		String changeMsg = "CHANGE_FAIL"; 
+		if (isS) {
+			changeMsg = "CHANGE_SUCCESS";
+			login = service.changelogin(dto);
+			se.setAttribute("login", login);
+		}
+		model.addAttribute("changeMsg", changeMsg);
+		
+		return "message";
 	}
 	
 }

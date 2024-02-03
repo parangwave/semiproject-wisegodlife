@@ -1,5 +1,10 @@
+<%@page import="ssg.com.a.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	MemberDto login = (MemberDto)session.getAttribute("login");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +45,7 @@ a {
 	</table>
 </nav>
 
-<h1>내정보</h1>
+<h1>내정보 - 개인정보 변경</h1>
 
 <main id="mymain">
 
@@ -80,38 +85,51 @@ a {
 	</tr>
 </table>
 
-
+<form action="mychangeAf.do" method="post">
 <table id="rightContent" border="1">
 	<tr>
-		<th rowspan="2"> 프로필사진칸 </th>
+		<th colspan="4"> * 표시가 있는것은 필수 입력란입니다.</th>
+	</tr>
+	<tr>
+		<th rowspan="2">
+			 프로필사진칸<br/><br/>
+			 <button type="button">프로필 사진변경</button>
+		</th>
 		<th>아이디</th>
-		<td>아이디 나오는칸입니다. </td>
+		<td colspan="2"><input type="text" name="id" value="<%=login.getId() %>" readonly="readonly"></td>
 	</tr>
 	<tr>
-		<th>닉네임</th>
-		<td>닉네임 나오는칸입니다. </td>
+		<th>닉네임*</th>
+		<td><input type="text" name="nickname"></td>
+		<td>
+			<button type="button" onclick="nick">닉네임 중복확인</button>
+		</td>
 	</tr>
 	<tr>
-		<th>이름</th>
-		<td colspan="2">이름 나오는칸입니다. </td>
+		<th>이름*</th>
+		<td colspan="3"><input type="text" name="name" value="<%=login.getName() %>"></td>
 	</tr>
 	<tr>
 		<th>대학교</th>
-		<td colspan="2">대학교 나오는칸입니다. </td>
+		<td colspan="3"><input type="text" name="univ"></td>
 	</tr>
 	<tr>
-		<th>연락처</th>
-		<td colspan="2">연락처 나오는칸입니다. </td>
+		<th>연락처*</th>
+		<td colspan="3"><input type="text" name="tel"></td>
 	</tr>
 	<tr>
 		<th>이메일</th>
-		<td colspan="2">이메일 나오는칸입니다. </td>
+		<td colspan="3"><input type="text" name="email" value="<%=login.getEmail() %>"></td>
 	</tr>
 	<tr>
 		<th>자기소개</th>
-		<td colspan="2">자기소개 나오는칸입니다. </td>
+		<td colspan="3"><textarea rows="5" cols="45" name="selfin"> 자기소개 나오는칸입니다. </textarea></td>
+	</tr>
+	<tr>
+		<td colspan="4"><input type="submit" value="수정완료"></td>
 	</tr>
 </table>
+</form>
 </main>
 </body>
 </html>

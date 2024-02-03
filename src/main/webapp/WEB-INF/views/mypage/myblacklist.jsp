@@ -77,7 +77,7 @@ a {
 		<th><a href="myblacklist">블랙리스트</a></th>
 	</tr>	
 	<tr>
-		<th><a href="">개인정보 변경</a></th>
+		<th><a href="mychange.do">개인정보 변경</a></th>
 	</tr>	
 	<tr>
 		<th><a href="">학교 인증</a></th>
