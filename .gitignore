@@ -136,4 +136,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # target
-m2e-wtp/
+target/m2e-wtp/
+src/main/webapp/META-INF/maven/wisegodlife/wisegodlife/pom.properties
