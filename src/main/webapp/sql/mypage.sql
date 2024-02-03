@@ -20,3 +20,13 @@ select seq, blockid, word, reason, adddate
   from blacklist
  where id='abc'
  ;
+ 
+select *
+  from member
+ where id='abc'
+;
+
+update member
+   set name='고창석', email='kbo.daum.net'
+ where id='abc'
+;

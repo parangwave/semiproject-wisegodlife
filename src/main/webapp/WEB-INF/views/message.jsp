@@ -186,8 +186,26 @@ if(caldelete != null && !caldelete.equals("")){
 	}	
 }
 
+//로그인
+String changeMsg  = (String)request.getAttribute("changeMsg");
+if(changeMsg != null && changeMsg.equals("") == false){
+	if(changeMsg.equals("CHANGE_SUCCESS")){
+		%>
+		<script type="text/javascript">
+		alert("개인정보 수정이 완료되었습니다");
+		location.href = "./mymain.do"; 
+		</script>
+		<%		
+	}else{
+		%>
+		<script type="text/javascript">
+		alert("개인정보 수정에 실패하였습니다");
+		location.href = "./mychange.do";
+		</script>
+		<%		
+	}	
+}
 %>
-
 
 
 
