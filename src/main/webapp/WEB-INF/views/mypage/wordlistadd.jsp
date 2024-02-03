@@ -1,3 +1,4 @@
+<%@page import="ssg.com.a.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -40,7 +41,7 @@ a {
 	</table>
 </nav>
 
-<h1>내정보</h1>
+<h1>내정보 - 블랙리스트 단어차단추가</h1>
 
 <main id="mymain">
 
@@ -67,7 +68,7 @@ a {
 		<th><a href="mywrite.do">작성한 댓글 및 게시글</a></th>
 	</tr>	
 	<tr>
-		<th><a href="myblacklist.do">블랙리스트</a></th>
+		<th><a href="myblacklist">블랙리스트</a></th>
 	</tr>	
 	<tr>
 		<th><a href="">개인정보 변경</a></th>
@@ -80,38 +81,23 @@ a {
 	</tr>
 </table>
 
-
-<table id="rightContent" border="1">
+<form action="addBlacklistWord.do">
+<table border="1">
 	<tr>
-		<th rowspan="2"> 프로필사진칸 </th>
-		<th>아이디</th>
-		<td>아이디 나오는칸입니다. </td>
+		<th>차단할 단어</th>
+		<td><input type="text" name="word" placeholder="아이디를 입력해주세요"> </td>
 	</tr>
 	<tr>
-		<th>닉네임</th>
-		<td>닉네임 나오는칸입니다. </td>
+		<th colspan="2">차단 사유 입력란</th>
 	</tr>
 	<tr>
-		<th>이름</th>
-		<td colspan="2">이름 나오는칸입니다. </td>
+		<td colspan="2"><textarea rows="15" cols="30" name="reason" placeholder="차단하시려는 이유를 입력해주세요"></textarea></td>
 	</tr>
 	<tr>
-		<th>대학교</th>
-		<td colspan="2">대학교 나오는칸입니다. </td>
-	</tr>
-	<tr>
-		<th>연락처</th>
-		<td colspan="2">연락처 나오는칸입니다. </td>
-	</tr>
-	<tr>
-		<th>이메일</th>
-		<td colspan="2">이메일 나오는칸입니다. </td>
-	</tr>
-	<tr>
-		<th>자기소개</th>
-		<td colspan="2">자기소개 나오는칸입니다. </td>
-	</tr>
+		<td colspan="2"><input type="submit" value="추가하기"></td>
+	</tr>	
 </table>
+</form>
 </main>
 </body>
 </html>

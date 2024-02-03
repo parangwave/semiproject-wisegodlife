@@ -9,6 +9,7 @@ import ssg.com.a.dao.MypageDao;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
+import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
 
 @Service
@@ -30,6 +31,21 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public List<BbsDto> getMyWriteList(String id) {
 		return dao.getMyWriteList(id);
+	}
+
+	@Override
+	public void addBlacklistId(MyblacklistDto dto) {
+		dao.addBlacklistId(dto);		
+	}
+
+	@Override
+	public void addBlacklistWord(MyblacklistDto dto) {
+		dao.addBlacklistWord(dto);		
+	}
+
+	@Override
+	public List<MyblacklistDto> getMyBlacklist(String id) {
+		return dao.getMyBlacklist(id);
 	}
 	
 	
