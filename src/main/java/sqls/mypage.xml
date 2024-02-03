@@ -22,4 +22,21 @@
 	 where id=#{id}
 </select>
 
+<insert id="addBlacklistId" parameterType="ssg.com.a.dto.MyblacklistDto">
+	insert into blacklist(id, blockid, reason, adddate)
+	values (#{id}, #{blockid}, #{reason}, now());
+</insert>
+
+<insert id="addBlacklistWord" parameterType="ssg.com.a.dto.MyblacklistDto">
+	insert into blacklist(id, word, reason, adddate)
+	values (#{id}, #{word}, #{reason}, now());
+</insert>
+
+<select id="getMyBlacklist" parameterType="String" resultType="ssg.com.a.dto.MyblacklistDto">
+	select seq, blockid, word, reason, adddate
+	  from blacklist
+	 where id=#{id}
+</select>
+
+
 </mapper>
