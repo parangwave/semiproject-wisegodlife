@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+/* reset.css */
+@import "./reset.css";
+
+/* css 변수 */
+@import "./variables.css";
+
+/* 전체 설정 */
+* {
+	font-family: "Pretendard";
+}
