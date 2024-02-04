@@ -186,7 +186,7 @@ if(caldelete != null && !caldelete.equals("")){
 	}	
 }
 
-//로그인
+// 개인정보 수정
 String changeMsg  = (String)request.getAttribute("changeMsg");
 if(changeMsg != null && changeMsg.equals("") == false){
 	if(changeMsg.equals("CHANGE_SUCCESS")){
@@ -201,6 +201,26 @@ if(changeMsg != null && changeMsg.equals("") == false){
 		<script type="text/javascript">
 		alert("개인정보 수정에 실패하였습니다");
 		location.href = "./mychange.do";
+		</script>
+		<%		
+	}	
+}
+
+// 회원탈퇴
+String closeMsg  = (String)request.getAttribute("closeMsg");
+if(closeMsg != null && closeMsg.equals("") == false){
+	if(closeMsg.equals("CLOSE_SUCCESS")){
+		%>
+		<script type="text/javascript">
+		alert("회원탈퇴가 완료되었습니다.");
+		location.href = "./login.do"; 
+		</script>
+		<%		
+	}else{
+		%>
+		<script type="text/javascript">
+		alert("회원탈퇴과정중 문제가 발생했습니다");
+		location.href = "./myclose.do";
 		</script>
 		<%		
 	}	

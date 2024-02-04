@@ -80,38 +80,22 @@ a {
 	</tr>
 </table>
 
-
-<table id="rightContent" border="1">
+<table>
 	<tr>
-		<th rowspan="2"> 프로필사진칸 </th>
-		<th>아이디</th>
-		<td>아이디 나오는칸입니다. </td>
+		<th>정말로 회원탈퇴를 하겠습니까?</th>
 	</tr>
 	<tr>
-		<th>닉네임</th>
-		<td>닉네임 나오는칸입니다. </td>
-	</tr>
-	<tr>
-		<th>이름</th>
-		<td colspan="2">이름 나오는칸입니다. </td>
-	</tr>
-	<tr>
-		<th>대학교</th>
-		<td colspan="2">대학교 나오는칸입니다. </td>
-	</tr>
-	<tr>
-		<th>연락처</th>
-		<td colspan="2">연락처 나오는칸입니다. </td>
-	</tr>
-	<tr>
-		<th>이메일</th>
-		<td colspan="2">이메일 나오는칸입니다. </td>
-	</tr>
-	<tr>
-		<th>자기소개</th>
-		<td colspan="2">자기소개 나오는칸입니다. </td>
+		<td><button type="button" onclick="closeAccount()">회원탈퇴</button></td>
 	</tr>
 </table>
 </main>
+
+<script type="text/javascript">
+function closeAccount() {
+	location.href = "mycloseAf.do";
+}
+</script>
+
+
 </body>
 </html>

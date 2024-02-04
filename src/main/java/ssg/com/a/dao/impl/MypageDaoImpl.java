@@ -11,6 +11,7 @@ import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.CalendarParam;
+import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.MemberDto;
 import ssg.com.a.dto.MyblacklistDto;
 
@@ -62,6 +63,11 @@ public class MypageDaoImpl implements MypageDao{
 	@Override
 	public MemberDto changelogin(MemberDto dto) {
 		return session.selectOne(ns + "changelogin", dto);
+	}
+
+	@Override
+	public int closeAccount(String id) {
+		return session.update(ns + "closeAccount", id);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
+import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.MemberDto;
 import ssg.com.a.dto.MyblacklistDto;
 
@@ -25,4 +26,7 @@ public interface MypageService {
 	// 개인정보변경
 	boolean changeMyinfor(MemberDto dto);
 	MemberDto changelogin(MemberDto dto);
+	
+	// 회원탈퇴
+	boolean closeAccount(String id);
 }
