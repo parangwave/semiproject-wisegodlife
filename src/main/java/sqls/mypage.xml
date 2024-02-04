@@ -11,11 +11,13 @@
 	 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM}) a
 	 where rnum between 1 and 5
 </select>
+
 <select id="getMyCommentList" parameterType="String" resultType="ssg.com.a.dto.BbsComment">
 	select seq, id, content, wdate
 	  from bbscomment
 	 where id=#{id}
 </select>
+
 <select id="getMyWriteList" parameterType="String" resultType="ssg.com.a.dto.BbsDto">
 	select seq, id, title, content, wdate, del, readcount
 	  from bbs
@@ -49,5 +51,11 @@
 	  from member 
 	 where id=#{id}
 </select>
+
+<update id="closeAccount" parameterType="String">
+update friend
+   set del=del+1
+ where id=#{id}
+</update>
 
 </mapper>

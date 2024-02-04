@@ -56,6 +56,14 @@ public class MypageController {
 		return "mypage/mygradecal";
 	}
 	
+	// 마이페이지 회원탈퇴 이동
+	@GetMapping("myclose.do")
+	public String myclose() {
+		System.out.println("MypageController myclose" + new Date());
+		
+		return "mypage/myclose";
+	}
+	
 	// 마이페이지 작성한 댓글&게시글 이동
 	@GetMapping("mywrite.do")
 	public String mywrite(Model model) {
@@ -214,4 +222,21 @@ public class MypageController {
 		return "message";
 	}
 	
+	// TODO 회원탈퇴란
+	// 회원 탈퇴
+	// 마이페이지 회원탈퇴 이동
+	@GetMapping("mycloseAf.do")
+	public String closeAccount(Model model) {
+		System.out.println("MypageController closeAccount" + new Date());
+		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		
+		boolean isS = service.closeAccount(login.getId());
+		String closeMsg = "CLOSE_FAIL"; 
+		if (isS) {
+			closeMsg = "CLOSE_SUCCESS";
+		}
+		model.addAttribute("closeMsg", closeMsg);	
+		
+		return "message";
+	}
 }
