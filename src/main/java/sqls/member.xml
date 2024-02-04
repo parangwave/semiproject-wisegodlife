@@ -9,11 +9,17 @@
 </select>
 
 <insert id="addmember" parameterType="ssg.com.a.dto.MemberDto">
-	insert into member(id, pw, name, email, auth) values (#{id}, #{pw}, #{name}, #{email}, 3);
+	insert into member(id, pw, name, email, auth) values (#{id}, #{pw}, #{name}, #{email}, 3)
 </insert>
 
 <select id="login" parameterType="ssg.com.a.dto.MemberDto" resultType="ssg.com.a.dto.MemberDto">
-	select id, name, email, auth from member where id=#{id} and pw=#{pw} 
+	select id, name, email, auth from member where id=#{id} and pw=#{pw}
 </select>
+
+<!--
+<select id="login" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
+	select id, name, email, auth from friend where id=#{id} and pw=#{pw}
+</select>
+-->
 
 </mapper>
