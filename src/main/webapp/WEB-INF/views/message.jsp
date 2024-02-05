@@ -34,7 +34,14 @@ if(loginMsg != null && loginMsg.equals("") == false){
 		location.href = "./mymain.do"; 
 		</script>
 		<%		
-	}else{
+	} else if(loginMsg.equals("LOGIN_DEL")){
+		%>
+		<script type="text/javascript">
+		alert("탈퇴한 회원입니다.");
+		location.href = "./restore.do"; 
+		</script>
+		<%	
+	}	else{
 		%>
 		<script type="text/javascript">
 		alert("아이디나 패스워드를 확인해 주세요");
@@ -221,6 +228,47 @@ if(closeMsg != null && closeMsg.equals("") == false){
 		<script type="text/javascript">
 		alert("회원탈퇴과정중 문제가 발생했습니다");
 		location.href = "./myclose.do";
+		</script>
+		<%		
+	}	
+}
+
+//회원복구 확인
+String restoreMsg  = (String)request.getAttribute("restoreMsg");
+if(restoreMsg != null && restoreMsg.equals("") == false){
+	if(restoreMsg.equals("RESTORE_SUCCESS")){
+		String id  = (String)request.getAttribute("id");
+		%>
+		<script type="text/javascript">
+		alert("회원복구가 가능합니다");
+		location.href = "./restore.do?id=<%=id%>"; 
+		</script>
+		<%		
+	}else{
+		%>
+		<script type="text/javascript">
+		alert("이미 탈퇴처리가 완료되었습니다");
+		location.href = "./login.do";
+		</script>
+		<%		
+	}	
+}
+
+//회원복구
+String reMsg  = (String)request.getAttribute("reMsg");
+if(reMsg != null && reMsg.equals("") == false){
+	if(reMsg.equals("RESTOREAF_SUCCESS")){
+		%>
+		<script type="text/javascript">
+		alert("회원복구가 완료되었습니다");
+		location.href = "./login.do"; 
+		</script>
+		<%		
+	}else{
+		%>
+		<script type="text/javascript">
+		alert("회원복구에 실패했습니다.");
+		location.href = "./restore.do";
 		</script>
 		<%		
 	}	

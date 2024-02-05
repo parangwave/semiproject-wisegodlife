@@ -15,8 +15,8 @@
 	values (#{id}, #{pw}, #{name}, #{tel}, #{email}, #{college}, 3, 0, now(), #{salt})
 </insert>
 
-<select id="findSalt" parameterType="String" resultType="String">
-	select salt
+<select id="idInfo" parameterType="String" resultType="ssg.com.a.dto.FriendDto">
+	select salt, del, deldate
 	  from friend 
 	 where id=#{id}
 </select>
@@ -26,6 +26,12 @@
 	  from friend 
 	 where id=#{id} and pw=#{pw}
 </select>
+
+<update id="restoreAccount" parameterType="String">
+update friend
+   set del=0, deldate=null
+ where id=#{id}
+</update>
 
 
 </mapper>

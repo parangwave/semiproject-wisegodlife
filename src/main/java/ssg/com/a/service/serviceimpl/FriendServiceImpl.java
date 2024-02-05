@@ -30,4 +30,13 @@ public class FriendServiceImpl implements FriendService {
 		return dao.login(dto);
 	}
 
+	@Override
+	public FriendDto idinfo(String id) {
+		return dao.idinfo(id);
+	}
+
+	@Override
+	public boolean restoreAccount(String id) {
+		return dao.restoreAccount(id)>0?true:false;
+	}
 }

@@ -37,17 +37,29 @@ public class FriendDaoImpl implements FriendDao{
 
 	@Override
 	public FriendDto login(FriendDto dto) {
-		try {
-			
-			String salt = session.selectOne(ns + "findSalt", dto.getId());
-			dto.setSalt(salt);
-			
+		FriendDto idInfo = session.selectOne(ns + "idInfo", dto.getId());
+
+		if (idInfo.getDel() > 0) {
+			return idInfo;
+		}
+		try {			
+			dto.setSalt(idInfo.getSalt());
 			FriendUtil.encryptionPw(dto);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		
 		return session.selectOne(ns + "login", dto);
+
+	}
+
+	@Override
+	public FriendDto idinfo(String id) {
+		return session.selectOne(ns + "idInfo", id);
+	}
+
+	@Override
+	public int restoreAccount(String id) {
+		return session.update(ns + "restoreAccount", id);
 	}
 
 }
