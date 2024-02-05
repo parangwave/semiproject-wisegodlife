@@ -3,16 +3,16 @@ package ssg.com.a.service.serviceimpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ssg.com.a.dao.MemberDao;
-import ssg.com.a.dto.MemberDto;
-import ssg.com.a.service.MemberService;
+import ssg.com.a.dao.FriendDao;
+import ssg.com.a.dto.FriendDto;
+import ssg.com.a.service.FriendService;
 
 @Service
-public class MemberServiceImpl implements MemberService {
-
+public class FriendServiceImpl implements FriendService {
+	
 	@Autowired
-	MemberDao dao;
-
+	FriendDao dao;
+	
 	@Override
 	public boolean idcheck(String id) {
 		int count = dao.idcheck(id);
@@ -20,13 +20,14 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean addmember(MemberDto dto) {
-		int count = dao.addmember(dto);
+	public boolean addfriend(FriendDto dto) {
+		int count = dao.addfriend(dto);
 		return count > 0 ? true : false;
 	}
 
 	@Override
-	public MemberDto login(MemberDto dto) {
+	public FriendDto login(FriendDto dto) {
 		return dao.login(dto);
 	}
+
 }

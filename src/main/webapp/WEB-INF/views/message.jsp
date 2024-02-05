@@ -5,7 +5,7 @@
 // 회원가입
 String regiMsg = (String)request.getAttribute("regiMsg");
 if(regiMsg != null && regiMsg.equals("") == false){
-	if(regiMsg.equals("MEMBER_YES")){
+	if(regiMsg.equals("FRIEND_YES")){
 		%>
 		<script type="text/javascript">
 		alert("성공적으로 가입되었습니다");

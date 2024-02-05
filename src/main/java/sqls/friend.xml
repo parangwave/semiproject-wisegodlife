@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Friend">
+
+<select id="idcheck" parameterType="String" resultType="Integer">
+	select count(*)
+	  from friend 
+	 where id=#{id}
+</select>
+
+<insert id="addfriend" parameterType="ssg.com.a.dto.FriendDto">
+	insert into friend(id, pw, name, tel, email, college, auth, del, regidate)
+	values (#{id}, #{pw}, #{name}, #{tel}, #{email}, #{college}, 3, 0, now())
+</insert>
+
+<select id="login" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
+	select id, pw, name, tel, email, college, auth, del, regidate
+	  from friend 
+	 where id=#{id} and pw=#{pw}
+</select>
+
+
+</mapper>

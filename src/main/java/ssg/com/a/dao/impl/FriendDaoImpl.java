@@ -1,19 +1,19 @@
 package ssg.com.a.dao.impl;
 
-import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import ssg.com.a.dao.MemberDao;
-import ssg.com.a.dto.MemberDto;
+import ssg.com.a.dao.FriendDao;
+import ssg.com.a.dto.FriendDto;
 
 @Repository
-public class MemberDaoImpl implements MemberDao {
-
-	@Autowired
-	SqlSession session;
+public class FriendDaoImpl implements FriendDao{
 	
-	String ns = "Member.";
+	@Autowired
+	SqlSessionTemplate session;
+	
+	String ns = "Friend.";
 	
 	@Override
 	public int idcheck(String id) {
@@ -21,12 +21,13 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public int addmember(MemberDto dto) {
-		return session.insert(ns + "addmember", dto);
+	public int addfriend(FriendDto dto) {
+		return session.insert(ns + "addfriend", dto);
 	}
 
 	@Override
-	public MemberDto login(MemberDto dto) {
+	public FriendDto login(FriendDto dto) {
 		return session.selectOne(ns + "login", dto);
 	}
+
 }
