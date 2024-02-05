@@ -9,4 +9,8 @@ public interface FriendDao {
 	int addfriend(FriendDto dto);
 	
 	FriendDto login(FriendDto dto);
+	
+	// 회원복구
+	FriendDto idinfo(String id);
+	int restoreAccount(String id);
 }

@@ -4,10 +4,36 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
+import java.util.Calendar;
+import java.util.Date;
 
 import ssg.com.a.dto.FriendDto;
 
 public class FriendUtil {
+	
+	//
+	public static int canRestore(FriendDto dto) {
+		// 숫자가 0 탈퇴 복구가능 / 1 탈퇴 복구 불가
+		// 탈퇴한 시점의 날짜
+		String delMonthstr = dto.getDeldate().substring(5, 7);
+		int delMonth = Integer.parseInt(delMonthstr);
+		String deldaystr = dto.getDeldate().substring(8, 10);
+		int delday = Integer.parseInt(deldaystr);
+		// 로그인 시점의 날짜
+		Calendar cal = Calendar.getInstance();
+		int month = cal.get(Calendar.MONTH) +1;
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		
+		if (delMonth - month > 2) {
+			return 1;
+		} else if (delMonth - month > 1) {
+			if (day > delday) {
+				return 1;
+			}
+			return 0;
+		}
+		return 0;	
+	}
 	
 	// 단방향 암호화 방식을 좀더 어렵게 만들기 위한방법
 	public static String saltMake() throws NoSuchAlgorithmException {

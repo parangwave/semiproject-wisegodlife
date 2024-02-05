@@ -10,7 +10,6 @@ import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.FriendDto;
-import ssg.com.a.dto.MemberDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
 
@@ -51,12 +50,12 @@ public class MypageServiceImpl implements MypageService {
 	}
 
 	@Override
-	public boolean changeMyinfor(MemberDto dto) {
+	public boolean changeMyinfor(FriendDto dto) {
 		return dao.changeMyinfor(dto)>0?true:false;		
 	}
 
 	@Override
-	public MemberDto changelogin(MemberDto dto) {
+	public FriendDto changelogin(FriendDto dto) {
 		return dao.changelogin(dto);
 	}
 

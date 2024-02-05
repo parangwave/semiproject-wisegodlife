@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
-import ssg.com.a.dto.MemberDto;
+import ssg.com.a.dto.FriendDto;
+import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
 import ssg.com.a.util.CalendarUtil;
@@ -77,7 +78,7 @@ public class MypageController {
 	public String mywrite(Model model) {
 		System.out.println("MypageController mywrite" + new Date());
 		
-		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
 		List<BbsComment> commentList = service.getMyCommentList(login.getId());
 		List<BbsDto> writeList = service.getMyWriteList(login.getId());
 		
@@ -92,7 +93,7 @@ public class MypageController {
 	public String myblacklist(Model model) {
 		System.out.println("MypageController myblacklist" + new Date());
 		
-		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
 		List<MyblacklistDto> bllist = service.getMyBlacklist(login.getId());
 		model.addAttribute("bllist", bllist);
 		
@@ -104,7 +105,7 @@ public class MypageController {
 	public String mycalendar(Model model) {
 		System.out.println("MypageController mycalendar" + new Date());
 		
-		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.DATE, 1);
 		
@@ -184,7 +185,7 @@ public class MypageController {
 	public String addBlacklistId(MyblacklistDto dto) {
 		System.out.println("MypageController addBlacklistId" + new Date());
 		
-		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
 		dto.setId(login.getId());
 		service.addBlacklistId(dto);
 		
@@ -204,7 +205,7 @@ public class MypageController {
 	public String addBlacklistWord(MyblacklistDto dto) {
 		System.out.println("MypageController wordlistadd" + new Date());
 		
-		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
 		dto.setId(login.getId());
 		service.addBlacklistWord(dto);
 		
@@ -214,9 +215,9 @@ public class MypageController {
 	// TODO 개인정보변경란
 	// 개인정보 수정
 	@PostMapping("mychangeAf.do")
-	public String changeMyinfor(MemberDto dto, Model model, HttpSession se) {
+	public String changeMyinfor(FriendDto dto, Model model, HttpSession se) {
 		System.out.println("MypageController changeMyinfor" + new Date());
-		MemberDto login;
+		FriendDto login;
 		
 		boolean isS = service.changeMyinfor(dto);
 		String changeMsg = "CHANGE_FAIL"; 
@@ -236,7 +237,7 @@ public class MypageController {
 	@GetMapping("mycloseAf.do")
 	public String closeAccount(Model model) {
 		System.out.println("MypageController closeAccount" + new Date());
-		MemberDto login = (MemberDto)request.getSession().getAttribute("login");
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
 		
 		boolean isS = service.closeAccount(login.getId());
 		String closeMsg = "CLOSE_FAIL"; 

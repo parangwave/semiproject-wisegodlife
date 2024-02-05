@@ -12,7 +12,6 @@ import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.CalendarParam;
 import ssg.com.a.dto.FriendDto;
-import ssg.com.a.dto.MemberDto;
 import ssg.com.a.dto.MyblacklistDto;
 
 @Repository
@@ -55,13 +54,13 @@ public class MypageDaoImpl implements MypageDao{
 	}
 
 	@Override
-	public int changeMyinfor(MemberDto dto) {
+	public int changeMyinfor(FriendDto dto) {
 		return session.update(ns + "changeMyinfor", dto);
 		
 	}
 
 	@Override
-	public MemberDto changelogin(MemberDto dto) {
+	public FriendDto changelogin(FriendDto dto) {
 		return session.selectOne(ns + "changelogin", dto);
 	}
 

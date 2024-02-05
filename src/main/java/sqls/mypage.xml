@@ -54,7 +54,7 @@
 
 <update id="closeAccount" parameterType="String">
 update friend
-   set del=del+1
+   set del=del+1, deldate=now()
  where id=#{id}
 </update>
 
