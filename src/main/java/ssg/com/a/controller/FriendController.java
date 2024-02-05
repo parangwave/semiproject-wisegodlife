@@ -54,8 +54,7 @@ public class FriendController {
 	@PostMapping("regiAf.do")
 	public String regiAf(FriendDto dto, Model model) {
 		System.out.println("HelloController regiAf " + new Date());
-		System.out.println(dto.toString());
-		
+			
 		boolean b = service.addfriend(dto);
 		String regiMsg = "FRIEND_YES";
 		if(!b) {

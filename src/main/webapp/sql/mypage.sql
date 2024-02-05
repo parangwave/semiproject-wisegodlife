@@ -12,18 +12,19 @@ create table blacklist(
 );
 
 -- 회원가입 DB생성
--- id, pw, name, tel, email, college, auth, del 
+-- id, pw, name, tel, email, college, auth, del, salt
 -- auth = 3 기본 회원, auth = 5 총괄 관리자
 create table friend(
 	id varchar(50) primary key,
-	pw varchar(50) not null,
+	pw varchar(1000) not null,
 	name varchar(50) not null,
 	tel	varchar(50) not null,
 	email varchar(200) not null,
 	college varchar(100) not null,
 	auth decimal(3) not null,
 	del decimal(3) not null,
-	regidate timestamp not null
+	regidate timestamp not null,
+	salt varchar(1000) not null
 );
 
 -- 멤버 더미DB 생성
@@ -58,6 +59,11 @@ select *
 select *
   from friend
 ;
+
+-- update table
+ALTER TABLE friend ADD COLUMN salt varchar(400) NOT NULL;
+ALTER TABLE friend MODIFY COLUMN pw varchar(1000) not null;
+ALTER TABLE friend MODIFY COLUMN salt varchar(1000) not null;
 
 -- DB 더미데이터 추가
 -- friend(회원가입) 계정 추가
