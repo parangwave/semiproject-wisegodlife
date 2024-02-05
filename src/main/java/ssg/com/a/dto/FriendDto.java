@@ -11,12 +11,13 @@ public class FriendDto {
 	private int auth;
 	private int del;
 	private String regidate;
+	private String salt;
 	
 	public FriendDto() {
 	}
 
 	public FriendDto(String id, String pw, String name, String tel, String email, String college, int auth, int del,
-			String regidate) {
+			String regidate, String salt) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -27,6 +28,15 @@ public class FriendDto {
 		this.auth = auth;
 		this.del = del;
 		this.regidate = regidate;
+		this.salt = salt;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 
 	public String getId() {
@@ -104,7 +114,8 @@ public class FriendDto {
 	@Override
 	public String toString() {
 		return "FriendDto [id=" + id + ", pw=" + pw + ", name=" + name + ", tel=" + tel + ", email=" + email
-				+ ", college=" + college + ", auth=" + auth + ", del=" + del + ", regidate=" + regidate + "]";
+				+ ", college=" + college + ", auth=" + auth + ", del=" + del + ", regidate=" + regidate + ", salt="
+				+ salt + "]";
 	}
 	
 }
