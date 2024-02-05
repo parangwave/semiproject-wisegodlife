@@ -25,6 +25,15 @@ create table friend(
 	regidate timestamp not null
 );
 
+-- 멤버 더미DB 생성
+create table member(
+	id varchar(50) primary key,
+	pw varchar(50) not null,
+	name varchar(50) not null,
+	email varchar(50) not null,
+	auth int not null
+);
+
 -- 좋아요 DB생성
 -- id, seq, likeid, title, content, readcount, wdate
 create table likelist(
@@ -53,6 +62,15 @@ select *
 -- friend(회원가입) 계정 추가
 insert into friend(id, pw, name, tel, email, college, auth, del, regidate)
 values ('abc', '123', '홍길동', '010-1234-5678', 'abc@duam.net', '서울대학교', 3, 0, now())
+;
+
+-- member더미 추가
+insert into member(id, pw, name, email, auth)
+values ('abc', '123', '홍길동', 'abc@duam.net', 3)
+;
+
+insert into member(id, pw, name, email, auth)
+values ('bcd', '123', '이몽룡', 'bcd@duam.net', 3)
 ;
 
 -- 블랙리스트 추가한 내용  불러오기
