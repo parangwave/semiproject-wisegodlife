@@ -1,59 +1,48 @@
-@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-/* font */
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-
-:root {
-    /* 컬러 팔레트 */
-    --black: rgba(35, 37, 38, 1);
-    --white: rgba(255, 255, 255, 1);
-    --theme-yellow: rgba(255, 231, 153, 1);
-    --theme-primary-pink: rgba(248, 119, 177, 1);
-    --theme-sub-pink: rgba(252, 171, 216, 1);
-    --theme-primary-blue: rgba(94, 175, 242, 1);
-    --theme-sub-blue: rgba(135, 196, 242, 1);
-    --gray-01: rgba(235, 235, 235, 1);
-    --gray-02: rgba(151, 151, 151, 1);
-    
-    /* background-color */
-    --body-bg-color: rgba(231, 230, 242, 1);
-    --nav-bar-bg-color: var(--theme-yellow);
-    --post-header-bg-color: var(--body-bg-color);    /* 게시물 block 컬러  */ 
-    --search-input-bg-color:rgba(160, 163, 189, 1);
-
-    /* margin, padding */
-    --section-margin: 0.2rem;
-    --li-margin: 5px 0; /* 게시물, todo-list element간의 위아래 margin */
-
-    /* border-radius */
-    --section-border-radius: 25px; 
-    --header-border-radius: 20px;  
-    --btn-border-radius: var(--header-border-radius); 
-    --thumbnail-border-radius: 10px;
-    --post-border-radius: 6px;
-
-    /* font */
-    --text-color: var(--gray-02);
-    --post-attr-gray-color: rgba(215, 212, 234, 1); /* 게시물의 좋아요, 조회수의 color */
-    
-    /* font-weight */
-    --header-font-weight: 700;
-    --text-font-weight: 400;
-
-    /* font-size */
-    --nav-bar-font-size: 0.6rem;
-    --header-font-size: 1rem;
-    --text-font-size: 1em;
-    --post-attr-font-size: 0.3em; /* 게시물의 좋아요, 조회수의 font-size */
-
-    /* shadow */
-    --main-shadow: 1px 1px 5px 5px rgba(1, 1, 1, 0.1);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-
-/* dark mode */
-@media (prefers-color-scheme: dark) {
-    :root { 
-        --body-bg-color: rgba(47, 52, 55, 1);
-        --text-color: var(--gray-01);
-    }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
