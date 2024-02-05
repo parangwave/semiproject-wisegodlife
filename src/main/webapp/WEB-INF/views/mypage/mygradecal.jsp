@@ -68,6 +68,9 @@ a {
 		<th><a href="mywrite.do">작성한 댓글 및 게시글</a></th>
 	</tr>	
 	<tr>
+		<th><a href="mylike.do">좋아요한 게시글</a></th>
+	</tr>
+	<tr>
 		<th><a href="myblacklist.do">블랙리스트</a></th>
 	</tr>	
 	<tr>

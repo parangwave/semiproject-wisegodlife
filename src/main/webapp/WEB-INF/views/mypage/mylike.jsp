@@ -1,10 +1,6 @@
-<%@page import="ssg.com.a.dto.MemberDto"%>
+<%@page import="ssg.com.a.dto.MylikeDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%
-	MemberDto login = (MemberDto)session.getAttribute("login");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +41,7 @@ a {
 	</table>
 </nav>
 
-<h1>내정보 - 개인정보 변경</h1>
+<h1>내정보</h1>
 
 <main id="mymain">
 
@@ -84,55 +80,43 @@ a {
 		<th><a href="">학교 인증</a></th>
 	</tr>
 	<tr>
-		<th><a href="">회원 탈퇴</a></th>
+		<th><a href="myclose.do">회원 탈퇴</a></th>
 	</tr>
 </table>
 
-<form action="mychangeAf.do" method="post">
-<table id="rightContent" border="1">
+<table>
+<thead>
+<tr>
+	<th>번호</th><th>좋아요한 게시글</th><th>내용</th><th>조회수</th><th>작성일</th><th>작성자</th>
+</tr>
+</thead>
+<tbody>
+<%
+if(likeList == null || likeList.size() == 0){
+	%>
 	<tr>
-		<th colspan="4"> * 표시가 있는것은 필수 입력란입니다.</th>
+		<td colspan="6">작성된 글이 없습니다</td>
 	</tr>
+	<%
+}else{
+	for (int i = 0;i < likeList.size(); i++) {
+		MylikeDto ml = likeList.get(i);
+		%>
 	<tr>
-		<th rowspan="2">
-			 프로필사진칸<br/><br/>
-			 <button type="button">프로필 사진변경</button>
-		</th>
-		<th>아이디</th>
-		<td colspan="2"><input type="text" name="id" value="<%=login.getId() %>" readonly="readonly"></td>
-	</tr>
-	<tr>
-		<th>닉네임*</th>
-		<td><input type="text" name="nickname"></td>
-		<td>
-			<button type="button" onclick="nick">닉네임 중복확인</button>
+		<td><%=i + 1 %></td>
+		<td style="text-align: left;" colspan="2">
+			<%=ml.getTitle() %>
 		</td>
-	</tr>
-	<tr>
-		<th>이름*</th>
-		<td colspan="3"><input type="text" name="name" value="<%=login.getName() %>"></td>
-	</tr>
-	<tr>
-		<th>대학교</th>
-		<td colspan="3"><input type="text" name="univ"></td>
-	</tr>
-	<tr>
-		<th>연락처*</th>
-		<td colspan="3"><input type="text" name="tel"></td>
-	</tr>
-	<tr>
-		<th>이메일</th>
-		<td colspan="3"><input type="text" name="email" value="<%=login.getEmail() %>"></td>
-	</tr>
-	<tr>
-		<th>자기소개</th>
-		<td colspan="3"><textarea rows="5" cols="45" name="selfin"> 자기소개 나오는칸입니다. </textarea></td>
-	</tr>
-	<tr>
-		<td colspan="4"><input type="submit" value="수정완료"></td>
-	</tr>
+		<td><%=ml.getReadcount() %></td>
+		<td><%=ml.getWdate() %></td>
+		<td><%=ml.getLikeid() %></td>
+	</tr>	
+		<%
+	}
+%>
+</tbody>
 </table>
-</form>
+
 </main>
 </body>
 </html>

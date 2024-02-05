@@ -56,6 +56,14 @@ public class MypageController {
 		return "mypage/mygradecal";
 	}
 	
+	// 마이페이지 좋아요게시글 이동
+	@GetMapping("mylike.do")
+	public String mylike() {
+		System.out.println("MypageController mylike" + new Date());
+		
+		return "mypage/mylike";
+	}
+	
 	// 마이페이지 회원탈퇴 이동
 	@GetMapping("myclose.do")
 	public String myclose() {

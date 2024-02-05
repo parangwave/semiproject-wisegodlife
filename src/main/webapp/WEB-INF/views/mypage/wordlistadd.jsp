@@ -69,6 +69,9 @@ a {
 	</tr>	
 	<tr>
 		<th><a href="myblacklist">블랙리스트</a></th>
+	</tr>
+	<tr>
+		<th><a href="mylike.do">좋아요한 게시글</a></th>
 	</tr>	
 	<tr>
 		<th><a href="">개인정보 변경</a></th>

@@ -25,6 +25,18 @@ create table friend(
 	regidate timestamp not null
 );
 
+-- 좋아요 DB생성
+-- id, seq, likeid, title, content, readcount, wdate
+create table likelist(
+	id varchar(50) primary key,
+	seq int not null,
+	likeid varchar(50) not null,
+	title varchar(400) not null,
+	content	varchar(2000) not null,
+	readcount decimal(8) not null,
+	wdate timestamp not null
+);
+
 -- DB 삭제 (테이블명만 변경해서 사용)
 drop table friend;
 
