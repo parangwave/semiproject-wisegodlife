@@ -13,27 +13,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ssg.com.a.dto.MemberDto;
-import ssg.com.a.service.MemberService;
+import ssg.com.a.dto.FriendDto;
+import ssg.com.a.service.FriendService;
 
 @Controller
-public class MemberController {
-
+public class FriendController {
+	
 	@Autowired
-	MemberService service;
+	FriendService service;
 	
 	@RequestMapping(value = "login.do", method = RequestMethod.GET)
 	public String login() {
 		System.out.println("MemberController login " + new Date());
 		
-		return "member/login";
+		return "friend/login";
 	}
 	
 	@GetMapping("regi.do")
 	public String regi() {
 		System.out.println("MemberController regi " + new Date());
 
-		return "member/regi";
+		return "friend/regi";
 	}
 	
 	@ResponseBody
@@ -44,11 +44,7 @@ public class MemberController {
 		System.out.println("id : " + id);
 		
 		boolean b = service.idcheck(id);
-//		String r = "YES";
-//		if(b) {
-//			r = "NO";
-//		}
-//		return r;
+		
 		if(b) {
 			return "NO";
 		}
@@ -56,14 +52,14 @@ public class MemberController {
 	}
 	
 	@PostMapping("regiAf.do")
-	public String regiAf(MemberDto dto, Model model) {
+	public String regiAf(FriendDto dto, Model model) {
 		System.out.println("HelloController regiAf " + new Date());
 		System.out.println(dto.toString());
 		
-		boolean b = service.addmember(dto);
-		String regiMsg = "MEMBER_YES";
+		boolean b = service.addfriend(dto);
+		String regiMsg = "FRIEND_YES";
 		if(!b) {
-			regiMsg = "MEMBER_NO";
+			regiMsg = "FRIEND_NO";
 		}
 		
 		model.addAttribute("regiMsg", regiMsg);
@@ -72,10 +68,10 @@ public class MemberController {
 	}
 	
 	@PostMapping("loginAf.do")
-	public String login(MemberDto dto, Model model, HttpServletRequest req) {
+	public String login(FriendDto dto, Model model, HttpServletRequest req) {
 		System.out.println("HelloController loginAf " + new Date());
 
-		MemberDto login = service.login(dto);
+		FriendDto login = service.login(dto);
 		String loginMsg = "LOGIN_FAIL";
 		if(login != null) {											//로그인 성공
 			req.getSession().setAttribute("login", login);			//로그인한 정보 세션에 저장
@@ -86,4 +82,5 @@ public class MemberController {
 		model.addAttribute("loginMsg", loginMsg);
 		return "message";
 	}
+
 }

@@ -13,6 +13,7 @@ create table blacklist(
 
 -- 회원가입 DB생성
 -- id, pw, name, tel, email, college, auth, del 
+-- auth = 3 기본 회원, auth = 5 총괄 관리자
 create table friend(
 	id varchar(50) primary key,
 	pw varchar(50) not null,

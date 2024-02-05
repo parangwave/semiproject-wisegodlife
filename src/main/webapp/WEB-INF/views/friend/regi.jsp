@@ -53,11 +53,24 @@
 	</td>
 </tr>
 <tr>
+	<th>전화번호</th>
+	<td>
+		<input type="text" class="form-control" name="tel" size="20">
+	</td>
+</tr>
+<tr>
 	<th>이메일</th>
 	<td>
 		<input type="text" class="form-control" name="email" size="20">
 	</td>
 </tr>
+<tr>
+	<th>재학중인 대학교</th>
+	<td>
+		<input type="text" class="form-control" name="college" size="20">
+	</td>
+</tr>
+
 <tr>
 	<td colspan="2">
 		<div align="center">
