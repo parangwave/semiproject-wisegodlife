@@ -62,4 +62,8 @@ public class FriendDaoImpl implements FriendDao{
 		return session.update(ns + "restoreAccount", id);
 	}
 
+	@Override
+	public FriendDto naverLogin(String email) {
+		return session.selectOne(ns + "naverlogin", email);
+	}
 }

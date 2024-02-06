@@ -39,4 +39,9 @@ public class FriendServiceImpl implements FriendService {
 	public boolean restoreAccount(String id) {
 		return dao.restoreAccount(id)>0?true:false;
 	}
+	
+	@Override
+	public FriendDto naverLogin(String email) {
+		return dao.naverLogin(email);
+	}
 }
