@@ -33,5 +33,8 @@ update friend
  where id=#{id}
 </update>
 
+<select id="naverlogin" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
+	select id, name, tel, email, college, auth, del, regidate from friend where email=#{email}
+</select>
 
 </mapper>

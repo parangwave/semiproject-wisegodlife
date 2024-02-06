@@ -10,6 +10,9 @@ public interface FriendDao {
 	
 	FriendDto login(FriendDto dto);
 	
+	//네이버 로그인
+	FriendDto naverLogin(String email);
+	
 	// 회원복구
 	FriendDto idinfo(String id);
 	int restoreAccount(String id);

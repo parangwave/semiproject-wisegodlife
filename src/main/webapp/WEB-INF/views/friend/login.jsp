@@ -58,6 +58,12 @@
 			</tr>
 		</table>
 	</form>
+	<br/>
+	<hr/>
+	<br/>
+	<button type="button">
+		<img alt="이미지 없음" src="./images/naver_logo.png" style="width: 360px; height: 80px" onclick="location.href='${url}'">
+	</button>
 </div>
 
 

@@ -32,5 +32,8 @@
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
 	<!-- spring에서 처리할 수 없는 요청은 tomcat에서 처리 -->
-	<mvc:default-servlet-handler/>          
+	<mvc:default-servlet-handler/>    
+	
+	<!-- 네이버로그인API사용을 위한 NaverLoginBO Class에 대한 Bean설정 추가 -->
+	<bean class="ssg.com.a.naverlogin.NaverLoginBo" id="naverLoginBo"/>
 </beans>
