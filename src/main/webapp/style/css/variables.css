@@ -5,8 +5,9 @@
 
 :root {
     /* 기본 색들 */
-    --black: rgba(35, 37, 38, 1);
     --white: rgba(255, 255, 255, 1);
+    --black: rgba(35, 37, 38, 1);
+    --black-bg: rgba(47, 52, 55, 1);
     --gray-01: rgba(235, 235, 235, 1);
     --gray-02: rgba(151, 151, 151, 1);
 
@@ -18,7 +19,7 @@
     --theme-sub-blue: rgba(135, 196, 242, 1);
     
     /* background-color */
-    --body-bg-color: rgba(231, 230, 242, 1);
+    --body-bg-color: rgba(231, 230, 242, 1); /* section 배경색*/
     --nav-bar-bg-color: var(--theme-yellow);
     --post-header-bg-color: var(--body-bg-color);    /* 게시물 block 컬러  */ 
     --search-input-bg-color:rgba(160, 163, 189, 1);
@@ -43,20 +44,27 @@
     --text-font-weight: 400;
 
     /* font-size */
-    --nav-bar-font-size: 0.6rem;
+    --nav-bar-font-size: 1.3rem;
     --header-font-size: 1rem;
     --text-font-size: 1em;
     --post-attr-font-size: 0.3em; /* 게시물의 좋아요, 조회수의 font-size */
 
     /* shadow */
     --main-shadow: 1px 1px 5px 5px rgba(1, 1, 1, 0.1);
+
 }
 
-/* dark mode */
+/* dark mode - media query */
 @media (prefers-color-scheme: dark) {
-    :root { 
-        --body-bg-color: rgba(47, 52, 55, 1);
+    :root {
+        --body-bg-color: var(--black-bg);
         --text-color: var(--gray-01);
     }
 }
 
+.dark-mode, [data-bs-theme=dark] {
+    color-scheme: dark;
+    --bs-body-color: var(--gray-01);
+    --bs-body-bg: var(--black-bg);
+    --theme-yellow: rgba(71, 69, 98, 1);
+}
