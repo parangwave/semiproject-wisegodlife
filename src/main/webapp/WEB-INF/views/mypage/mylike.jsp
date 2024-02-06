@@ -1,6 +1,11 @@
+<%@page import="java.util.List"%>
 <%@page import="ssg.com.a.dto.MylikeDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+	List<MylikeDto> likeList = (List<MylikeDto>)request.getAttribute("likeList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,6 +118,7 @@ if(likeList == null || likeList.size() == 0){
 	</tr>	
 		<%
 	}
+}
 	%>
 </tbody>
 </table>
