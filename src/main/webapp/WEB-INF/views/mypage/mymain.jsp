@@ -5,29 +5,81 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
+<link rel="stylesheet" href="style/css/style.css">
+
 <style type="text/css">
+/*
+body, #header, #mymain, #leftMenu, #rightContent, table, th, td, tr {
+	border: 2px solid black;
+}
+*/
+#header, #mymain {
+	background-color:var(--body-bg-color)
+}
+#header {
+	color: var(--black);
+	font-size: 50px;
+	font-weight: var(--header-font-weight);
+	vertical-align: middle;
+
+	border-bottom: 3px solid white;
+	border-top: 3px solid white;
+
+}
+
 #mymain {
 	display: flex;
 	width: 100%;
 }
+
 #leftMenu tr th{
 	text-align: left;
+	font-weight: 600;
+	
+	padding: 10px 10px 10px 5px;
 }
-#lefteMenu {
-	width: 10%;	
+
+#leftMenu {
+	padding: 5px;
+	margin: 0 50px 0 0;
+	
 }
-#rightContet {
-	width: 90%;
-}
-a {
+#leftMenu a:link {
 	text-decoration: none;
+	
+	font-size: 30px;
+	color: var(--gray-02);
+}
+#leftMenu a:visited {
+	text-decoration: none;
+	
+	font-size: 30px;
+	color: var(--gray-02);
+}
+
+#rightContent {
+	width: 600px;
+}
+#rightContent tr th {
+	width: 200px;
+	
+	font-size: 25px;	
+	vertical-align: middle;
+
+}
+#rightContent tr td {
+	width: 400px;
+
+	font-size: 20px;
+	vertical-align: middle;
+	padding-left: 10px;
 }
 </style>
 </head>
 <body>
 
 <nav>
-	<table border="1">
+	<table>
 	<tr>
 		<th><a href="">슬갓생 </a></th>
 		<th><a href="">게시판</a></th>
@@ -40,11 +92,12 @@ a {
 	</table>
 </nav>
 
+<header id="header">
 <h1>내정보</h1>
-
+</header>
 <main id="mymain">
 
-<table id="leftMenu" border="1">
+<table id="leftMenu">
 	<tr>
 		<th><a href="mymain.do">기본정보</a></th>
 	</tr>
@@ -84,7 +137,7 @@ a {
 </table>
 
 
-<table id="rightContent" border="1">
+<table id="rightContent">
 	<tr>
 		<th rowspan="2"> 프로필사진칸 </th>
 		<th>아이디</th>
