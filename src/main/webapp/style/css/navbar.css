@@ -1,0 +1,77 @@
+
+/* nav bar */
+#navBar {
+	background-color: var(--theme-yellow);
+	padding: 0;
+}
+
+.navbar {
+	--bs-navbar-toggler-icon-bg: none;
+}
+
+#navBar > .container-fluid {
+	padding: 0 1.5rem;
+}
+
+/* nav bar 로고 */
+.navbar-brand {
+	margin: 0;
+	padding: 0;
+}
+
+/* nav bar 목록 */
+#navBar__list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 50%;
+}
+
+.navBar__list > button {
+	width: auto;
+	border: none;
+}
+
+.navbar-toggler-icon {
+	width: auto;
+	height: auto;
+}
+
+.dropdown:hover > .dropdown-menu {
+	display: block;
+}
+
+.dropdown-toggle {
+	font-weight: var(--header-font-weight);
+	font-size: var(--nav-bar-font-size);
+}
+
+.dropdown >.dropdown-toggle:active {
+	/*Without this, clicking will make it sticky*/
+	pointer-events: none;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+.dropdown-menu {
+	background-color: var(--theme-yellow);
+}
+
+/* dark mode */
+/* toggle */
+.theme-toggle {
+    box-sizing: border-box;
+}
+
+.theme {
+    display: flex;
+	align-items: center;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* logo */
+.navBar__logo-img-dark {
+    content: url(../../images/full-logo-dark.svg);
+}

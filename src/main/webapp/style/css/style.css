@@ -6,6 +6,11 @@
 /* css 변수 */
 @import "./variables.css";
 
+/* 메인페이지 css */
+/* navbar */
+@import "./navbar.css";
+
+
 /* 전체 설정 */
 * {
 	font-family: "Pretendard";
