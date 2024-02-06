@@ -138,3 +138,4 @@ $RECYCLE.BIN/
 # target
 target/m2e-wtp/
 src/main/webapp/META-INF/maven/wisegodlife/wisegodlife/pom.properties
+src/main/webapp/META-INF/maven/wisegodlife/wisegodlife/pom.xml
