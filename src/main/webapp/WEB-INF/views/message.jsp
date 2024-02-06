@@ -58,7 +58,7 @@ if(loginNaverMsg != null && loginNaverMsg.equals("") == false){
 		%>
 		<script type="text/javascript">
 		alert("네이버 아이디로 로그인되었습니다");
-		location.href = "./mymain.do";
+		location.href = "./main.do";
 		</script>
 		<%		
 	}else{
