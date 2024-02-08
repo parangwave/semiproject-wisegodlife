@@ -29,9 +29,7 @@ if(loginMsg != null && loginMsg.equals("") == false){
 		%>
 		<script type="text/javascript">
 		alert("로그인되었습니다");
-		/* location.href = "./main.do";
-		현재 메인페이지가 없어서 메인페이지가 아니라 마이페이지로 움직이게 하는 부분입니다. */
-		location.href = "./mymain.do"; 
+		location.href = "./main.do";
 		</script>
 		<%		
 	} else if(loginMsg.equals("LOGIN_DEL")){
@@ -72,20 +70,20 @@ if(loginNaverMsg != null && loginNaverMsg.equals("") == false){
 }
 
 // 게시판 글추가
-String bbswriteMsg = (String)request.getAttribute("bbswriteMsg");
-if(bbswriteMsg != null && bbswriteMsg.equals("") == false){
-	if(bbswriteMsg.equals("BBSWRITE_SUCCESS")){
+String freebbswriteMsg = (String)request.getAttribute("freebbswriteMsg");
+if(freebbswriteMsg != null && freebbswriteMsg.equals("") == false){
+	if(freebbswriteMsg.equals("FREEBBSWRITE_SUCCESS")){
 		%>
 		<script type="text/javascript">
 		alert("성공적으로 추가되었습니다");
-		location.href = "./bbslist.do";
+		location.href = "./freebbslist.do";
 		</script>
 		<%
 	}else{
 		%>
 		<script type="text/javascript">
 		alert("다시 작성해 주십시오");
-		location.href = "./bbswrite.do";
+		location.href = "./freebbswrite.do";
 		</script>
 		<%
 	}
@@ -113,13 +111,13 @@ if(answerMsg != null && answerMsg.equals("") == false){
 }
 
 // 글수정
-String bbsupdateMsg = (String)request.getAttribute("bbsupdateMsg");
-if(bbsupdateMsg != null && bbsupdateMsg.equals("") == false){
-	if(bbsupdateMsg.equals("UPDATE_SUCCESS")){
+String freebbsupdateMsg = (String)request.getAttribute("freebbsupdateMsg");
+if(freebbsupdateMsg != null && freebbsupdateMsg.equals("") == false){
+	if(freebbsupdateMsg.equals("FREEBBS_UPDATE_SUCCESS")){
 		%>
 		<script type="text/javascript">
 		alert("글이 성공적으로 수정되었습니다");
-		location.href = "bbslist.do";
+		location.href = "freebbslist.do";
 		</script>
 		<%
 	}else{
@@ -127,19 +125,21 @@ if(bbsupdateMsg != null && bbsupdateMsg.equals("") == false){
 		%>
 		<script type="text/javascript">
 		alert("글을 다시 수정해 주십시오");
-		location.href = "bbsupdate.do?seq=" + <%=seq %>;
+		location.href = "freebbsupdate.do?seq=" + <%=seq %>;
 		</script>
 		<%
 	}
 }
 
-String bbsdeleteMsg = (String)request.getAttribute("bbsdeleteMsg");
-if(bbsdeleteMsg != null && bbsdeleteMsg.equals("") == false){
-	if(bbsdeleteMsg.equals("DELETE_SUCCESS")){
+
+//글 삭제
+String freebbsdeleteMsg = (String)request.getAttribute("freebbsdeleteMsg");
+if(freebbsdeleteMsg != null && freebbsdeleteMsg.equals("") == false){
+	if(freebbsdeleteMsg.equals("FREEBBS_DELETE_SUCCESS")){
 		%>
 		<script type="text/javascript">
 		alert("글이 성공적으로 삭제되었습니다");
-		location.href = "bbslist.do";
+		location.href = "freebbslist.do";
 		</script>
 		<%
 	}else{
@@ -147,7 +147,7 @@ if(bbsdeleteMsg != null && bbsdeleteMsg.equals("") == false){
 		%>
 		<script type="text/javascript">
 		alert("글이 삭제되지 않았습니다");
-		location.href = "bbslist.do?seq=" + <%=seq %>;
+		location.href = "freebbslist.do?seq=" + <%=seq %>;
 		</script>
 		<%
 	}	
