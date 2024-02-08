@@ -5,9 +5,9 @@
     pageEncoding="UTF-8"%>
     
 <%
-    List<BbsComment> commentList = (List<BbsComment>)request.getAttribute("commentList");
-        	List<BbsDto> writeList = (List<BbsDto>)request.getAttribute("writeList");
-    %>    
+	List<BbsComment> commentList = (List<BbsComment>)request.getAttribute("commentList");
+	List<BbsDto> writeList = (List<BbsDto>)request.getAttribute("writeList");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,20 +104,20 @@ a {
 </thead>
 <tbody>
 <%
-for (int i = 0;i < commentList.size(); i++) {
+	for (int i = 0;i < commentList.size(); i++) {
 		BbsComment bc = commentList.get(i);
-%>
+		%>
 	<tr>
-		<td><%=i + 1%></td>
+		<td><%=i + 1 %></td>
 		<td style="text-align: left;" colspan="2">
-			<%=bc.getContent()%>
+			<%=bc.getContent() %>
 		</td>
-		<td><%=bc.getWdate()%></td>
-		<td><%=bc.getId()%></td>
+		<td><%=bc.getWdate() %></td>
+		<td><%=bc.getId() %></td>
 	</tr>	
 		<%
-			}
-			%>
+	}
+%>
 </tbody>
 <tfoot>
 <tr>
@@ -128,13 +128,13 @@ for (int i = 0;i < commentList.size(); i++) {
 </tr>
 <%
 if(writeList == null || writeList.size() == 0){
-%>
+	%>
 	<tr>
 		<td colspan="4">작성한 글이 없습니다</td>
 	</tr>
 	<%
-	}else{
-			for(int i = 0;i < writeList.size(); i++){
+}else{
+	for(int i = 0;i < writeList.size(); i++){
 		BbsDto bbs = writeList.get(i);
 	%>
 	<tr>
