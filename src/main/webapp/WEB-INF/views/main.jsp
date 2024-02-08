@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,6 +18,8 @@ pageEncoding="UTF-8"%>
     />
     <!-- css -->
     <link rel="stylesheet" href="./style/css/style.css" />
+  </head>
+
   <body class="light-mode" data-bs-theme="light">
     <!-- nav-bar start -->
     <div id="container__navBar">
@@ -132,7 +134,7 @@ pageEncoding="UTF-8"%>
     <!-- nav-bar end -->
 
     <!-- left-tab start -->
-    <section id="leftTab" class="w-25">
+    <section id="leftTab" class="mh-100">
       <!-- 프로필 -->
       <div id="leftTab__profile">
 		    <div id="leftTab__profile__avatarContainer">
@@ -154,6 +156,8 @@ pageEncoding="UTF-8"%>
 		    </div>
       </div>
 
+      <hr>
+
       <!-- 날씨 -->
       <div id="leftTab__weather">
         <div id="leftTab__weather__clockSection">
@@ -167,13 +171,15 @@ pageEncoding="UTF-8"%>
 		    </div>
       </div>
 
+      <hr>
+
       <!-- 검색창 -->
       <div id="leftTab__search" class="input-group rounded">
         <input
           type="search"
 		  id="leftTab__search-placeholder"
           class="form-control rounded"
-          placeholder="찾고 싶은 글을 검색하세요"
+          placeholder="찾고 싶은 글을 검색"
           aria-label="Search"
           aria-describedby="search-addon"
         />
@@ -181,6 +187,8 @@ pageEncoding="UTF-8"%>
           <i class="bi bi-search"></i>
         </span>
       </div>
+
+      <hr>
 
       <!-- 학교생활 -->
       <div id="leftTab__school">
@@ -190,23 +198,25 @@ pageEncoding="UTF-8"%>
         <ul id="leftTab__school__lectures">
           <!-- 수강 시간표에서 data import -->
         </ul>
-
-        <ul id="leftTab__school__todoList">
-          
-        </ul>
       </div>
 
     </section>
     <!-- left-tab end -->
 
+    <!-- nav-bar start -->
+    <section id="postSection"></section>
+		<!-- nav-bar end -->
+    
     <script>
-      function changeMode() {
-        const Body = document.body;
-        Body.classList.toggle("dark-mode");
+			function changeMode () {
+				const Body = document.body;
+				Body.classList.toggle("dark-mode");
 
-        const logoImg = document.getElementById("navBar__logo-img");
-        logoImg.classList.toggle("navBar__logo-img-dark");
-      }
-    </script>
-  </body>
+				const logoImg = document.getElementById("navBar__logo-img");
+				logoImg.classList.toggle("navBar__logo-img-dark");
+				console.log(logoImg.classList);
+				console.log(logoImg.src);
+			}
+		</script>
+	</body>
 </html>
