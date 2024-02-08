@@ -20,7 +20,7 @@
 
 <select id="getMyWriteList" parameterType="String" resultType="ssg.com.a.dto.BbsDto">
 	select seq, id, title, content, wdate, del, readcount
-	  from bbs
+	  from free
 	 where id=#{id}
 </select>
 
