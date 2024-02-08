@@ -274,7 +274,7 @@ if(restoreMsg != null && restoreMsg.equals("") == false){
 	}	
 }
 
-//회원복구
+// 회원복구
 String reMsg  = (String)request.getAttribute("reMsg");
 if(reMsg != null && reMsg.equals("") == false){
 	if(reMsg.equals("RESTOREAF_SUCCESS")){
@@ -289,6 +289,26 @@ if(reMsg != null && reMsg.equals("") == false){
 		<script type="text/javascript">
 		alert("회원복구에 실패했습니다.");
 		location.href = "./restore.do";
+		</script>
+		<%		
+	}	
+}
+
+// 조교 회원가입
+String assiregiMsg  = (String)request.getAttribute("assiregiMsg");
+if(assiregiMsg != null && assiregiMsg.equals("") == false){
+	if(assiregiMsg.equals("ASSI_YES")){
+		%>
+		<script type="text/javascript">
+		alert("조교회원가입 완료되었습니다");
+		location.href = "./login.do"; 
+		</script>
+		<%		
+	}else{
+		%>
+		<script type="text/javascript">
+		alert("조교회원가입에 실패했습니다.");
+		location.href = "./assiregi.do";
 		</script>
 		<%		
 	}	
