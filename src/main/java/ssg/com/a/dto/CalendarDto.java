@@ -8,35 +8,51 @@ public class CalendarDto implements Serializable {
 	private String id;
 	private String title;
 	private String content;
+	private int major;			// 학과
+	private String college;		// 대학
+	private int auth;			// ID 사용자 구분
 	private String rdate;		// 지정날
 	private String wdate;		// 일정을 작성한 날짜 (작성일)
 	
 	public CalendarDto() {
 	}
-
-	public CalendarDto(int seq, String title, String content) {
-		super();
-		this.seq = seq;
-		this.title = title;
-		this.content = content;
-	}
-
-	public CalendarDto(String id, String title, String content, String rdate) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.content = content;
-		this.rdate = rdate;
-	}
-
-	public CalendarDto(int seq, String id, String title, String content, String rdate, String wdate) {
+	
+	public CalendarDto(int seq, String id, String title, String content, int major, String college, int auth,
+			String rdate, String wdate) {
 		super();
 		this.seq = seq;
 		this.id = id;
 		this.title = title;
 		this.content = content;
+		this.major = major;
+		this.college = college;
+		this.auth = auth;
 		this.rdate = rdate;
 		this.wdate = wdate;
+	}
+
+	public int getMajor() {
+		return major;
+	}
+
+	public void setMajor(int major) {
+		this.major = major;
+	}
+
+	public String getCollege() {
+		return college;
+	}
+
+	public void setCollege(String college) {
+		this.college = college;
+	}
+
+	public int getAuth() {
+		return auth;
+	}
+
+	public void setAuth(int auth) {
+		this.auth = auth;
 	}
 
 	public int getSeq() {
@@ -89,8 +105,7 @@ public class CalendarDto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CalendarDto [seq=" + seq + ", id=" + id + ", title=" + title + ", content=" + content + ", rdate="
-				+ rdate + ", wdate=" + wdate + "]";
+		return "CalendarDto [seq=" + seq + ", id=" + id + ", title=" + title + ", content=" + content + ", major="
+				+ major + ", college=" + college + ", auth=" + auth + ", rdate=" + rdate + ", wdate=" + wdate + "]";
 	}
-	
 }

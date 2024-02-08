@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
+import ssg.com.a.dto.CalendarParam;
 import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
 import ssg.com.a.util.CalendarUtil;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -156,7 +159,8 @@ public class MypageController {
 				+ "<img src='./images/last.png' width='20px' height='20px'>"
 				+ "</a>", year+1, month);
 		
-		List<CalendarDto> list = service.getCalendarList(login.getId(), year + CalendarUtil.two(month + ""));
+		CalendarParam calpa = new CalendarParam(login.getId(), year + CalendarUtil.two(month + ""), login.getMajor(), login.getCollege());
+		List<CalendarDto> list = service.getCalendarList(calpa);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("pp", pp);
@@ -168,7 +172,7 @@ public class MypageController {
 		model.addAttribute("cal", cal);
 		model.addAttribute("dayOfWeek", dayOfWeek);
 		
-		return "mypage/mycalendar";
+		return "mycal/mycalendar";
 	}
 	
 	// TODO 블랙리스트 기능란
@@ -232,7 +236,6 @@ public class MypageController {
 	}
 	
 	// TODO 회원탈퇴란
-	// 회원 탈퇴
 	// 마이페이지 회원탈퇴 이동
 	@GetMapping("mycloseAf.do")
 	public String closeAccount(Model model) {
@@ -248,4 +251,82 @@ public class MypageController {
 		
 		return "message";
 	}
+	
+	// TODO 학과일정란
+	// 학과일정 작성하기 이동
+	@GetMapping("mycalwrite.do")
+	public String mycalwrite(Model model, String year, String month, String day) {
+		System.out.println("MypageController mycalwrite" + new Date());
+		
+		model.addAttribute("year", year);
+		model.addAttribute("month", month);
+		model.addAttribute("day", day);
+		
+		return "mycal/mycalwrite";
+	}
+	
+	// 학과일정 작성완료
+	@PostMapping("mycalwriteAf.do")
+	public String mycalwriteAf(Model model, CalendarDto dto, String date, String time) {
+		System.out.println("MypageController mycalwriteAf" + new Date());
+		
+		// 일정 작성하기 위해 데이터 변형
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
+		date = date.replace("-", "");
+		time = time.replace(":", "");
+		String rdate = date + time;
+		dto.setRdate(rdate);
+		dto.setAuth(login.getAuth());
+		dto.setCollege(login.getCollege());
+		dto.setMajor(login.getMajor());
+		
+		System.out.println(dto.toString());
+
+		service.addCalendarWrite(dto);
+		
+		return "redirect:mycalendar.do";
+	}
+	
+	// 학과일정 자세히 보기
+	@GetMapping("mycaldetail.do")
+	public String calendarDetail(Model model, int seq) {
+		System.out.println("MypageController calendarDetail" + new Date());
+		
+		CalendarDto dto = service.calendarDetail(seq);
+		model.addAttribute("dto", dto);
+		
+		return "mycal/mycaldetail";
+	}
+	
+	// 학과일정 수정
+	@GetMapping("mycalupdate.do")
+	public String mycalupdate(Model model, int seq) {
+		System.out.println("MypageController mycalupdate" + new Date());
+		
+		CalendarDto dto = service.calendarDetail(seq);
+		model.addAttribute("dto", dto);
+		
+		return "mycal/mycalupdate";
+	}
+	
+	// 학과일정 수정완료
+	@PostMapping("mycalupdateAf.do")
+	public String mycalupdateAf(CalendarDto dto) {
+		System.out.println("MypageController mycalupdateAf" + new Date());
+		
+		service.mycalupdateAf(dto);
+		
+		return "redirect:mycalendar.do";
+	}
+	
+	// 학과일정 삭제
+	@GetMapping("mycaldelete.do")
+	public String mycaldelete(int seq) {
+		System.out.println("MypageController mycaldelete" + new Date());
+		
+		service.mycaldelete(seq);
+		
+		return "redirect:mycalendar.do";
+	}
+	
 }

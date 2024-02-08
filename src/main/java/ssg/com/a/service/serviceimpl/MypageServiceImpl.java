@@ -9,6 +9,7 @@ import ssg.com.a.dao.MypageDao;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
+import ssg.com.a.dto.CalendarParam;
 import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
@@ -20,8 +21,8 @@ public class MypageServiceImpl implements MypageService {
 	MypageDao dao;
 
 	@Override
-	public List<CalendarDto> getCalendarList(String id, String yyyyMM) {
-		return dao.getCalendarList(id, yyyyMM);
+	public List<CalendarDto> getCalendarList(CalendarParam calpa) {
+		return dao.getCalendarList(calpa);
 	}
 
 	@Override
@@ -62,6 +63,26 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public boolean closeAccount(String id) {
 		return dao.closeAccount(id)>0?true:false;
+	}
+
+	@Override
+	public void addCalendarWrite(CalendarDto dto) {
+		dao.addCalendarWrite(dto);
+	}
+
+	@Override
+	public CalendarDto calendarDetail(int seq) {
+		return dao.calendarDetail(seq);
+	}
+
+	@Override
+	public void mycalupdateAf(CalendarDto dto) {
+		dao.mycalupdateAf(dto);
+	}
+
+	@Override
+	public void mycaldelete(int seq) {
+		dao.mycaldelete(seq);
 	}
 	
 	
