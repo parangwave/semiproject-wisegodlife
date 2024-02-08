@@ -8,6 +8,7 @@ public class FriendDto {
 	private String tel;
 	private String email;
 	private String college;
+	private int major;
 	private int auth;
 	private int del;
 	private String deldate;
@@ -17,7 +18,7 @@ public class FriendDto {
 	public FriendDto() {
 	}
 
-	public FriendDto(String id, String pw, String name, String tel, String email, String college, int auth, int del,
+	public FriendDto(String id, String pw, String name, String tel, String email, String college, int major, int auth, int del,
 			String deldate, String regidate, String salt) {
 		super();
 		this.id = id;
@@ -26,11 +27,20 @@ public class FriendDto {
 		this.tel = tel;
 		this.email = email;
 		this.college = college;
+		this.major = major;
 		this.auth = auth;
 		this.del = del;
 		this.deldate = deldate;
 		this.regidate = regidate;
 		this.salt = salt;
+	}
+
+	public int getMajor() {
+		return major;
+	}
+
+	public void setMajor(int major) {
+		this.major = major;
 	}
 
 	public String getDeldate() {

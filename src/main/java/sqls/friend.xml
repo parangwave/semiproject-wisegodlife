@@ -11,8 +11,13 @@
 </select>
 
 <insert id="addfriend" parameterType="ssg.com.a.dto.FriendDto">
-	insert into friend(id, pw, name, tel, email, college, auth, del, regidate, salt)
-	values (#{id}, #{pw}, #{name}, #{tel}, #{email}, #{college}, 3, 0, now(), #{salt})
+	insert into friend(id, pw, name, tel, email, college, major, auth, del, regidate, salt)
+	values (#{id}, #{pw}, #{name}, #{tel}, #{email}, #{college}, #{major}, 3, 0, now(), #{salt})
+</insert>
+
+<insert id="addmajorfriend" parameterType="ssg.com.a.dto.FriendDto">
+	insert into friend(id, pw, name, tel, email, college, major, auth, del, regidate, salt)
+	values (#{id}, #{pw}, #{major}, #{tel}, #{email}, #{college}, #{major}, 1, 0, now(), #{salt})
 </insert>
 
 <select id="idInfo" parameterType="String" resultType="ssg.com.a.dto.FriendDto">

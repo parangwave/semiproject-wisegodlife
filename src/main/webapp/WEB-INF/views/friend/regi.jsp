@@ -70,6 +70,16 @@
 		<input type="text" class="form-control" name="college" size="20">
 	</td>
 </tr>
+<tr>
+	<th>학과선택</th>
+	<td>
+		<select name="major" id="major">
+      <option value="1">영어영문학과</option>
+      <option value="2">재료공학과</option>
+      <option value="3">화학공학과</option>
+    </select>
+	</td>
+</tr>
 
 <tr>
 	<td colspan="2">

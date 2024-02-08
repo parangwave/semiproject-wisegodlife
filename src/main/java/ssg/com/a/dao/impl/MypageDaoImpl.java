@@ -23,8 +23,8 @@ public class MypageDaoImpl implements MypageDao{
 	String ns = "mypage.";
 
 	@Override
-	public List<CalendarDto> getCalendarList(String id, String yyyyMM) {
-		return session.selectList(ns + "getCalendarList", new CalendarParam(id, yyyyMM));
+	public List<CalendarDto> getCalendarList(CalendarParam calpa) {
+		return session.selectList(ns + "getCalendarList", calpa);
 	}
 
 	@Override
@@ -67,6 +67,26 @@ public class MypageDaoImpl implements MypageDao{
 	@Override
 	public int closeAccount(String id) {
 		return session.update(ns + "closeAccount", id);
+	}
+
+	@Override
+	public void addCalendarWrite(CalendarDto dto) {
+		session.insert(ns + "addCalendarWrite", dto);
+	}
+
+	@Override
+	public CalendarDto calendarDetail(int seq) {
+		return session.selectOne(ns + "calendarDetail", seq);
+	}
+
+	@Override
+	public void mycalupdateAf(CalendarDto dto) {
+		session.update(ns + "mycalupdateAf", dto);
+	}
+
+	@Override
+	public void mycaldelete(int seq) {
+		session.delete(ns + "mycaldelete", seq);
 	}
 
 }
