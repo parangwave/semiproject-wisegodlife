@@ -106,13 +106,22 @@ public class FriendController {
 		System.out.println("HelloController loginAf " + new Date());
 
 		FriendDto login = service.login(dto);
+		System.out.println(login.toString());
+		
 		String loginMsg = "LOGIN_FAIL";
+		if (login.getName() == null) { // 아이디가 없을때
+			model.addAttribute("loginMsg", loginMsg);
+			
+			return "message";
+		}
+		
 		if(login.getDel() > 0) {
 			loginMsg = "LOGIN_DEL";
 			model.addAttribute("loginMsg", loginMsg);
 			
 			return "message";
 		}
+		
 		if(login != null) {											//로그인 성공
 			req.getSession().setAttribute("login", login);			//로그인한 정보 세션에 저장
 //			req.getSession().setMaxInactiveInterval(60 * 60 * 24);
