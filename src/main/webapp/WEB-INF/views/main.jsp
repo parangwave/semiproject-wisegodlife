@@ -36,7 +36,7 @@
 								게시판
 								</button>
 								<ul class="dropdown-menu" aria-labelledby="navBar__list__dropdown-post">
-									<li><a class="dropdown-item" href="#">자유 게시판</a></li>
+									<li><a class="dropdown-item" href="freebbslist.do">자유 게시판</a></li>
 									<li><a class="dropdown-item" href="#">메이트 구하기 게시판</a></li>
 									<li><a class="dropdown-item" href="#">동아리 게시판</a></li>
 									<li><a class="dropdown-item" href="#">중고거래 게시판</a></li>
