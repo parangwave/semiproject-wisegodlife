@@ -39,8 +39,11 @@ public class FriendDaoImpl implements FriendDao{
 	public FriendDto login(FriendDto dto) {
 		FriendDto idInfo = session.selectOne(ns + "idInfo", dto.getId());
 
-		if (idInfo.getDel() > 0) {
+		if (idInfo != null && idInfo.getDel() > 0) {
 			return idInfo;
+		}
+		if (idInfo == null) {
+			return dto;
 		}
 		try {			
 			dto.setSalt(idInfo.getSalt());
