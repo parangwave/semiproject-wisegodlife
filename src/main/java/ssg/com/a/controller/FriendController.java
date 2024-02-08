@@ -106,8 +106,10 @@ public class FriendController {
 		System.out.println("HelloController loginAf " + new Date());
 
 		FriendDto login = service.login(dto);
+		System.out.println(login.toString());
+		
 		String loginMsg = "LOGIN_FAIL";
-		if (login.getSalt() == null) { // 아이디가 없을때
+		if (login.getName() == null) { // 아이디가 없을때
 			model.addAttribute("loginMsg", loginMsg);
 			
 			return "message";
