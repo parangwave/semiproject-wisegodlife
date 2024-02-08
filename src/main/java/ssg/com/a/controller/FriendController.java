@@ -208,4 +208,28 @@ public class FriendController {
 		model.addAttribute("loginNaverMsg", loginNaverMsg);
 		return "message";
 	}
+	
+	// TODO 조교 회원가입 및 로그인
+	// 조교 회원가입 페이지
+	@GetMapping("assiregi.do")
+	public String assiregi() {
+		System.out.println("MemberController assiregi " + new Date());
+
+		return "friend/assiregi";
+	}
+	// 조교 회원가입 완료
+	@PostMapping("assiregiAf.do")
+	public String assiregi(FriendDto dto, Model model) {
+		System.out.println("HelloController assiregi " + new Date());
+			
+		boolean b = service.addmajorfriend(dto);
+		String assiregiMsg = "ASSI_YES";
+		if(!b) {
+			assiregiMsg = "ASSI_NO";
+		}
+		
+		model.addAttribute("assiregiMsg", assiregiMsg);
+		
+		return "message";
+	}
 }

@@ -69,4 +69,14 @@ public class FriendDaoImpl implements FriendDao{
 	public FriendDto naverLogin(String email) {
 		return session.selectOne(ns + "naverlogin", email);
 	}
+
+	@Override
+	public int addmajorfriend(FriendDto dto) {
+		try {
+			FriendUtil.pwInsert(dto);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return session.insert(ns + "addmajorfriend", dto);
+	}
 }
