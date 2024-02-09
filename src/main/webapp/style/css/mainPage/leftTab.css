@@ -80,19 +80,17 @@
 
 #mainContainer__leftTab__weather__clockSection h5 {
   font-size: var(--text-font-size);
-  font-size: 0.8rem;
 }
 
 /* 날씨 */
 #mainContainer__leftTab__weather__celcius {
   display: flex;
   align-items: center;
-  font-size: Calc(var(--nav-bar-font-size) + 0.3rem);
 }
+
 #mainContainer__leftTab__weather__celcius h2 {
   font-size: Calc(var(--nav-bar-font-size) - 0.1rem);
-  margin-left: 0.3rem;
-  font-weight: 600;
+  font-weight: var(--header-font-weight);
 }
 
 /* 검색 */
