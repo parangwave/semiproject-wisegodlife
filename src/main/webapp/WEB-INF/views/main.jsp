@@ -159,7 +159,7 @@
           <div id="mainContainer__leftTab__weather">
             <div id="mainContainer__leftTab__weather__clockSection">
               <h5>대한민국</h5>
-              <h1>08:00</h1>
+              <h1>00:00</h1>
               <h4>2024년 2월 6일</h4>
             </div>
             <div id="mainContainer__leftTab__weather__celcius">
@@ -247,7 +247,8 @@
         <!-- board-set(게시판 집합 영역) end -->
     </div>
 
-    
+	<!-- 시계 -->
+    <script src="./js/mainPage/clock.js"></script>
     <script>
 			function changeMode () {
 				const Body = document.body;
