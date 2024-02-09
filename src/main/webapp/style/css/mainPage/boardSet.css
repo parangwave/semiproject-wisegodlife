@@ -1,0 +1,49 @@
+
+/* 게시판 row(container) 설정 */
+#mainContainer__boardSet {
+    display: flex;
+    margin-left: var(--section-margin);
+}
+
+#mainContainer__boardSet__1stCol {
+    width: 80%;
+    margin-right: var(--section-margin);
+}
+
+#mainContainer__boardSet__2ndCol {
+    width: 100%;
+}
+
+/* 각 게시판 영역 */
+.boardSection {
+    padding: var(--section-margin);
+    background-color: var(--white);
+    border-radius: var(--section-border-radius);
+}
+
+.boardSection:first-child {
+    margin-bottom: var(--section-margin);
+}
+
+/* 게시판 제목 */
+.boardSection > h1 {
+    display: inline-block;
+    background-color: var(--theme-primary-pink);
+}
+
+/* 게시판 목록 */
+.boardSection > ul {
+    margin: var(--section-margin) 0;
+}
+
+/* 더보기 버튼 */
+.moreBtnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.moreBtnContainer > a {
+    color: var(--theme-sub-pink);
+    border-radius: var(--btn-border-radius);
+    border: 2px solid var(--theme-sub-pink);
+}

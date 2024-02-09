@@ -1,0 +1,108 @@
+
+/* 왼쪽탭 전체  */
+#mainContainer__leftTab {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: var(--section-border-radius);
+}
+
+/* 왼쪽탭 section */
+#mainContainer__leftTab__profile, #mainContainer__leftTab__weather, #mainContainer__leftTab__search, #mainContainer__leftTab__school {
+  padding: var(--section-margin);
+}
+#mainContainer__leftTab__profile__avatarContainer, #mainContainer__leftTab__weather, #mainContainer__leftTab__weather__celcius {
+  display: flex;
+}
+#mainContainer__leftTab hr {
+  width : 80%;
+  margin: 0 auto;
+}
+/* 프로필 */
+/* 프로필 사진 */
+#mainContainer__leftTab__profile__avatarContainer > img {
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 1em;
+}
+
+/* 프로필 자기소개 */
+#mainContainer__leftTab__profile__avatarContainer__introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#mainContainer__leftTab__profile__avatarContainer__introduction__idSection > h3 {
+  font-weight: var(--header-font-weight);
+  font-size: Calc(var(--header-font-size) + 0.1rem);
+}
+#mainContainer__leftTab__profile__avatarContainer__introduction__idSection {
+  margin-bottom: var(--margin-default);
+}
+
+#mainContainer__leftTab__profile__avatarContainer__introduction__idSection > h5,
+#mainContainer__leftTab__profile__avatarContainer__introduction > p {
+  font-size: Calc(var(--header-font-size) - 0.1rem);
+}
+
+/* 프로필 버튼 */
+#mainContainer__leftTab__profile__BtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--margin-default);
+}
+#mainContainer__leftTab__profile__BtnContainer > a {
+  border-radius: var(--btn-border-radius);
+  padding: var(--btn-padding);
+  font-size: var(--text-font-size);
+  color: var(--gray-02);
+  background-color: transparent;
+  border: 2px solid var(--gray-02);
+}
+#mainContainer__leftTab__profile__BtnContainer> a:first-of-type {
+  margin-right: var(--margin-default);
+}
+/* 시계 + 날씨 */
+/* 시계 + 날씨 전체 */
+#mainContainer__leftTab__weather {
+  justify-content: space-between;
+  color: var(--gray-02);
+}
+/* 시계 */
+#mainContainer__leftTab__weather__clockSection h1 {
+  padding: 0;
+  color: var(--black);
+  font-size: 1.7rem;
+  font-weight: var(--header-font-weight);
+}
+
+#mainContainer__leftTab__weather__clockSection h5 {
+  font-size: var(--text-font-size);
+  font-size: 0.8rem;
+}
+
+/* 날씨 */
+#mainContainer__leftTab__weather__celcius {
+  display: flex;
+  align-items: center;
+  font-size: Calc(var(--nav-bar-font-size) + 0.3rem);
+}
+#mainContainer__leftTab__weather__celcius h2 {
+  font-size: Calc(var(--nav-bar-font-size) - 0.1rem);
+  margin-left: 0.3rem;
+  font-weight: 600;
+}
+
+/* 검색 */
+#mainContainer__leftTab__search-placeholder {
+  font-family: "Pretendard";
+  font-size: calc(var(--header-font-size) - 0.2rem);
+}
+
+/* 학교생활 */
+#mainContainer__leftTab__school h1 {
+  
+  background-color: var(--theme-primary-blue);
+}
