@@ -44,4 +44,9 @@ public class FriendServiceImpl implements FriendService {
 	public FriendDto naverLogin(String email) {
 		return dao.naverLogin(email);
 	}
+
+	@Override
+	public boolean addmajorfriend(FriendDto dto) {
+		return dao.addmajorfriend(dto)>0?true:false;
+	}
 }

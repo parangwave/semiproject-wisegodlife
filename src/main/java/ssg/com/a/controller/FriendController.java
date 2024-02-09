@@ -106,13 +106,22 @@ public class FriendController {
 		System.out.println("HelloController loginAf " + new Date());
 
 		FriendDto login = service.login(dto);
+		System.out.println(login.toString());
+		
 		String loginMsg = "LOGIN_FAIL";
+		if (login.getName() == null) { // 아이디가 없을때
+			model.addAttribute("loginMsg", loginMsg);
+			
+			return "message";
+		}
+		
 		if(login.getDel() > 0) {
 			loginMsg = "LOGIN_DEL";
 			model.addAttribute("loginMsg", loginMsg);
 			
 			return "message";
 		}
+		
 		if(login != null) {											//로그인 성공
 			req.getSession().setAttribute("login", login);			//로그인한 정보 세션에 저장
 //			req.getSession().setMaxInactiveInterval(60 * 60 * 24);
@@ -197,6 +206,30 @@ public class FriendController {
 		}
 
 		model.addAttribute("loginNaverMsg", loginNaverMsg);
+		return "message";
+	}
+	
+	// TODO 조교 회원가입 및 로그인
+	// 조교 회원가입 페이지
+	@GetMapping("assiregi.do")
+	public String assiregi() {
+		System.out.println("MemberController assiregi " + new Date());
+
+		return "friend/assiregi";
+	}
+	// 조교 회원가입 완료
+	@PostMapping("assiregiAf.do")
+	public String assiregi(FriendDto dto, Model model) {
+		System.out.println("HelloController assiregi " + new Date());
+			
+		boolean b = service.addmajorfriend(dto);
+		String assiregiMsg = "ASSI_YES";
+		if(!b) {
+			assiregiMsg = "ASSI_NO";
+		}
+		
+		model.addAttribute("assiregiMsg", assiregiMsg);
+		
 		return "message";
 	}
 }

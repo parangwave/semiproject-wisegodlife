@@ -23,7 +23,7 @@
   <body class="light-mode" data-bs-theme="light">
     <!-- nav-bar start -->
     <!-- 공통으로 들어갈 것임 -->
-    <div id="navBar-container">
+    <header id="navBar-container">
       <!-- nav-bar -->
       <nav id="navBar" class="navbar">
         <div class="container-fluid">
@@ -124,7 +124,7 @@
           
         </div>
       </nav>
-    </div>
+    </header>
     <!-- nav-bar end -->
 
 
@@ -245,10 +245,9 @@
           </div>
         </section>
         <!-- board-set(게시판 집합 영역) end -->
-      <!-- </div> -->
     </div>
 
-
+    
     <script>
 			function changeMode () {
 				const Body = document.body;

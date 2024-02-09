@@ -29,7 +29,7 @@ public class CalendarUtil {
 		String str = "";
 		
 		String img = "<img src='./images/pen2.png' width='18px' height='18px' title='일정추가'>";	// title 마우스를 올려두었을때 나타나는것
-		str = String.format("<a href='calendar?param=calwrite&year=%d&month=%d&day=%d'>%s</a>", year, month, day, img);
+		str = String.format("<a href='mycalwrite.do?&year=%d&month=%d&day=%d'>%s</a>", year, month, day, img);
 		return str;
 	}
 	
@@ -37,7 +37,7 @@ public class CalendarUtil {
 	public static String daylist(int year, int month, int day) {
 		String str = "";
 		
-		str += String.format("&nbsp;<a href='calendar?param=caldaylist&year=%d&month=%d&day=%d' style='color:black'><b>", year, month, day);
+		str += String.format("&nbsp;<a href='mycaldaylist.do?year=%d&month=%d&day=%d' style='color:black'><b>", year, month, day);
 		str += String.format("%2d", day);
 		str += "</b></a>";
 		
@@ -68,7 +68,7 @@ public class CalendarUtil {
 			if (dto.getRdate().substring(0, 8).equals(dates)) {
 				str += "<tr>";
 				str += "	<td style ='padding:0px'>";
-				str += "		<a href='calendar?param=caldetail&seq=" + dto.getSeq() + "'>";
+				str += "		<a href='mycaldetail.do?seq=" + dto.getSeq() + "'>";
 				str += " 			<font style='font-size:10px;color:blue'>";
 				str += 					dot3( dto.getTitle());		
 				str += "			</font>";		

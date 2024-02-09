@@ -53,6 +53,8 @@
 						<br/>
 						<span><input type="submit" class="btn btn-primary" value="login"></span>&nbsp;&nbsp;&nbsp;&nbsp;
 						<span><a href="regi.do">회원가입</a></span>
+						<span> / </span>
+						<span><a href="assiregi.do">조교 회원가입</a></span>
 					</div>
 				</td>
 			</tr>

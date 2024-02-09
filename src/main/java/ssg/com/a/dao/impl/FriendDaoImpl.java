@@ -39,8 +39,11 @@ public class FriendDaoImpl implements FriendDao{
 	public FriendDto login(FriendDto dto) {
 		FriendDto idInfo = session.selectOne(ns + "idInfo", dto.getId());
 
-		if (idInfo.getDel() > 0) {
+		if (idInfo != null && idInfo.getDel() > 0) {
 			return idInfo;
+		}
+		if (idInfo == null) {
+			return dto;
 		}
 		try {			
 			dto.setSalt(idInfo.getSalt());
@@ -65,5 +68,15 @@ public class FriendDaoImpl implements FriendDao{
 	@Override
 	public FriendDto naverLogin(String email) {
 		return session.selectOne(ns + "naverlogin", email);
+	}
+
+	@Override
+	public int addmajorfriend(FriendDto dto) {
+		try {
+			FriendUtil.pwInsert(dto);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return session.insert(ns + "addmajorfriend", dto);
 	}
 }

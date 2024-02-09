@@ -29,7 +29,7 @@
 
 <div class="center">
 
-<form action="regiAf.do" id="frm" method="post">
+<form action="assiregiAf.do" id="frm" method="post">
 <br/>
 <table class="table">
 <tr>
@@ -65,13 +65,13 @@
 	</td>
 </tr>
 <tr>
-	<th>재학중인 대학교</th>
+	<th>대학교</th>
 	<td>
 		<input type="text" class="form-control" name="college" size="20">
 	</td>
 </tr>
 <tr>
-	<th>학과선택</th>
+	<th>학과</th>
 	<td>
 		<select name="major" id="major">
       <option value="1">영어영문학과</option>
