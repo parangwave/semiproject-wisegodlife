@@ -24,8 +24,10 @@
     --post-header-bg-color: var(--body-bg-color);    /* 게시물 block 컬러  */ 
     --search-input-bg-color:rgba(160, 163, 189, 1);
 
-    /* margin, padding */
-    --section-margin: 0.2rem;
+    /* margin, pad프로필 수정ding */
+    --section-margin: 1rem;
+    --margin-default: 0.5rem;
+    --btn-padding: var(--margin-default);
     --li-margin: 5px 0; /* 게시물, todo-list element간의 위아래 margin */
 
     /* border-radius */
@@ -54,13 +56,13 @@
 
 }
 
-/* dark mode - media query */
+/* dark mode - media query
 @media (prefers-color-scheme: dark) {
     :root {
         --body-bg-color: var(--black-bg);
         --text-color: var(--gray-01);
     }
-}
+} */
 
 .dark-mode, [data-bs-theme=dark] {
     color-scheme: dark;

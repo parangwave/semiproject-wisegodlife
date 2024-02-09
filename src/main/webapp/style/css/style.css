@@ -1,4 +1,5 @@
-@charset "UTF-8";
+
+/* css 파일 list */
 
 /* reset.css */
 @import "./reset.css";
@@ -6,12 +7,38 @@
 /* css 변수 */
 @import "./variables.css";
 
-/* 메인페이지 css */
 /* navbar */
 @import "./navbar.css";
+
+/* 메인페이지 css */
+/* left-tab */
+@import "./mainPage/leftTab.css";
 
 
 /* 전체 설정 */
 * {
-	font-family: "Pretendard";
+	font-family: "Pretendard" !important;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background-color: var(--gray-01);
+	height: 100%;
+}
+
+h1 {
+	display: inline-block;
+	color: var(--white);
+	font-size: var(--header-font-size);
+	font-weight: var(--header-font-weight);
+	padding: 0.8rem;
+	border-radius: var(--header-border-radius);
+}
+
+#mainContainer {
+	display: flex;
+	padding: var(--section-margin);
 }
