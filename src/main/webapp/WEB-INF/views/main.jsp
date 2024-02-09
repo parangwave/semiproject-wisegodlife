@@ -163,8 +163,8 @@
               <h4>2024년 2월 6일</h4>
             </div>
             <div id="mainContainer__leftTab__weather__celcius">
-              <i class="bi bi-cloud-hail-fill"></i>
-              <h2>18℃</h2>
+              <img />
+              <h2></h2>
             </div>
           </div>
 
@@ -249,6 +249,9 @@
 
 	<!-- 시계 -->
     <script src="./js/mainPage/clock.js"></script>
+	<!-- 시계 -->
+    <script src="./js/mainPage/weather.js"></script>
+    
     <script>
 			function changeMode () {
 				const Body = document.body;
