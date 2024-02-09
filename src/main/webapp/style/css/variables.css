@@ -21,7 +21,7 @@
     /* background-color */
     --body-bg-color: rgba(231, 230, 242, 1); /* section 배경색*/
     --nav-bar-bg-color: var(--theme-yellow);
-    --post-header-bg-color: var(--body-bg-color);    /* 게시물 block 컬러  */ 
+    --board-header-bg-color: var(--body-bg-color);    /* 게시물 block 컬러  */ 
     --search-input-bg-color:rgba(160, 163, 189, 1);
 
     /* margin, pad프로필 수정ding */
@@ -35,7 +35,7 @@
     --header-border-radius: 20px;  
     --btn-border-radius: var(--header-border-radius); 
     --thumbnail-border-radius: 10px;
-    --post-border-radius: 6px;
+    --board-border-radius: 6px;
 
     /* font */
     --text-color: var(--gray-02);
