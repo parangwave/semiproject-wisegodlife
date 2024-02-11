@@ -64,6 +64,17 @@
 #mainContainer__leftTab__profile__BtnContainer> a:first-of-type {
   margin-right: var(--margin-default);
 }
+
+/* 프로필 버튼 hover */
+#mainContainer__leftTab__profile__BtnContainer > a:hover,
+#mainContainer__leftTab__profile__BtnContainer > a:active {
+	color: var(--white);
+	background-color: var(--gray-02);
+	transform: scale(1.1);
+	transition: transform 0.5s ease;
+}
+
+
 /* 시계 + 날씨 */
 /* 시계 + 날씨 전체 */
 #mainContainer__leftTab__weather {
