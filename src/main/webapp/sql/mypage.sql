@@ -29,15 +29,6 @@ create table friend(
 	salt varchar(1000) not null
 );
 
--- 멤버 더미DB 생성
-create table member(
-	id varchar(50) primary key,
-	pw varchar(50) not null,
-	name varchar(50) not null,
-	email varchar(50) not null,
-	auth int not null
-);
-
 -- 좋아요 DB생성
 -- id, seq, likeid, title, content, readcount, wdate
 create table likelist(
@@ -58,13 +49,14 @@ create table calendar(
 	title varchar(400) not null,
 	content	varchar(2000),
 	major int not null,	-- 학과를 셀렉 옵션으로 밸류값을 숫자로 표현
-	college varchar(100),	
+	college varchar(100),
+	auth decimal(3) not null,
 	rdate varchar(12) not null,
 	wdate timestamp not null
 );
 
 -- DB 삭제 (테이블명만 변경해서 사용)
-drop table friend;
+drop table calendar;
 
 -- DB table 전체보기
 select *

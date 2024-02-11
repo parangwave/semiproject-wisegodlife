@@ -16,7 +16,8 @@
 <select id="getCalendarList" parameterType="ssg.com.a.dto.CalendarParam" resultType="ssg.com.a.dto.CalendarDto">
 	select seq, id, title, content, major, college, rdate, auth, wdate
 	  from calendar
-	 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM} and (auth=1 or auth=3) and major=#{major} and college=#{college};
+	 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM} and auth=3 and major=#{major} and college=#{college}
+	    or (substr(rdate, 1, 6)=${yyyyMM} and auth=1 and major=#{major} and college=#{college})
 </select>
 
 <insert id="addCalendarWrite" parameterType="ssg.com.a.dto.CalendarDto">

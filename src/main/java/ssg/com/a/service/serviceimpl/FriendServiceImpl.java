@@ -24,6 +24,11 @@ public class FriendServiceImpl implements FriendService {
 		int count = dao.addfriend(dto);
 		return count > 0 ? true : false;
 	}
+	
+	@Override
+	public boolean addmajorfriend(FriendDto dto) {
+		return dao.addmajorfriend(dto)>0?true:false;
+	}
 
 	@Override
 	public FriendDto login(FriendDto dto) {
@@ -45,8 +50,4 @@ public class FriendServiceImpl implements FriendService {
 		return dao.naverLogin(email);
 	}
 
-	@Override
-	public boolean addmajorfriend(FriendDto dto) {
-		return dao.addmajorfriend(dto)>0?true:false;
-	}
 }
