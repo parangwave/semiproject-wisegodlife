@@ -45,7 +45,7 @@
             class="dropdown-menu"
             aria-labelledby="navBar__list__dropdown-board"
           >
-            <li><a class="dropdown-item" href="#">자유 게시판</a></li>
+            <li><a class="dropdown-item" href="freebbslist.do">자유 게시판</a></li>
             <li>
               <a class="dropdown-item" href="#">메이트 구하기 게시판</a>
             </li>

@@ -4,51 +4,13 @@
 
 <mapper namespace="mypage">
 
-<!-- <select id="getCalendarList" parameterType="ssg.com.a.dto.CalendarParam" resultType="ssg.com.a.dto.CalendarDto">
-	select seq, id, title, content, major, college, rdate, 
-		   wdate from(select row_number()over(partition by substr(rdate, 1, 8) order by rdate asc) as rnum, 
-		   seq, id, title, content, major, college, rdate, wdate
-	  from calendar
-	 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM}) a and (auth=1 or auth=3) and major=#{major} and college=#{college}
-	 where rnum between 1 and 5
-</select> -->
-
-<select id="getCalendarList" parameterType="ssg.com.a.dto.CalendarParam" resultType="ssg.com.a.dto.CalendarDto">
-	select seq, id, title, content, major, college, rdate, auth, wdate
-	  from calendar
-	 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM} and auth=3 and major=#{major} and college=#{college}
-	    or (substr(rdate, 1, 6)=${yyyyMM} and auth=1 and major=#{major} and college=#{college})
-</select>
-
-<insert id="addCalendarWrite" parameterType="ssg.com.a.dto.CalendarDto">
-	insert into calendar(id, title, content, major, college, auth, rdate, wdate)
-	values (#{id}, #{title}, #{content}, #{major}, #{college}, #{auth}, #{rdate}, now())
-</insert>
-
-<select id="calendarDetail" parameterType="Integer" resultType="ssg.com.a.dto.CalendarDto">
-	select seq, id, title, content, major, college, rdate, auth, wdate
-	  from calendar
-	 where seq=#{seq}
-</select>
-
-<update id="mycalupdateAf" parameterType="ssg.com.a.dto.CalendarDto">
-	update calendar
-	   set title=#{title}, content=#{content}
-	 where id=#{id} and seq=${seq}
-</update>
-
-<delete id="mycaldelete" parameterType="Integer">
-	delete from calendar
-	 where seq=${seq}
-</delete>
-
 <select id="getMyCommentList" parameterType="String" resultType="ssg.com.a.dto.BbsComment">
 	select seq, id, content, wdate
 	  from freebbs
 	 where id=#{id}
 </select>
 
-<select id="getMyWriteList" parameterType="String" resultType="ssg.com.a.dto.BbsDto">
+<select id="getMyWriteList" parameterType="String" resultType="ssg.com.a.dto.FreeBbsDto">
 	select seq, id, title, content, wdate, del, readcount
 	  from freebbs
 	 where id=#{id}
@@ -70,13 +32,13 @@
 	 where id=#{id}
 </select>
 
-<update id="changeMyinfor" parameterType="ssg.com.a.dto.MemberDto">
+<update id="changeMyinfor" parameterType="ssg.com.a.dto.FriendDto">
 	update member
 	   set name=#{name}, email=#{email}
 	 where id=#{id}
 </update>
 
-<select id="changelogin" parameterType="ssg.com.a.dto.MemberDto" resultType="ssg.com.a.dto.MemberDto">
+<select id="changelogin" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
 	select id, name, email, auth 
 	  from member 
 	 where id=#{id}

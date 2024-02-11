@@ -1,4 +1,4 @@
-<%@page import="ssg.com.a.dto.BbsDto"%>
+<%@page import="ssg.com.a.dto.FreeBbsDto"%>
 <%@page import="ssg.com.a.dto.BbsComment"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,7 +6,7 @@
     
 <%
 	List<BbsComment> commentList = (List<BbsComment>)request.getAttribute("commentList");
-	List<BbsDto> writeList = (List<BbsDto>)request.getAttribute("writeList");
+	List<FreeBbsDto> writeList = (List<FreeBbsDto>)request.getAttribute("writeList");
 %>
     
 <!DOCTYPE html>
@@ -14,6 +14,8 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지 작성한 댓글 및 게시글</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="style/css/style.css">
 <style type="text/css">
 #mymain {
 	display: flex;
@@ -89,7 +91,7 @@ a {
 					<%
 				}else{
 					for(int i = 0;i < writeList.size(); i++){
-						BbsDto bbs = writeList.get(i);
+						FreeBbsDto bbs = writeList.get(i);
 					%>
 					<tr>
 						<td><%=i + 1 %></td>
