@@ -69,7 +69,8 @@
 }
 
 /* 프로필 버튼 hover */
-#mainContainer__leftTab__profile__BtnContainer > a:hover {
+#mainContainer__leftTab__profile__BtnContainer > a:hover,
+#mainContainer__leftTab__profile__BtnContainer > a:active {
 	color: var(--white);
 	background-color: var(--gray-02);
 	transform: scale(1.1);
@@ -116,6 +117,5 @@
 
 /* 학교생활 */
 #mainContainer__leftTab__school h1 {
-  
   background-color: var(--theme-primary-blue);
 }
