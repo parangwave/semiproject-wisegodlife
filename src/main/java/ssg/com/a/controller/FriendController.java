@@ -106,10 +106,10 @@ public class FriendController {
 		System.out.println("HelloController loginAf " + new Date());
 
 		FriendDto login = service.login(dto);
-		System.out.println(login.toString());
+		// System.out.println(login.toString());
 		
 		String loginMsg = "LOGIN_FAIL";
-		if (login.getName() == null) { // 아이디가 없을때
+		if (login == null) { // 아이디가 없거나 비밀번호가 틀렸을때
 			model.addAttribute("loginMsg", loginMsg);
 			
 			return "message";
@@ -122,9 +122,12 @@ public class FriendController {
 			return "message";
 		}
 		
-		if(login != null) {											//로그인 성공
-			req.getSession().setAttribute("login", login);			//로그인한 정보 세션에 저장
+		if(login != null && login.getAuth() == 1) {
+			req.getSession().setAttribute("login", login);
 //			req.getSession().setMaxInactiveInterval(60 * 60 * 24);
+			loginMsg = "ASSILOGIN_SUCCESS";
+		} else if (login != null) {
+			req.getSession().setAttribute("login", login);
 			loginMsg = "LOGIN_SUCCESS";	
 		}
 
@@ -221,7 +224,8 @@ public class FriendController {
 	@PostMapping("assiregiAf.do")
 	public String assiregi(FriendDto dto, Model model) {
 		System.out.println("HelloController assiregi " + new Date());
-			
+		
+		System.out.println(dto.getMajor());
 		boolean b = service.addmajorfriend(dto);
 		String assiregiMsg = "ASSI_YES";
 		if(!b) {

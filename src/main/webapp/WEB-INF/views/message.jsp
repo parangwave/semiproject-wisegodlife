@@ -39,6 +39,13 @@ if(loginMsg != null && loginMsg.equals("") == false){
 		location.href = "./restore.do"; 
 		</script>
 		<%	
+	} else if(loginMsg.equals("ASSILOGIN_SUCCESS")){
+		%>
+		<script type="text/javascript">
+		alert("조교회원으로 로그인 하였습니다.");
+		location.href = "mycalendar.do";
+		</script>
+		<%	
 	}	else{
 		%>
 		<script type="text/javascript">
