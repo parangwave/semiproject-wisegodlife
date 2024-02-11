@@ -1,0 +1,70 @@
+
+/* dark-mode css */
+/* dark-mode 전체 설정 */
+.dark-mode, [data-bs-theme=dark] {
+    color-scheme: dark;
+    --bs-body-color: var(--gray-01);
+    --theme-yellow: var(--dark-nav-bg-color);
+    color: var(--gray-01);
+}
+
+/* nav-bar */
+.dark-mode .dropdown-item:hover {
+	color: var(--dark-nav-bg-color);
+}
+
+/* left-tab, board-section 전체 설정 */
+.dark-mode #mainContainer__leftTab, 
+.dark-mode .boardSection {
+    background-color: var(--dark-section-bg-color);
+    color: var(--gray-01);
+}
+
+/* left-tab */
+/* 프로필 버튼 */
+.dark-mode #mainContainer__leftTab a {
+    color: var(--gray-01);
+    border: 2px solid var(--gray-01);
+}
+
+/* 프로필 버튼 hover */
+.dark-mode #mainContainer__leftTab__profile__BtnContainer > a:hover,
+.dark-mode #mainContainer__leftTab__profile__BtnContainer > a:active {
+	color: var(--dark-section-bg-color);
+    background-color: var(--gray-01);
+	transform: scale(1.1);
+	transition: transform 0.5s ease;
+}
+
+/* 날씨 */
+.dark-mode #mainContainer__leftTab__weather h1 {
+    color: var(--gray-01);
+}
+
+.dark-mode #mainContainer__leftTab__weather h5,
+.dark-mode #mainContainer__leftTab__weather h4,
+.dark-mode #mainContainer__leftTab__weather h2 {
+    color: var(--gray-01);
+    opacity: 0.7;
+}
+
+/* 검색 */
+.dark-mode #mainContainer__leftTab__search > input,
+.dark-mode #mainContainer__leftTab__search > span {
+    background-color: var(--dark-section-bg-color);
+    color: var(--gray-01);
+}
+
+.dark-mode #mainContainer__leftTab__search > input {
+    border: 1.5px solid var(--gray-01);
+}
+
+.dark-mode #mainContainer__leftTab__search > input::placeholder {
+    color: var(--gray-01);
+}
+
+
+/* main-container */
+.dark-mode #mainContainer {
+    background-color: var(--dark-bg-color);
+}
