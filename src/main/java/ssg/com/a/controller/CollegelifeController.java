@@ -28,7 +28,7 @@ public class CollegelifeController {
 	@Autowired
 	HttpServletRequest request;
 	
-	// 마이페이지 학점계산기 이동
+	// 학교생활 학점계산기 이동
 	@GetMapping("mygradecal.do")
 	public String mygradecal() {
 		System.out.println("MypageController mygradecal" + new Date());
@@ -36,7 +36,15 @@ public class CollegelifeController {
 		return "collegelife/mygradecal";
 	}	
 	
-	// 마이페이지 학과일정달력 이동
+	// 학교생활 수강시간표 이동
+	@GetMapping("cotimetable.do")
+	public String cotimetable() {
+		System.out.println("MypageController cotimetable" + new Date());
+		
+		return "collegelife/cotimetable";
+	}	
+	
+	// 학교생활 학과일정달력 이동
 	@GetMapping("mycalendar.do")
 	public String mycalendar(Model model) {
 		System.out.println("MypageController mycalendar" + new Date());
@@ -184,5 +192,16 @@ public class CollegelifeController {
 		
 		return "redirect:mycalendar.do";
 	}
+	
+	// TODO 수강시간표란
+	// 수강시간표 작성이동
+	@GetMapping("coclasswirte.do")
+	public String coclasswirte() {
+		System.out.println("MypageController coclasswirte" + new Date());
+		
+		return "collegelife/coclasswirte";
+	}
+	
+	// 수강시간표 작성완료
 
 }

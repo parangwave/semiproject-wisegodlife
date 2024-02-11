@@ -70,7 +70,7 @@
             aria-labelledby="navBar__list__dropdown-board"
           >
             <li><a class="dropdown-item" href="mygradecal.do">학점 계산기</a></li>
-            <li><a class="dropdown-item" href="#">수강 시간표</a></li>
+            <li><a class="dropdown-item" href="cotimetable.do">수강 시간표</a></li>
             <li><a class="dropdown-item" href="mycalendar.do">학과 일정 달력</a></li>
           </ul>
         </div>
