@@ -7,6 +7,9 @@
 /* css 변수 */
 @import "./variables.css";
 
+/* darkmode */
+@import "./darkmode.css";
+
 /* navbar */
 @import "./navbar.css";
 

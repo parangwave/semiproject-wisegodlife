@@ -7,10 +7,10 @@
     /* 기본 색들 */
     --white: rgba(255, 255, 255, 1);
     --black: rgba(35, 37, 38, 1);
-    --black-bg: rgba(47, 52, 55, 1);
     --gray-01: rgba(235, 235, 235, 1);
+    --gray-02: rgb(203, 203, 203);
     --gray-02: rgba(151, 151, 151, 1);
-
+    
     /* 컬러 팔레트 */
     --theme-yellow: rgba(255, 231, 153, 1);
     --theme-primary-pink: rgba(248, 119, 177, 1);
@@ -23,6 +23,12 @@
     --nav-bar-bg-color: var(--theme-yellow);
     --board-header-bg-color: var(--body-bg-color);    /* 게시물 block 컬러  */ 
     --search-input-bg-color:rgba(160, 163, 189, 1);
+    --post-bg-color: rgba(242, 241, 250, 1);
+    
+    --dark-bg-color: rgba(47, 52, 55, 1);
+    --dark-nav-bg-color: rgba(71, 69, 98, 1);
+    --dark-section-bg-color: rgba(93, 90, 136, 1);
+
 
     /* margin, pad프로필 수정ding */
     --section-margin: 1rem;
@@ -63,10 +69,3 @@
         --text-color: var(--gray-01);
     }
 } */
-
-.dark-mode, [data-bs-theme=dark] {
-    color-scheme: dark;
-    --bs-body-color: var(--gray-01);
-    --bs-body-bg: var(--black-bg);
-    --theme-yellow: rgba(71, 69, 98, 1);
-}

@@ -257,14 +257,8 @@
   <!-- 이상있으니 확인해야함 -->
     <!-- <script src="./js/animation.js"></script> -->
     
-    <script>
-			function changeMode () {
-				const Body = document.body;
-				Body.classList.toggle("dark-mode");
-
-				const logoImg = document.getElementById("navBar__logo-img");
-				logoImg.classList.toggle("navBar__logo-img-dark");
-			}
-		</script>
+	  <!-- 다크모드 -->
+    <script src="./js/darkmode.js"></script>
+    
 	</body>
 </html>
