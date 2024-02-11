@@ -26,17 +26,12 @@ a {
 </style>
 </head>
 <body>
-	<nav>
-		<table border="1">
-			<tr>
-				<th><a href="">슬갓생 </a></th>
-				<th><a href="">게시판</a></th>
-				<th><a href="">학교생활</a></th>
-				<th><a href="mymain.do">마이페이지</a></th>
-				<th><button>라이트모드</button></th>
-			</tr>
-		</table>
-	</nav>
+  <script>
+    $(document).ready( function() {
+      $("#topnav").load("nav/topnav.jsp");
+    });
+  </script>
+	<nav id="topnav"></nav>
 	
 	<h1>내정보 - 학점계산기</h1>
 	

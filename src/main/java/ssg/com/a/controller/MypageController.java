@@ -35,6 +35,14 @@ public class MypageController {
 	@Autowired
 	HttpServletRequest request;
 
+	// 마이페이지 네비게이션바
+	@GetMapping("mynav.do")
+	public String mynav() {
+		System.out.println("MemberController mynav " + new Date());
+
+		return "nav/mynav";
+	}
+	
 	// TODO 페이지 이동란
 	// 마이페이지 메인화면 이동
 	@GetMapping("mymain.do")

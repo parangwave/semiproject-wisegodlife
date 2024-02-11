@@ -32,6 +32,14 @@ public class FriendController {
 	@Autowired
 	FriendService service;
 	
+	// 상단네비게이션바
+	@GetMapping("topnav.do")
+	public String topnav() {
+		System.out.println("MemberController topnav " + new Date());
+
+		return "nav/topnav";
+	}
+	
 	/* NaverLoginBO */
 	private NaverLoginBo naverLoginBo;
 	private String apiResult = null;
