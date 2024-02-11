@@ -18,11 +18,9 @@ import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.CalendarParam;
 import ssg.com.a.dto.FriendDto;
-import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
 import ssg.com.a.util.CalendarUtil;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -34,14 +32,6 @@ public class MypageController {
 	
 	@Autowired
 	HttpServletRequest request;
-
-	// 마이페이지 네비게이션바
-	@GetMapping("mynav.do")
-	public String mynav() {
-		System.out.println("MemberController mynav " + new Date());
-
-		return "nav/mynav";
-	}
 	
 	// TODO 페이지 이동란
 	// 마이페이지 메인화면 이동

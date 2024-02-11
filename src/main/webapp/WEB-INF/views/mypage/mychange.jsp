@@ -33,7 +33,7 @@ a {
   <script>
     $(document).ready( function() {
       $("#topnav").load("topnav.do");
-      $("#leftmenu").load("mynav.do");
+      $("#leftMenu").load("mynav.do");
     });
   </script>
 	<nav id="topnav"></nav>
