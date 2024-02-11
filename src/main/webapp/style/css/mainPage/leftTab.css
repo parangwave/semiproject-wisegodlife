@@ -19,6 +19,8 @@
   width : 80%;
   margin: 0 auto;
 }
+
+
 /* 프로필 */
 /* 프로필 사진 */
 #mainContainer__leftTab__profile__avatarContainer > img {
@@ -61,9 +63,21 @@
   background-color: transparent;
   border: 2px solid var(--gray-02);
 }
+
 #mainContainer__leftTab__profile__BtnContainer> a:first-of-type {
   margin-right: var(--margin-default);
 }
+
+/* 프로필 버튼 hover */
+#mainContainer__leftTab__profile__BtnContainer > a:hover,
+#mainContainer__leftTab__profile__BtnContainer > a:active {
+	color: var(--white);
+	background-color: var(--gray-02);
+	transform: scale(1.1);
+	transition: transform 0.3s ease;
+}
+
+
 /* 시계 + 날씨 */
 /* 시계 + 날씨 전체 */
 #mainContainer__leftTab__weather {
@@ -93,14 +107,15 @@
   font-weight: var(--header-font-weight);
 }
 
+
 /* 검색 */
 #mainContainer__leftTab__search-placeholder {
   font-family: "Pretendard";
   font-size: calc(var(--header-font-size) - 0.2rem);
 }
 
+
 /* 학교생활 */
 #mainContainer__leftTab__school h1 {
-  
   background-color: var(--theme-primary-blue);
 }

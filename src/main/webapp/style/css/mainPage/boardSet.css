@@ -47,3 +47,12 @@
     border-radius: var(--btn-border-radius);
     border: 2px solid var(--theme-sub-pink);
 }
+
+/* 더보기 버튼 hover */
+.moreBtnContainer > a:hover,
+.moreBtnContainer > a:active {
+	color: var(--white) !important;
+	background-color: var(--theme-sub-pink) !important;
+	transform: scale(1.1);
+	transition: transform 0.3s ease;
+}
