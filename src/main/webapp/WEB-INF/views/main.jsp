@@ -18,6 +18,8 @@
     />
     <!-- css -->
     <link rel="stylesheet" href="./style/css/style.css" />
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
 
   <body class="light-mode" data-bs-theme="light">
@@ -249,8 +251,11 @@
 
 	<!-- 시계 -->
     <script src="./js/mainPage/clock.js"></script>
-	<!-- 시계 -->
+	<!-- 날씨 -->
     <script src="./js/mainPage/weather.js"></script>
+	<!-- animation -->
+  <!-- 이상있으니 확인해야함 -->
+    <!-- <script src="./js/animation.js"></script> -->
     
 	  <!-- 다크모드 -->
     <script src="./js/darkmode.js"></script>
