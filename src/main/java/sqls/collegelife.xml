@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="collegelife">
+
+<select id="getCalendarList" parameterType="ssg.com.a.dto.CalendarParam" resultType="ssg.com.a.dto.CalendarDto">
+	select seq, id, title, content, major, college, rdate, auth, wdate
+	  from calendar
+	 where id=#{id} and substr(rdate, 1, 6)=${yyyyMM} and auth=3 and major=#{major} and college=#{college}
+	    or (substr(rdate, 1, 6)=${yyyyMM} and auth=1 and major=#{major} and college=#{college})
+</select>
+
+<insert id="addCalendarWrite" parameterType="ssg.com.a.dto.CalendarDto">
+	insert into calendar(id, title, content, major, college, auth, rdate, wdate)
+	values (#{id}, #{title}, #{content}, #{major}, #{college}, #{auth}, #{rdate}, now())
+</insert>
+
+<select id="calendarDetail" parameterType="Integer" resultType="ssg.com.a.dto.CalendarDto">
+	select seq, id, title, content, major, college, rdate, auth, wdate
+	  from calendar
+	 where seq=#{seq}
+</select>
+
+<update id="mycalupdateAf" parameterType="ssg.com.a.dto.CalendarDto">
+	update calendar
+	   set title=#{title}, content=#{content}
+	 where id=#{id} and seq=${seq}
+</update>
+
+<delete id="mycaldelete" parameterType="Integer">
+	delete from calendar
+	 where seq=${seq}
+</delete>
+
+</mapper>
