@@ -19,6 +19,24 @@ public class FreeBbsDaoImpl implements FreeBbsDao{
 	
 	String ns = "Bbs.";
 
+	String bl = "mypage.";
+	
+	// 블랙리스트 자유게시판 연동
+	@Override
+	public FreeBbsParam shareMyBlacklist(String id) {
+		return session.selectOne(bl + "shareMyBlacklist", id);
+	}
+	
+	@Override
+	public List<FreeBbsDto> blockBlacklist(FreeBbsParam param) {
+		return session.selectList(bl + "blockBlacklist", param);
+	}
+	
+	@Override
+	public int totalfreebbs(FreeBbsParam param) {
+		return session.selectOne(bl + "totalfreebbs", param);
+	}
+	
 	@Override
 	public List<FreeBbsDto> freeBbsList(FreeBbsParam param) {
 		return session.selectList(ns + "freebbslist", param);
@@ -49,4 +67,6 @@ public class FreeBbsDaoImpl implements FreeBbsDao{
 	public int freeBbsDelete(int seq) {
 		return session.update(ns + "freebbsdelete", seq);
 	}
+
+
 }

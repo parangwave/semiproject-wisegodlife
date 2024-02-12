@@ -16,34 +16,85 @@
 	 where id=#{id}
 </select>
 
+<!-- 블랙리스트 -->
+<!-- 블랙리스트 아이디 추가-->
 <insert id="addBlacklistId" parameterType="ssg.com.a.dto.MyblacklistDto">
 	insert into blacklist(id, blockid, reason, adddate)
 	values (#{id}, #{blockid}, #{reason}, now());
 </insert>
 
+<!-- 블랙리스트 단어 추가-->
 <insert id="addBlacklistWord" parameterType="ssg.com.a.dto.MyblacklistDto">
 	insert into blacklist(id, word, reason, adddate)
 	values (#{id}, #{word}, #{reason}, now());
 </insert>
 
+<!-- 블랙리스트 불러오기-->
 <select id="getMyBlacklist" parameterType="String" resultType="ssg.com.a.dto.MyblacklistDto">
 	select seq, blockid, word, reason, adddate
 	  from blacklist
 	 where id=#{id}
 </select>
 
+<!-- 연동용 블랙리스트 불러오기-->
+<select id="shareMyBlacklist" parameterType="String" resultType="ssg.com.a.dto.FreeBbsParam">
+	select blockid, word
+	  from blacklist
+	 where id=#{id}
+</select>
+
+<!-- 블랙리스트 정보 Bbs에 연동하기 -->
+<select id="blockBlacklist" parameterType="ssg.com.a.dto.FreeBbsParam" resultType="ssg.com.a.dto.FreeBbsDto">
+	select seq, id, ref, step, depth, title, content, wdate, del, readcount from freebbs
+	where not id = #{blockid} and not title like concat('%', #{word}, '%') and not content like concat('%', #{word}, '%')
+	<if test="choice != null and choice != '' and search != null and search != ''">
+		<if test="choice == 'title'">
+			and title like concat('%', #{search}, '%')
+		</if>
+		<if test="choice == 'content'">
+			and content like concat('%', #{search}, '%')
+		</if>
+		<if test="choice == 'writer'">
+			and id=#{search}
+		</if>
+	</if>
+	order by ref desc, step asc
+	limit ${(pageNumber * 10)}, 10
+</select>
+
+<!-- 블랙리스트제외 글의 총수 -->
+<select id="totalfreebbs" parameterType="ssg.com.a.dto.FreeBbsParam" resultType="Integer">
+	select count(*) from freebbs
+	where not id = #{blockid} and not title like concat('%', #{word}, '%') and not content like concat('%', #{word}, '%')
+		<if test="choice != null and choice != '' and search != null and search != ''">
+		<if test="choice == 'title'">
+			and title like concat('%', #{search}, '%')
+		</if>
+		<if test="choice == 'content'">
+			and content like concat('%', #{search}, '%')
+		</if>
+		<if test="choice == 'writer'">
+			and id=#{search}
+		</if>
+	</if>
+</select>
+
+<!-- 정보변경 -->
+<!-- 정보 수정 -->
 <update id="changeMyinfor" parameterType="ssg.com.a.dto.FriendDto">
-	update member
+	update friend
 	   set name=#{name}, email=#{email}
 	 where id=#{id}
 </update>
 
+<!-- 수정후 재 로그인 -->
 <select id="changelogin" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
 	select id, name, email, auth 
-	  from member 
+	  from friend 
 	 where id=#{id}
 </select>
 
+<!-- 회원탈퇴 -->
 <update id="closeAccount" parameterType="String">
 update friend
    set del=del+1, deldate=now()
