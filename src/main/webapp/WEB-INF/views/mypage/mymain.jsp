@@ -9,10 +9,6 @@
 <link rel="stylesheet" href="style/css/style.css">
 <style type="text/css">
 
-body{
-  background-color:var(--body-bg-color)
-}
-
 #header {
 	font-size: 50px;
 	font-weight: var(--header-font-weight);
@@ -62,7 +58,7 @@ body{
 }
 </style>
 </head>
-<body>
+<body class="light-mode" data-bs-theme="light">
   <script>
     $(document).ready( function() {
       $("#topnav").load("topnav.do");

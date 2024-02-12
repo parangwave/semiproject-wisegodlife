@@ -118,7 +118,7 @@
 </header>
 
 <script>
-  function changeMode () {
+  function changeMode() {
     const Body = document.body;
     Body.classList.toggle("dark-mode");
 
