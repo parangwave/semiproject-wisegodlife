@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="./style/css/style.css" />
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- 시간표 불러오기 -->
+    <script type="text/javascript" src="js/mainPage/timetable.js"></script>
   </head>
 
   <body class="light-mode" data-bs-theme="light">
@@ -195,7 +197,7 @@
 
             <!-- 수강시간표 -->
             <ul id="mainContainer__leftTab__school__lectures">
-              <!-- 수강 시간표에서 data import -->
+              <table><tbody></tbody></table>
             </ul>
           </div>
 
