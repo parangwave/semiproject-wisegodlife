@@ -18,7 +18,7 @@
   <nav id="navBar" class="navbar">
     <div class="container-fluid">
       <!-- logo -->
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="main.do">
         <img
           src="./images/full-logo.svg"
           id="navBar__logo-img"
