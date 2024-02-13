@@ -57,7 +57,7 @@
               </div>
             </div>
             <div id="mainContainer__leftTab__profile__BtnContainer">
-              <a class="btn" href="#" role="button">프로필 수정</a>
+              <a class="btn" href="mychange.do" role="button">프로필 수정</a>
               <a class="btn" href="#" role="button">프로필 공유</a>
             </div>
           </div>
