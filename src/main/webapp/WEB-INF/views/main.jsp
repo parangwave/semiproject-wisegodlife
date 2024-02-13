@@ -119,7 +119,7 @@
                 <!-- 데이터 불러와야함 -->
               </ul>
               <div class="moreBtnContainer">
-                <a class="btn" href="#" role="button">더보기</a>
+                <a class="btn" href="/findmate.do" role="button">더보기</a>
               </div>
             </div>
             <div id="mainContainer__boardSet__1stCol__public" class="boardSection">
@@ -128,7 +128,7 @@
                 <!-- 데이터 불러와야함 -->
               </ul>
               <div class="moreBtnContainer">
-                <a class="btn" href="#" role="button">더보기</a>
+                <a class="btn" href="/freebbslist.do" role="button">더보기</a>
               </div>
             </div>
           </div>
@@ -158,7 +158,7 @@
               </div>
               
               <div class="moreBtnContainer">
-                <a class="btn" href="#" role="button">더보기</a>
+                <a class="btn" href="/clublist.do" role="button">더보기</a>
               </div>
             </div>
             <div id="mainContainer__boardSet__2ndCol__deal" class="boardSection">
@@ -167,7 +167,7 @@
                 <!-- 데이터 불러와야함 -->
               </ul>
               <div class="moreBtnContainer">
-                <a class="btn" href="#" role="button">더보기</a>
+                <a class="btn" href="/utbbslist.do" role="button">더보기</a>
               </div>
             </div>
           </div>
