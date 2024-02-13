@@ -4,27 +4,30 @@
 
 <mapper namespace="Friend">
 
-<!-- 회원가입 -->
-<!-- 아이디 체크 -->
+<!-- 회원가입시 중복체크 -->
 <select id="idcheck" parameterType="String" resultType="Integer">
 	select count(*)
 	  from friend 
 	 where id=#{id}
 </select>
+<select id="nicknamecheck" parameterType="String" resultType="Integer">
+	select count(*)
+	  from friend 
+	 where nickname=#{nickname}
+</select>
 
 <!-- 일반 회원가입 -->
 <insert id="addfriend" parameterType="ssg.com.a.dto.FriendDto">
-	insert into friend(id, pw, name, tel, email, college, major, auth, del, regidate, salt)
-	values (#{id}, #{pw}, #{name}, #{tel}, #{email}, #{college}, #{major}, 3, 0, now(), #{salt})
+	insert into friend(id, pw, nickname, name, tel, email, college, major, auth, del, regidate, salt)
+	values (#{id}, #{pw}, #{nickname}, #{name}, #{tel}, #{email}, #{college}, #{major}, 3, 0, now(), #{salt})
 </insert>
 
 <!-- 조교 회원가입 -->
 <insert id="addmajorfriend" parameterType="ssg.com.a.dto.FriendDto">
-	insert into friend(id, pw, name, tel, email, college, major, auth, del, regidate, salt)
-	values (#{id}, #{pw}, #{major}, #{tel}, #{email}, #{college}, #{major}, 1, 0, now(), #{salt})
+	insert into friend(id, pw, nickname, name, tel, email, college, major, auth, del, regidate, salt)
+	values (#{id}, #{pw}, #{nickname}, #{major}, #{tel}, #{email}, #{college}, #{major}, 1, 0, now(), #{salt})
 </insert>
 
-<!-- 로그인 -->
 <!-- 아이디 정보 불러오기 -->
 <select id="idInfo" parameterType="String" resultType="ssg.com.a.dto.FriendDto">
 	select salt, del, deldate
@@ -34,12 +37,10 @@
 
 <!-- 로그인 -->
 <select id="login" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
-	select id, pw, name, tel, email, college, major, auth, del, regidate
+	select id, pw, nickname, name, tel, email, college, major, auth, del, regidate, introduce
 	  from friend 
 	 where id=#{id} and pw=#{pw}
 </select>
-
-<!-- 네이버 로그인 -->
 <select id="naverlogin" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
 	select id, name, tel, email, college, auth, del, regidate from friend where email=#{email}
 </select>

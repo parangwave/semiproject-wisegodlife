@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입</title>
+<title>조교 회원가입</title>
 <!-- 부트스트랩 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
@@ -25,71 +25,76 @@
 </head>
 <body>
 
-<h2>회원가입</h2>
+<h2>조교 회원가입</h2>
 
 <div class="center">
 
-<form action="assiregiAf.do" id="frm" method="post">
-<br/>
-<table class="table">
-<tr>
-	<th>아이디</th>
-	<td>
-		<input type="text" class="form-control" name="id" id="id" size="20">
-		<p id="idcheck" style="font-size: 16px"></p>
-		<input type="button" class="btn btn-primary" id="id_chk_btn" value="id확인">
-	</td>
-</tr>
-<tr>
-	<th>패스워드</th>
-	<td>
-		<input type="text" class="form-control" name="pw" size="20">
-	</td>
-</tr>
-<tr>
-	<th>이름</th>
-	<td>
-		<input type="text" class="form-control" name="name" size="20">
-	</td>
-</tr>
-<tr>
-	<th>전화번호</th>
-	<td>
-		<input type="text" class="form-control" name="tel" size="20">
-	</td>
-</tr>
-<tr>
-	<th>이메일</th>
-	<td>
-		<input type="text" class="form-control" name="email" size="20">
-	</td>
-</tr>
-<tr>
-	<th>대학교</th>
-	<td>
-		<input type="text" class="form-control" name="college" size="20">
-	</td>
-</tr>
-<tr>
-	<th>학과</th>
-	<td>
-		<select name="major" id="major">
-      <option value="1">영어영문학과</option>
-      <option value="2">재료공학과</option>
-      <option value="3">화학공학과</option>
-    </select>
-	</td>
-</tr>
-
-<tr>
-	<td colspan="2">
-		<div align="center">
-			<input type="button" id="regibtn" class="btn btn-primary" value="회원가입">
-		</div>
-	</td>
-</tr>
-</table>
-</form>
+  <form action="assiregiAf.do" id="frm" method="post">
+    <table class="table">
+      <tr>
+        <th>아이디</th>
+        <td>
+          <input type="text" class="form-control" name="id" id="id" size="20">
+          <p id="idcheck" style="font-size: 16px"></p>
+          <input type="button" class="btn btn-primary" id="id_chk_btn" value="id확인">
+        </td>
+      </tr>
+      <tr>
+        <th>패스워드</th>
+        <td>
+          <input type="text" class="form-control" name="pw" size="20">
+        </td>
+      </tr>
+      <tr>
+        <th>닉네임</th>
+        <td>
+          <input type="text" class="form-control" name="nickname" size="20">
+        </td>
+      </tr>
+      <tr>
+        <th>이름</th>
+        <td>
+          <input type="text" class="form-control" name="name" size="20">
+        </td>
+      </tr>
+      <tr>
+        <th>전화번호</th>
+        <td>
+          <input type="text" class="form-control" name="tel" size="20">
+        </td>
+      </tr>
+      <tr>
+        <th>이메일</th>
+        <td>
+          <input type="text" class="form-control" name="email" size="20">
+        </td>
+      </tr>
+      <tr>
+        <th>대학교</th>
+        <td>
+          <input type="text" class="form-control" name="college" size="20">
+        </td>
+      </tr>
+      <tr>
+        <th>학과</th>
+        <td>
+          <select name="major" id="major">
+            <option value="1">영어영문학과</option>
+            <option value="2">재료공학과</option>
+            <option value="3">화학공학과</option>
+          </select>
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan="2">
+          <div align="center">
+            <input type="button" id="regibtn" class="btn btn-primary" value="회원가입">
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
 </div>
 
 <script type="text/javascript">

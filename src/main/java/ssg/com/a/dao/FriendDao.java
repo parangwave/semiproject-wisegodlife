@@ -5,6 +5,7 @@ import ssg.com.a.dto.FriendDto;
 public interface FriendDao {
 
 	int idcheck(String id);
+	int nicknamecheck(String nickname);
 	int addfriend(FriendDto dto);
 	FriendDto login(FriendDto dto);
 	

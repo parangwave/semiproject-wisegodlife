@@ -22,6 +22,10 @@ public class FriendDaoImpl implements FriendDao{
 	public int idcheck(String id) {
 		return session.selectOne(ns + "idcheck", id);
 	}
+	@Override
+	public int nicknamecheck(String nickname) {
+		return session.selectOne(ns + "nicknamecheck", nickname);
+	}
 
 	@Override
 	public int addfriend(FriendDto dto) {

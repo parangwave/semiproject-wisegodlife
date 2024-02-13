@@ -12,11 +12,12 @@ create table blacklist(
 );
 
 -- 회원가입 DB생성
--- id, pw, name, tel, email, college, major, auth, del, deldate, regidate, salt
+-- id, pw, nickname, name, tel, email, college, major, auth, del, deldate, regidate, salt, introduce
 -- auth = 3 기본 회원, auth = 1 학과 조교, auth = 5 총괄 관리자
 create table friend(
 	id varchar(50) primary key,
 	pw varchar(1000) not null,
+	nickname varchar(50) not null,
 	name varchar(50) not null,
 	tel	varchar(50) not null,
 	email varchar(200) not null,
@@ -26,7 +27,8 @@ create table friend(
 	del decimal(3) not null,
 	deldate timestamp,
 	regidate timestamp not null,
-	salt varchar(1000) not null
+	salt varchar(1000) not null,
+	introduce varchar(1000)
 );
 
 -- 좋아요 DB생성
@@ -67,8 +69,14 @@ select *
   from friend
 ;
 
+-- 회원가입 유니크 키 설정
+ALTER TABLE friend 
+ADD UNIQUE INDEX email_UNIQUE (email ASC) VISIBLE,
+ADD UNIQUE INDEX name_UNIQUE (name ASC) VISIBLE;
+;
+
 -- update table
-ALTER TABLE friend ADD COLUMN major int not null;
+ALTER TABLE friend ADD COLUMN introduce varchar(1000);
 ALTER TABLE friend MODIFY COLUMN pw varchar(1000) not null;
 ALTER TABLE calendar MODIFY COLUMN college varchar(100);
 
@@ -94,9 +102,9 @@ select seq, blockid, word, reason, adddate
  ;
  
 -- 아이디를 통해 개인정보 수정
-update member
-   set name='고창석', email='kbo.daum.net'
- where id='abc'
+update friend
+   set nickname='사고뭉치', introduce='잘 부탁드립니다.'
+ where id='test'
 ;
 
 -- 회원탈퇴 close account

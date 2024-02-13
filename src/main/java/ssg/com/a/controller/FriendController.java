@@ -86,6 +86,22 @@ public class FriendController {
 		return "YES";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "nicknamecheck.do", method = RequestMethod.GET, 
+											produces = "application/String; charset=utf-8") // 문자열을 리턴할 때만 필요하다
+	public String nicknamecheck(String nickname) {
+		System.out.println("HelloController nicknamecheck " + new Date());
+		System.out.println("nickname : " + nickname);
+		
+		boolean b = service.nicknamecheck(nickname);
+		
+		if(b) {
+			return "NO";
+		}
+		return "YES";
+	}
+	
+	
 	@PostMapping("regiAf.do")
 	public String regiAf(FriendDto dto, Model model) {
 		System.out.println("HelloController regiAf " + new Date());
