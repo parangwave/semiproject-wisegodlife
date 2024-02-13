@@ -105,8 +105,8 @@ select seq, blockid, word, reason, adddate
  
 -- 아이디를 통해 개인정보 수정
 update friend
-   set nickname='사고뭉치', introduce='잘 부탁드립니다.'
- where id='test'
+   set profile='mainprofile.png', changeprofile='mainprofile.png'
+ where id='test1'
 ;
 
 -- 회원탈퇴 close account

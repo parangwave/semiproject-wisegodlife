@@ -29,13 +29,15 @@ public class FriendDaoImpl implements FriendDao{
 
 	@Override
 	public int addfriend(FriendDto dto) {
-		try {
+		try {	// 비밀번호 암호화 및 랜덤 salt 저장
 			FriendUtil.pwInsert(dto);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		// System.out.println("Pw : " +dto.getPw() + " / salt : " + dto.getSalt());
-
+		
+		dto.setChangeprofile("mainprofile.png");
+		dto.setProfile("mainprofile.png");
+		
 		return session.insert(ns + "addfriend", dto);
 	}
 	
