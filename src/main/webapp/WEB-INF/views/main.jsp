@@ -25,110 +25,15 @@
   </head>
 
   <body class="light-mode" data-bs-theme="light">
+
     <!-- nav-bar start -->
-    <!-- 공통으로 들어갈 것임 -->
-    <header id="navBar-container">
-      <!-- nav-bar -->
-      <nav id="navBar" class="navbar">
-        <div class="container-fluid">
-          <!-- logo -->
-          <a class="navbar-brand" href="#">
-            <img
-              src="./images/full-logo.svg"
-              id="navBar__logo-img"
-              alt="슬갓생 logo"
-              width="100"
-              height="100"
-            />
-          </a>
+    <script>
+      $(document).ready( function() {
+        $("#topnav").load("topnav.do");
+      });
+    </script>
 
-          <!-- link 목록 -->
-          <div id="navBar__list">
-            <!-- 게시판 dropdown -->
-            <div class="dropdown">
-              <button
-                class="btn dropdown-toggle"
-                type="button"
-                id="navBar__list__dropdown-board"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                게시판
-              </button>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="navBar__list__dropdown-board"
-              >
-                <li><a class="dropdown-item" href="#">자유 게시판</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">메이트 구하기 게시판</a>
-                </li>
-                <li><a class="dropdown-item" href="#">동아리 게시판</a></li>
-                <li><a class="dropdown-item" href="#">중고거래 게시판</a></li>
-              </ul>
-            </div>
-
-            <!--  학교생활 dropdown -->
-            <div class="dropdown">
-              <button
-                class="btn dropdown-toggle"
-                type="button"
-                id="navBar__list__dropdown-school"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                학교생활
-              </button>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="navBar__list__dropdown-board"
-              >
-                <li><a class="dropdown-item" href="#">학점 계산기</a></li>
-                <li><a class="dropdown-item" href="#">수강 시간표</a></li>
-                <li><a class="dropdown-item" href="#">학과 일정 달력</a></li>
-              </ul>
-            </div>
-
-            <div class="dropdown">
-              <button
-                class="btn dropdown-toggle"
-                type="button"
-                id="navBar__list__dropdown-mypage"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                마이페이지
-              </button>
-              <ul
-                class="dropdown-menu"
-                aria-labelledby="navBar__list__dropdown-board"
-              >
-                <li><a class="dropdown-item" href="#">내 프로필</a></li>
-
-                <li><a class="dropdown-item" href="#">내가 쓴 댓글</a></li>
-                <li><a class="dropdown-item" href="#">내가 쓴 게시물</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">내가 좋아한 게시물</a>
-                </li>
-                <li><a class="dropdown-item" href="#">차단리스트</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- 라이트/다크 모드 toggle -->
-          <div class="form-check form-switch mx-8">
-            <input
-              type="checkbox"
-              id="navbar__modeSwitchToggle"
-              class="form-check-input p-2"
-              role="switch"
-              onclick="changeMode()"
-              />
-          </div>
-          
-        </div>
-      </nav>
-    </header>
+    <nav id="topnav"></nav>
     <!-- nav-bar end -->
 
 
