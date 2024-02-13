@@ -1,7 +1,6 @@
 <%@page import="ssg.com.a.dto.FreeBbsDto"%>
 <%@page import="ssg.com.a.dto.FreeBbsParam"%>
 <%@page import="ssg.com.a.util.BbsUtil"%>
-<%@page import="ssg.com.a.dto.BbsDto"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
