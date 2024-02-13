@@ -74,6 +74,10 @@
     border: 2px solid var(--gray-01);
 }
 
+.dark-mode .mainContainer__boardSet__2ndCol__club-content-text > p {
+    color: var(--gray-01);
+    opacity: 0.6;
+}
 /* .dark-mode .mainContainer__boardSet__2ndCol__club-content-text > p {
     color: var(--gray-02);
 } */
