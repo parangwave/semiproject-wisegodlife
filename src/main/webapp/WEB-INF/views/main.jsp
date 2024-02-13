@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -39,7 +41,7 @@
 									<li><a class="dropdown-item" href="freebbslist.do">자유 게시판</a></li>
 									<li><a class="dropdown-item" href="#">메이트 구하기 게시판</a></li>
 									<li><a class="dropdown-item" href="#">동아리 게시판</a></li>
-									<li><a class="dropdown-item" href="#">중고거래 게시판</a></li>
+									<li><a class="dropdown-item" href="utbbslist.do">중고거래 게시판</a></li>
 								</ul>
 							</div>
 							<!--  학교생활 dropdown -->

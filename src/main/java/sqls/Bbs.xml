@@ -65,8 +65,24 @@
 	where seq=#{seq}
 </update>
 
-
-
 <!-- 자유게시판 end -->
 
+<!-- 중고거래 게시판 -->
+
+<select id="utbbslist" resultType="ssg.com.a.dto.UtBbsDto">
+	select seq, id, title, content, filename, newfilename, readcount, regdate from utbbs
+	order by regdate desc;
+</select>
+
+<insert id="sumbnail" parameterType="ssg.com.a.dto.UtBbsDto">
+	insert into utbbs(id, title, content, filename, newfilename, readcount, regdate)
+	values (#{id}, #{title}, #{content}, #{filename}, #{newfilename}, 0, now())
+</insert>
+
+<select id="getutbbs" parameterType="Integer" resultType="ssg.com.a.dto.UtBbsDto">
+	select seq, id, title, content, filename, newfilename, readcount, regdate from utbbs
+	where seq=#{seq}
+</select>
+
+<!-- 중고거래 게시판 end -->
 </mapper>
