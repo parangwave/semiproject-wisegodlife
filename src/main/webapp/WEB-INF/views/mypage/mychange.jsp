@@ -1,9 +1,9 @@
-<%@page import="ssg.com.a.dto.MemberDto"%>
+<%@page import="ssg.com.a.dto.FriendDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
-	MemberDto login = (MemberDto)session.getAttribute("login");
+	FriendDto login = (FriendDto)session.getAttribute("login");
 %>
 <!DOCTYPE html>
 <html>
@@ -62,7 +62,7 @@ a {
 				</tr>
 				<tr>
 					<th>닉네임*</th>
-					<td><input type="text" name="nickname"></td>
+					<td><input type="text" name="nickname" value="<%=login.getNickname() %>"></td>
 					<td>
 						<button type="button" onclick="nick">닉네임 중복확인</button>
 					</td>
@@ -73,11 +73,11 @@ a {
 				</tr>
 				<tr>
 					<th>대학교</th>
-					<td colspan="3"><input type="text" name="univ"></td>
+					<td colspan="3"><input type="text" name="college" value="<%=login.getCollege() %>"></td>
 				</tr>
 				<tr>
 					<th>연락처*</th>
-					<td colspan="3"><input type="text" name="tel"></td>
+					<td colspan="3"><input type="text" name="tel" value="<%=login.getTel() %>"></td>
 				</tr>
 				<tr>
 					<th>이메일</th>
@@ -85,7 +85,15 @@ a {
 				</tr>
 				<tr>
 					<th>자기소개</th>
-					<td colspan="3"><textarea rows="5" cols="45" name="selfin"> 자기소개 나오는칸입니다. </textarea></td>
+					<td colspan="3"><textarea rows="5" cols="45" name="selfin" placeholder="자기소개를 작성해주세요">
+					<% if (login.getIntroduce() == null) {
+							%>
+							
+							<%	
+						} else {
+							%><%=login.getIntroduce() %><%						
+						}					
+					%> </textarea></td>					 
 				</tr>
 				<tr>
 					<td colspan="4"><input type="submit" value="수정완료"></td>

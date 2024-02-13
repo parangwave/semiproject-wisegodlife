@@ -4,7 +4,8 @@ import ssg.com.a.dto.FriendDto;
 
 public interface FriendService {
 	
-	boolean idcheck(String id);	
+	boolean idcheck(String id);
+	boolean nicknamecheck(String nickname);
 	boolean addfriend(FriendDto dto);	
 	FriendDto login(FriendDto dto);
 	
