@@ -34,7 +34,19 @@
 		<!-- pagination -->
 		<script type="text/javascript" src="./js/jquery.twbsPagination.min.js"></script>
 	</head>
+	<style>
+		.center {
+			margin: 60px auto;
+			width: 1000px;
+			text-align: center;
+		}
 	
+		th, td {
+		border : 1px solid lightgray;
+		text-align: center;
+		vertical-align: middle;
+	}
+	</style>
 	<body class="light-mode" data-bs-theme="light">
 		<!-- nav-bar -->
 		<div id="container__navBar">
@@ -63,7 +75,7 @@
 									<li><a class="dropdown-item" href="freebbslist.do">자유 게시판</a></li>
 									<li><a class="dropdown-item" href="#">메이트 구하기 게시판</a></li>
 									<li><a class="dropdown-item" href="#">동아리 게시판</a></li>
-									<li><a class="dropdown-item" href="#">중고거래 게시판</a></li>
+									<li><a class="dropdown-item" href="utbbslist.do">중고거래 게시판</a></li>
 								</ul>
 							</div>
 							<!--  학교생활 dropdown -->
