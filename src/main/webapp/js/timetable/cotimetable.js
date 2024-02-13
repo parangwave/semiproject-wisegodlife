@@ -21,9 +21,26 @@ document.addEventListener("DOMContentLoaded", function() {
       const startTime = document.getElementById("startTimeSelect").value;
       const endTime = document.getElementById("endTimeSelect").value;
       // console.log(document.getElementById("courseNameInput").value);
+      
+      const storedCourses = localStorage.getItem("courses");
+      if (storedCourses) {
+        courses = JSON.parse(storedCourses);
+      }
+      for (i = 0; i < courses.length; i++) {
+        if (courses[i].day === day && courses[i].startTime === startTime ) {
+          alert('작성하신 강의가 중복되어 작성이 불가능합니다.');
+          return;
+        }        
+      }
+
+      if (startTime >= endTime) {
+        alert('시작시간과 종료시간이 잘못되었습니다');
+        return;
+      }
 
       if (document.getElementById("courseNameInput").value === "" || document.getElementById("courseClassInput").value === "") {
         alert('수업명 또는 강의실을 제대로 작성해주세요');
+        return;
       } else {
         const courseName = document.getElementById("courseNameInput").value + " (" + document.getElementById("courseClassInput").value + ")";
         // console.log(courseName);
