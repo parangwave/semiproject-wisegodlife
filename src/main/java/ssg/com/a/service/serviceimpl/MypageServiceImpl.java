@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service;
 
 import ssg.com.a.dao.MypageDao;
 import ssg.com.a.dto.BbsComment;
-import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.CalendarDto;
+import ssg.com.a.dto.CalendarParam;
+import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
@@ -20,17 +21,12 @@ public class MypageServiceImpl implements MypageService {
 	MypageDao dao;
 
 	@Override
-	public List<CalendarDto> getCalendarList(String id, String yyyyMM) {
-		return dao.getCalendarList(id, yyyyMM);
-	}
-
-	@Override
 	public List<BbsComment> getMyCommentList(String id) {
 		return dao.getMyCommentList(id);
 	}
 
 	@Override
-	public List<BbsDto> getMyWriteList(String id) {
+	public List<FreeBbsDto> getMyWriteList(String id) {
 		return dao.getMyWriteList(id);
 	}
 
@@ -63,6 +59,5 @@ public class MypageServiceImpl implements MypageService {
 	public boolean closeAccount(String id) {
 		return dao.closeAccount(id)>0?true:false;
 	}
-	
 	
 }

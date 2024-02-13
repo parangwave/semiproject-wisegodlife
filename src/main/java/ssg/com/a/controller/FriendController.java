@@ -86,6 +86,22 @@ public class FriendController {
 		return "YES";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "nicknamecheck.do", method = RequestMethod.GET, 
+											produces = "application/String; charset=utf-8") // 문자열을 리턴할 때만 필요하다
+	public String nicknamecheck(String nickname) {
+		System.out.println("HelloController nicknamecheck " + new Date());
+		System.out.println("nickname : " + nickname);
+		
+		boolean b = service.nicknamecheck(nickname);
+		
+		if(b) {
+			return "NO";
+		}
+		return "YES";
+	}
+	
+	
 	@PostMapping("regiAf.do")
 	public String regiAf(FriendDto dto, Model model) {
 		System.out.println("HelloController regiAf " + new Date());
@@ -106,10 +122,10 @@ public class FriendController {
 		System.out.println("HelloController loginAf " + new Date());
 
 		FriendDto login = service.login(dto);
-		System.out.println(login.toString());
+		// System.out.println(login.toString());
 		
 		String loginMsg = "LOGIN_FAIL";
-		if (login.getName() == null) { // 아이디가 없을때
+		if (login == null) { // 아이디가 없거나 비밀번호가 틀렸을때
 			model.addAttribute("loginMsg", loginMsg);
 			
 			return "message";
@@ -122,9 +138,12 @@ public class FriendController {
 			return "message";
 		}
 		
-		if(login != null) {											//로그인 성공
-			req.getSession().setAttribute("login", login);			//로그인한 정보 세션에 저장
+		if(login != null && login.getAuth() == 1) {
+			req.getSession().setAttribute("login", login);
 //			req.getSession().setMaxInactiveInterval(60 * 60 * 24);
+			loginMsg = "ASSILOGIN_SUCCESS";
+		} else if (login != null) {
+			req.getSession().setAttribute("login", login);
 			loginMsg = "LOGIN_SUCCESS";	
 		}
 
@@ -206,6 +225,31 @@ public class FriendController {
 		}
 
 		model.addAttribute("loginNaverMsg", loginNaverMsg);
+		return "message";
+	}
+	
+	// TODO 조교 회원가입 및 로그인
+	// 조교 회원가입 페이지
+	@GetMapping("assiregi.do")
+	public String assiregi() {
+		System.out.println("MemberController assiregi " + new Date());
+
+		return "friend/assiregi";
+	}
+	// 조교 회원가입 완료
+	@PostMapping("assiregiAf.do")
+	public String assiregi(FriendDto dto, Model model) {
+		System.out.println("HelloController assiregi " + new Date());
+		
+		System.out.println(dto.getMajor());
+		boolean b = service.addmajorfriend(dto);
+		String assiregiMsg = "ASSI_YES";
+		if(!b) {
+			assiregiMsg = "ASSI_NO";
+		}
+		
+		model.addAttribute("assiregiMsg", assiregiMsg);
+		
 		return "message";
 	}
 }

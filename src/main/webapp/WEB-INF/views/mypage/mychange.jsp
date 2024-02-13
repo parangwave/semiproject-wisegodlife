@@ -1,15 +1,17 @@
-<%@page import="ssg.com.a.dto.MemberDto"%>
+<%@page import="ssg.com.a.dto.FriendDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
-	MemberDto login = (MemberDto)session.getAttribute("login");
+	FriendDto login = (FriendDto)session.getAttribute("login");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="style/css/style.css">
 <style type="text/css">
 #mymain {
 	display: flex;
@@ -30,76 +32,39 @@ a {
 </style>
 </head>
 <body>	
-	<nav>
-		<table border="1">
-			<tr>
-				<th><a href="">슬갓생 </a></th>
-				<th><a href="">게시판</a></th>
-				<th><a href="">학교생활</a></th>
-				<th><a href="mymain.do">마이페이지</a></th>
-				<th><button>라이트모드</button></th>
-			</tr>
-		</table>
-	</nav>
+  <script>
+    $(document).ready( function() {
+      $("#topnav").load("topnav.do");
+      $("#leftMenu").load("mynav.do");
+    });
+  </script>
+	<nav id="topnav"></nav>
 	
-	<h1>내정보 - 개인정보 변경</h1>
+	<header id="header">	
+    <h1>내정보 - 개인정보 변경</h1>
+	</header>
 	
-	<main id="mymain">	
-		<table id="leftMenu" border="1">
-			<tr>
-				<th><a href="mymain.do">기본정보</a></th>
-			</tr>
-			<tr>
-				<th><a href="">수강 시간표 작성</a></th>
-			</tr>	
-			<tr>
-				<th><a href="mycalendar.do">학과 일정달력</a></th>
-			</tr>	
-			<tr>
-				<th><a href="mygradecal.do">학점 계산기</a></th>
-			</tr>	
-			<tr>
-				<th><a href="">메시지</a></th>
-			</tr>	
-			<tr>
-				<th><a href="">친구 정보</a></th>
-			</tr>	
-			<tr>
-				<th><a href="mywrite.do">작성한 댓글 및 게시글</a></th>
-			</tr>	
-			<tr>
-				<th><a href="mylike.do">좋아요한 게시글</a></th>
-			</tr>
-			<tr>
-				<th><a href="myblacklist.do">블랙리스트</a></th>
-			</tr>	
-			<tr>
-				<th><a href="mychange.do">개인정보 변경</a></th>
-			</tr>	
-			<tr>
-				<th><a href="">학교 인증</a></th>
-			</tr>
-			<tr>
-				<th><a href="">회원 탈퇴</a></th>
-			</tr>
-		</table>
-		
-		<form action="mychangeAf.do" method="post">
+	<main id="mymain">
+    <leftmenu id="leftMenu"></leftmenu>
+    
+		<form action="mychangeAf.do" method="post" enctype="multipart/form-data">
 			<table id="rightContent" border="1">
 				<tr>
 					<th colspan="4"> * 표시가 있는것은 필수 입력란입니다.</th>
 				</tr>
 				<tr>
 					<th rowspan="2">
-						 프로필사진칸<br/><br/>
-						 <button type="button">프로필 사진변경</button>
-					</th>
+						<img id="profilepreview" src="profile/<%= login.getChangeprofile() %>"/>
+            <br/><br/>
+            프로필 사진 업로드
+            <input type="file" name="filepicture">
+          </th>
 					<th>아이디</th>
 					<td colspan="2"><input type="text" name="id" value="<%=login.getId() %>" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<th>닉네임*</th>
-					<td><input type="text" name="nickname"></td>
+					<td><input type="text" name="nickname" value="<%=login.getNickname() %>"></td>
 					<td>
 						<button type="button" onclick="nick">닉네임 중복확인</button>
 					</td>
@@ -110,11 +75,11 @@ a {
 				</tr>
 				<tr>
 					<th>대학교</th>
-					<td colspan="3"><input type="text" name="univ"></td>
+					<td colspan="3"><input type="text" name="college" value="<%=login.getCollege() %>"></td>
 				</tr>
 				<tr>
 					<th>연락처*</th>
-					<td colspan="3"><input type="text" name="tel"></td>
+					<td colspan="3"><input type="text" name="tel" value="<%=login.getTel() %>"></td>
 				</tr>
 				<tr>
 					<th>이메일</th>
@@ -122,7 +87,15 @@ a {
 				</tr>
 				<tr>
 					<th>자기소개</th>
-					<td colspan="3"><textarea rows="5" cols="45" name="selfin"> 자기소개 나오는칸입니다. </textarea></td>
+					<td colspan="3"><textarea rows="5" cols="45" name="selfin" placeholder="자기소개를 작성해주세요">
+					<% if (login.getIntroduce() == null) {
+							%>
+							
+							<%	
+						} else {
+							%><%=login.getIntroduce() %><%						
+						}					
+					%> </textarea></td>					 
 				</tr>
 				<tr>
 					<td colspan="4"><input type="submit" value="수정완료"></td>
@@ -130,5 +103,24 @@ a {
 			</table>
 		</form>
 	</main>
+
+<% 
+  String fupload = request.getServletContext().getRealPath("/profile");
+%>
+<script>
+  $(document).ready(function() {
+    if ("<%= login.getProfile()%>" != null) {
+      let reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('profilepreview').src = e.target.result;
+      }
+      reader.readAsDataURL("<%= fupload %>");
+    } else {
+      document.getElementById('profilepreview').src = "";
+    }
+  });
+</script>
+
+
 </body>
 </html>

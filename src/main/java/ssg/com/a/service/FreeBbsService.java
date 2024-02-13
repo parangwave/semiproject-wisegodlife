@@ -19,4 +19,8 @@ public interface FreeBbsService {
 
 	boolean freeBbsDelete(int seq);
 
+	// 블랙리스트 불러오기 및 제외 글 불러오기
+	FreeBbsParam shareMyBlacklist(String id);
+	List<FreeBbsDto> blockBlacklist(FreeBbsParam param);
+	int totalfreebbs(FreeBbsParam param);
 }

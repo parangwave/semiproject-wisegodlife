@@ -16,6 +16,22 @@ public class FreeBbsServiceImpl implements FreeBbsService {
 	@Autowired
 	FreeBbsDao dao;
 
+	// 블랙리스트 자유게시판 연동
+	@Override
+	public FreeBbsParam shareMyBlacklist(String id) {
+		return dao.shareMyBlacklist(id);
+	}
+	
+	@Override
+	public List<FreeBbsDto> blockBlacklist(FreeBbsParam param) {
+		return dao.blockBlacklist(param);
+	}
+
+	@Override
+	public int totalfreebbs(FreeBbsParam param) {
+		return dao.totalfreebbs(param);
+	}
+	
 	@Override
 	public List<FreeBbsDto> freeBbsList(FreeBbsParam param) {
 		return dao.freeBbsList(param);
@@ -47,4 +63,5 @@ public class FreeBbsServiceImpl implements FreeBbsService {
 		int count = dao.freeBbsDelete(seq);
 		return count > 0 ? true : false;
 	}
+
 }

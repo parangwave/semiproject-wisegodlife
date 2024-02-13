@@ -5,14 +5,34 @@ public class CalendarParam {
 	// 학과달력 불러오기 위한 Dto
 	private String id;
 	private String yyyyMM;
+	private int major;
+	private String college;
 	
 	public CalendarParam() {
 	}
 
-	public CalendarParam(String id, String yyyyMM) {
+	public CalendarParam(String id, String yyyyMM, int major, String college) {
 		super();
 		this.id = id;
 		this.yyyyMM = yyyyMM;
+		this.major = major;
+		this.college = college;
+	}
+
+	public int getMajor() {
+		return major;
+	}
+
+	public void setMajor(int major) {
+		this.major = major;
+	}
+
+	public String getCollege() {
+		return college;
+	}
+
+	public void setCollege(String college) {
+		this.college = college;
 	}
 
 	public String getId() {
@@ -33,8 +53,6 @@ public class CalendarParam {
 
 	@Override
 	public String toString() {
-		return "CalendarParam [id=" + id + ", yyyyMM=" + yyyyMM + "]";
+		return "CalendarParam [id=" + id + ", yyyyMM=" + yyyyMM + ", major=" + major + ", college=" + college + "]";
 	}
-	
-
 }

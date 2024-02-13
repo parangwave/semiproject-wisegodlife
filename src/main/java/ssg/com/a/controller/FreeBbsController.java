@@ -1,9 +1,30 @@
 package ssg.com.a.controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.Principal;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
+import javax.servlet.AsyncContext;
+import javax.servlet.DispatcherType;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpUpgradeHandler;
+import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +33,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ssg.com.a.dto.BbsDto;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
+import ssg.com.a.dto.FriendDto;
 import ssg.com.a.service.FreeBbsService;
 
 @Controller
@@ -22,16 +43,29 @@ public class FreeBbsController {
 
 	@Autowired
 	FreeBbsService service;
+	
+	@Autowired
+	HttpServletRequest request;
 
 	@GetMapping("freebbslist.do")
 	public String freeBbsList(Model model, FreeBbsParam param) {
 		System.out.println("FreeBbsController freeBbsList " + new Date());
-
-		// 글 목록
-		List<FreeBbsDto> list = service.freeBbsList(param);
-
-		// 글 총수
-		int count = service.allFreeBbs(param);
+			
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
+		int count = 0;
+		List<FreeBbsDto> list = null;
+		
+		FreeBbsParam bl = service.shareMyBlacklist(login.getId());
+		if (bl != null) {
+			param.setBlockid(bl.getBlockid());
+			param.setWord(bl.getWord());
+			
+			list = service.blockBlacklist(param);
+			count = service.totalfreebbs(param);			
+		} else {
+			list = service.freeBbsList(param);
+			count = service.allFreeBbs(param);
+		}
 
 		// 페이지 계산
 		int pageBbs = count / 10;

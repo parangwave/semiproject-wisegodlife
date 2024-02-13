@@ -4,33 +4,83 @@ public class FriendDto {
 	
 	private String id;
 	private String pw;
+	private String nickname;
 	private String name;
 	private String tel;
 	private String email;
 	private String college;
+	private int major;
 	private int auth;
 	private int del;
 	private String deldate;
 	private String regidate;
 	private String salt;
+	private String introduce;
+	private String profile;
+	private String changeprofile;
 	
 	public FriendDto() {
 	}
 
-	public FriendDto(String id, String pw, String name, String tel, String email, String college, int auth, int del,
-			String deldate, String regidate, String salt) {
+	public FriendDto(String id, String pw, String nickname, String name, String tel, String email, String college,
+			int major, int auth, int del, String deldate, String regidate, String salt, String introduce, String profile, String changeprofile) {
 		super();
 		this.id = id;
 		this.pw = pw;
+		this.nickname = nickname;
 		this.name = name;
 		this.tel = tel;
 		this.email = email;
 		this.college = college;
+		this.major = major;
 		this.auth = auth;
 		this.del = del;
 		this.deldate = deldate;
 		this.regidate = regidate;
 		this.salt = salt;
+		this.introduce = introduce;
+		this.profile = profile;
+		this.changeprofile = changeprofile;
+	}
+
+	public String getChangeprofile() {
+		return changeprofile;
+	}
+
+	public void setChangeprofile(String changeprofile) {
+		this.changeprofile = changeprofile;
+	}
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+
+	public int getMajor() {
+		return major;
+	}
+
+	public void setMajor(int major) {
+		this.major = major;
 	}
 
 	public String getDeldate() {
@@ -123,8 +173,9 @@ public class FriendDto {
 
 	@Override
 	public String toString() {
-		return "FriendDto [id=" + id + ", pw=" + pw + ", name=" + name + ", tel=" + tel + ", email=" + email
-				+ ", college=" + college + ", auth=" + auth + ", del=" + del + ", deldate=" + deldate + ", regidate="
-				+ regidate + ", salt=" + salt + "]";
+		return "FriendDto [id=" + id + ", pw=" + pw + ", nickname=" + nickname + ", name=" + name + ", tel=" + tel
+				+ ", email=" + email + ", college=" + college + ", major=" + major + ", auth=" + auth + ", del=" + del
+				+ ", deldate=" + deldate + ", regidate=" + regidate + ", salt=" + salt + ", introduce=" + introduce
+				+ ", profile=" + profile + ", changeprofile=" + changeprofile + "]";
 	}
 }

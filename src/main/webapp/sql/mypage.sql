@@ -12,29 +12,25 @@ create table blacklist(
 );
 
 -- 회원가입 DB생성
--- id, pw, name, tel, email, college, auth, del, deldate, regidate, salt
--- auth = 3 기본 회원, auth = 5 총괄 관리자
+-- id, pw, nickname, name, tel, email, college, major, auth, del, deldate, regidate, salt, introduce, profile, changeprofile
+-- auth = 3 기본 회원, auth = 1 학과 조교, auth = 5 총괄 관리자
 create table friend(
 	id varchar(50) primary key,
 	pw varchar(1000) not null,
+	nickname varchar(50) not null,
 	name varchar(50) not null,
 	tel	varchar(50) not null,
 	email varchar(200) not null,
 	college varchar(100) not null,
+	major int not null,
 	auth decimal(3) not null,
 	del decimal(3) not null,
 	deldate timestamp,
 	regidate timestamp not null,
-	salt varchar(1000) not null
-);
-
--- 멤버 더미DB 생성
-create table member(
-	id varchar(50) primary key,
-	pw varchar(50) not null,
-	name varchar(50) not null,
-	email varchar(50) not null,
-	auth int not null
+	salt varchar(1000) not null,
+	introduce varchar(1000),
+	profile varchar(500),
+	changeprofile varchar(500)
 );
 
 -- 좋아요 DB생성
@@ -49,8 +45,22 @@ create table likelist(
 	wdate timestamp not null
 );
 
+-- 일정 DB생성
+-- seq, id, title, content, major, college, rdate, wdate
+create table calendar(
+	seq int auto_increment primary key,
+	id varchar(50) not null,
+	title varchar(400) not null,
+	content	varchar(2000),
+	major int not null,	-- 학과를 셀렉 옵션으로 밸류값을 숫자로 표현
+	college varchar(100),
+	auth decimal(3) not null,
+	rdate varchar(12) not null,
+	wdate timestamp not null
+);
+
 -- DB 삭제 (테이블명만 변경해서 사용)
-drop table friend;
+drop table calendar;
 
 -- DB table 전체보기
 select *
@@ -61,10 +71,16 @@ select *
   from friend
 ;
 
+-- 회원가입 유니크 키 설정
+ALTER TABLE friend 
+ADD UNIQUE INDEX email_UNIQUE (email ASC) VISIBLE,
+ADD UNIQUE INDEX name_UNIQUE (name ASC) VISIBLE;
+;
+
 -- update table
-ALTER TABLE friend ADD COLUMN deldate timestamp;
+ALTER TABLE friend ADD COLUMN changeprofile varchar(500);
 ALTER TABLE friend MODIFY COLUMN pw varchar(1000) not null;
-ALTER TABLE friend MODIFY COLUMN salt varchar(1000) not null;
+ALTER TABLE calendar MODIFY COLUMN college varchar(100);
 
 -- DB 더미데이터 추가
 -- friend(회원가입) 계정 추가
@@ -88,9 +104,9 @@ select seq, blockid, word, reason, adddate
  ;
  
 -- 아이디를 통해 개인정보 수정
-update member
-   set name='고창석', email='kbo.daum.net'
- where id='abc'
+update friend
+   set profile='mainprofile.png', changeprofile='mainprofile.png'
+ where id='test1'
 ;
 
 -- 회원탈퇴 close account
@@ -99,3 +115,15 @@ update friend
  where id='abc'
 ;
 
+-- 캘린더 일정보기
+select seq, id, title, content, major, college, rdate, 
+	   wdate from(select row_number()over(partition by substr(rdate, 1, 8) order by rdate asc) as rnum, 
+	   seq, id, title, content, major, college, rdate, wdate
+  from calendar
+ where id='test' and substr(rdate, 1, 6)='202402') a and (auth=1 or auth=3) and major='2' and college='서울대학교'
+ where rnum between 1 and 5
+;
+
+select salt, del, deldate
+  from friend 
+ where id='test1'

@@ -18,11 +18,22 @@ public class FriendServiceImpl implements FriendService {
 		int count = dao.idcheck(id);
 		return count > 0 ? true : false;
 	}
+	
+	@Override
+	public boolean nicknamecheck(String nickname) {
+		int count = dao.nicknamecheck(nickname);
+		return count > 0 ? true : false;
+	}
 
 	@Override
 	public boolean addfriend(FriendDto dto) {
 		int count = dao.addfriend(dto);
 		return count > 0 ? true : false;
+	}
+	
+	@Override
+	public boolean addmajorfriend(FriendDto dto) {
+		return dao.addmajorfriend(dto)>0?true:false;
 	}
 
 	@Override
@@ -44,4 +55,5 @@ public class FriendServiceImpl implements FriendService {
 	public FriendDto naverLogin(String email) {
 		return dao.naverLogin(email);
 	}
+
 }
