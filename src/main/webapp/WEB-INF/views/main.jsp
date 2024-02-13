@@ -45,7 +45,7 @@
           <div id="mainContainer__leftTab__profile">
             <div id="mainContainer__leftTab__profile__avatarContainer">
               <!-- 프로필 사진 -->
-              <img src="./images/avatar.jpg" alt="프로필 이미지">
+              <img src="./profile/mainprofile.png" alt="프로필 이미지">
 
               <!-- 자기소개란 -->
               <div id="mainContainer__leftTab__profile__avatarContainer__introduction">
