@@ -109,20 +109,10 @@
           id="navbar__modeSwitchToggle"
           class="form-check-input p-2"
           role="switch"
-          onclick="changeMode()"
-          />
+          onclick="changeMode()" />
       </div>
       
     </div>
   </nav>
 </header>
-
-<script>
-  function changeMode() {
-    const Body = document.body;
-    Body.classList.toggle("dark-mode");
-
-    const logoImg = document.getElementById("navBar__logo-img");
-    logoImg.classList.toggle("navBar__logo-img-dark");
-  }
-</script>
+<script src="./js/darkmode.js"></script>
