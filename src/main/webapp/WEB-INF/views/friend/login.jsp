@@ -33,7 +33,8 @@
 <h2>login</h2>
 
 <div class="center">
-	<form action="loginAf.do" method="post">
+	<!-- <form action="loginAf.do" method="post"> -->
+  <form id="login">
 		<br />
 		<table class="table">
 			<tr>
@@ -51,7 +52,7 @@
 					<div align="center">
 						<input type="checkbox" id="chk_save_id">&nbsp;&nbsp;id 저장<br/>
 						<br/>
-						<span><input type="submit" class="btn btn-primary" value="login"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+						<span><input type="submit" id="login-btn" class="btn btn-primary" value="login"></span>&nbsp;&nbsp;&nbsp;&nbsp;
 						<span><a href="regi.do">회원가입</a></span>
 						<span> / </span>
 						<span><a href="assiregi.do">조교 회원가입</a></span>
@@ -70,6 +71,17 @@
 
 
 <script type="text/javascript">
+
+$("#login-btn").click(function () {
+  let id = $("#id").val();
+  if (id == null || id.trim() == "") {
+    alert('아이디란이 비어있습니다 다시 작성해주세요');
+    return;
+  } else {
+    $("#login").attr("method", "post");
+    $("#login").attr("action", "loginAf.do").submit();
+  }
+});
 /*
 	cookie : client저장, id저장, pw저장, String 자료형 저장
 	session : server저장, login 정보
