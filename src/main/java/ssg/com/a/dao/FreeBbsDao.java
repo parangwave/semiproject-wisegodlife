@@ -2,6 +2,7 @@ package ssg.com.a.dao;
 
 import java.util.List;
 
+import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
 
@@ -17,6 +18,10 @@ public interface FreeBbsDao {
 	int freeBbsUpdate(FreeBbsDto dto);
 
 	int freeBbsDelete(int seq);
+	
+	List<BbsComment> commentList(int seq);
+	
+	int commentWrite(BbsComment dto);
 	
 	// 블랙리스트 불러오기 및 제외 글 불러오기
 	FreeBbsParam shareMyBlacklist(String id);

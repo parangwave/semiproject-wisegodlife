@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ssg.com.a.dao.FreeBbsDao;
+import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
 import ssg.com.a.service.FreeBbsService;
@@ -62,6 +63,16 @@ public class FreeBbsServiceImpl implements FreeBbsService {
 	public boolean freeBbsDelete(int seq) {
 		int count = dao.freeBbsDelete(seq);
 		return count > 0 ? true : false;
+	}
+
+	@Override
+	public List<BbsComment> commentList(int seq) {
+		return dao.commentList(seq);
+	}
+
+	@Override
+	public boolean commentWrite(BbsComment dto) {
+		return dao.commentWrite(dto)> 0 ? true : false;
 	}
 
 }

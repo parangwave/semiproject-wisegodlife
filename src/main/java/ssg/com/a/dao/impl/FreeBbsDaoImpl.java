@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ssg.com.a.dao.FreeBbsDao;
+import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
 
@@ -68,5 +69,13 @@ public class FreeBbsDaoImpl implements FreeBbsDao{
 		return session.update(ns + "freebbsdelete", seq);
 	}
 
+	@Override
+	public List<BbsComment> commentList(int seq) {
+		return session.selectList(ns + "commentlist", seq);
+	}
 
+	@Override
+	public int commentWrite(BbsComment dto) {
+		return session.update(ns + "commentwrite", dto);
+	}
 }

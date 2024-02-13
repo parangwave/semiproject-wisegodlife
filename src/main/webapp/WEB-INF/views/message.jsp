@@ -320,12 +320,24 @@ if(assiregiMsg != null && assiregiMsg.equals("") == false){
 		<%		
 	}	
 }
+
+String trsuccessMsg  = (String)request.getAttribute("trsuccessMsg");
+if(trsuccessMsg != null && trsuccessMsg.equals("") == false){
+	if(trsuccessMsg.equals("TRADE_SUCCESS")){
 %>
-
-
-
-
-
-
-
-
+		<script type="text/javascript">
+		alert("중고거래를 완료했습니다.");
+		location.href = "./utbbslist.do"; 
+		</script>
+		<%		
+	}else{
+		Integer seq = (Integer)request.getAttribute("seq");
+		%>
+		<script type="text/javascript">
+		alert("정상적으로 완료 되지 않았습니다.");
+		location.href = "./utbbsdetail.do?seq="+<%=seq %>;
+		</script>
+		<%		
+	}	
+}
+%>
