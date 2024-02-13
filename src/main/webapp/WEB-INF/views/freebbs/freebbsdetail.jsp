@@ -130,7 +130,7 @@ img {
 	<%-- 댓글 --%>
 	<div id="app" class="container">
 
-		<form action="bbscommentwriteaf.do" method="post">
+		<form action="commentwriteaf.do" method="post">
 			<input type="hidden" name="seq" value="<%=dto.getSeq()%>"> 
 			<input type="hidden" name="id" value="<%=login.getId()%>">
 
@@ -174,7 +174,7 @@ $(document).ready(function(){
 	$('.note-toolbar').remove();
 	
 	$.ajax({
-		url : "commentList.do",
+		url : "commentlist.do",
 		type : "get",
 		data : { seq : <%=dto.getSeq()%> },
 		success : function( data ){

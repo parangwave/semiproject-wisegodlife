@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import ssg.com.a.dao.UtBbsDao;
 import ssg.com.a.dto.UtBbsDto;
+import ssg.com.a.dto.UtBbsParam;
 import ssg.com.a.service.UtBbsService;
 
 @Service
@@ -16,8 +17,8 @@ public class UtBbsServiceImpl implements UtBbsService{
 	UtBbsDao dao;
 
 	@Override
-	public List<UtBbsDto> utBbsList() {
-		return dao.utBbsList();
+	public List<UtBbsDto> utBbsList(UtBbsParam param) {
+		return dao.utBbsList(param);
 	}
 	
 	@Override
@@ -29,5 +30,15 @@ public class UtBbsServiceImpl implements UtBbsService{
 	@Override
 	public UtBbsDto getUtBbs(int seq) {
 		return dao.getUtBbs(seq);
+	}
+
+	@Override
+	public boolean tradeSuccess(int seq) {
+		return dao.tradeSuccess(seq) > 0 ? true : false;
+	}
+
+	@Override
+	public int allUtBbs(UtBbsParam param) {
+		return dao.allUtBbs(param);
 	}
 }

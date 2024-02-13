@@ -1,9 +1,22 @@
+<%@page import="ssg.com.a.dto.FriendDto"%>
 <%@page import="ssg.com.a.dto.FreeBbsDto"%>
 <%@page import="ssg.com.a.dto.FreeBbsParam"%>
 <%@page import="ssg.com.a.util.BbsUtil"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%
+	FriendDto login = (FriendDto)session.getAttribute("login");
+    if(login == null || login.getId().isEmpty()){
+        session.setAttribute("prevView", "freebbslist");
+%>
+<script>
+    alert("로그인해 주십시오");
+    location.href = "./login.do";
+</script>
+<%
+    }
+%>
         <%
     	List<FreeBbsDto> list = (List<FreeBbsDto>)request.getAttribute("list");
     	int pageBbs = (Integer)request.getAttribute("pageBbs");
@@ -35,7 +48,7 @@
 	</head>
 	<style>
 		.center {
-			margin: 60px auto;
+			margin: auto;
 			width: 1000px;
 			text-align: center;
 		}
@@ -136,9 +149,23 @@
 		</div>
 		<!-- nav-bar end -->
     <!-- contents -->
-
+	<br />
 <div class="center">
+		<div class="form-row align-items-center d-flex justify-content-center align-items-center container">
+			<select id="choice" class="form-control" style="width: auto;">
+				<option value="start">검색</option>
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+				<option value="writer">작성자</option>
+			</select>
 
+			<div class="col-sm-3 my-1" style="width: auto;">
+				<input type="text" class="form-control" id="search"	value="<%=search%>">
+			</div>
+
+			<button type="button" class="btn btn-primary" onclick="searchBtn()">검색</button>
+		</div>
+		<br />
 		<table class="table table-hover">
 			<col width="70" />
 			<col width="600" />
@@ -200,29 +227,16 @@
 					style="justify-content: center"></ul>
 			</nav>
 		</div>
-
 		<br />
-		
-		<div class="form-row align-items-center d-flex justify-content-center align-items-center container">
-			<select id="choice" class="form-control" style="width: auto;">
-				<option value="start">검색</option>
-				<option value="title">제목</option>
-				<option value="content">내용</option>
-				<option value="writer">작성자</option>
-			</select>
-
-			<div class="col-sm-3 my-1" style="width: auto;">
-				<input type="text" class="form-control" id="search"	value="<%=search%>">
-			</div>
-
-			<button type="button" class="btn btn-primary" onclick="searchBtn()">검색</button>
-		</div>
-		
-		<br />
-		 
-		<a href="freebbswrite.do" style="">글쓰기</a>
+		<button type="button" class="btn btn-primary" onclick="writeFreeBbs()">글작성</button>
 	</div>
 
+
+	<script type="text/javascript">
+		function writeFreeBbs(){
+			location.href = "freebbswrite.do";
+		}
+	</script>
 	<script type="text/javascript">
 	
 	let search = "<%=search%>";

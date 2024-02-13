@@ -1,30 +1,9 @@
 package ssg.com.a.controller;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.Principal;
-import java.util.Collection;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
-import javax.servlet.AsyncContext;
-import javax.servlet.DispatcherType;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpUpgradeHandler;
-import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
 import ssg.com.a.dto.FriendDto;
@@ -56,7 +37,7 @@ public class FreeBbsController {
 		List<FreeBbsDto> list = null;
 		
 		FreeBbsParam bl = service.shareMyBlacklist(login.getId());
-		if (bl != null) {
+		if (bl != null) { 
 			param.setBlockid(bl.getBlockid());
 			param.setWord(bl.getWord());
 			
@@ -72,7 +53,7 @@ public class FreeBbsController {
 		if ((count % 10) > 0) {
 			pageBbs = pageBbs + 1;
 		}
-
+		
 		model.addAttribute("list", list);
 		model.addAttribute("pageBbs", pageBbs);
 		model.addAttribute("param", param);
@@ -172,5 +153,29 @@ public class FreeBbsController {
 		model.addAttribute("freebbsdeleteMsg", freebbsdeleteMsg);
 
 		return "message";
+	}
+	
+	@ResponseBody
+	@GetMapping("commentlist.do")
+	public List<BbsComment> commentList(int seq){
+		System.out.println("BbcContorller commentList " + new Date());
+		
+		List<BbsComment> list = service.commentList(seq);
+		return list;
+	}
+	
+	@PostMapping("commentwriteaf.do")
+	public String commentWriteAf(BbsComment bc) {
+		System.out.println("BbcContorller CommentWriteAf " + new Date());
+	
+		boolean b = service.commentWrite(bc);
+		
+		if(b) {
+			System.out.println("댓글작성 성공");
+		} else {
+			System.out.println("댓글작성 실패");
+		}
+		
+		return "redirect:/freebbsdetail.do?seq=" + bc.getSeq();
 	}
 }

@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import net.coobird.thumbnailator.Thumbnails;
 import ssg.com.a.dto.UtBbsDto;
+import ssg.com.a.dto.UtBbsParam;
 import ssg.com.a.service.UtBbsService;
 import ssg.com.a.util.UtBbsUtil;
 
@@ -28,12 +29,25 @@ public class UtBbsController {
 	UtBbsService service;
 	
 	@GetMapping("utbbslist.do")
-	public String utbList(Model model) {
+	public String utbList(Model model, UtBbsParam param) {
 		System.out.println("UtBbsController utbList " + new Date());
 
-		List<UtBbsDto> list = service.utBbsList();
+		List<UtBbsDto> list = service.utBbsList(param);
+		
+		int count = service.allUtBbs(param);
+		
+		
+		int pageBbs = count / 10;
+		if((count % 10) > 0) {
+			pageBbs = pageBbs + 1;
+		}
+		
+		System.out.println("count : " + count);		
+		System.out.println("pageBbs : " + pageBbs);
 		
 		model.addAttribute("list", list);
+		model.addAttribute("param", param);
+		model.addAttribute("pageBbs", pageBbs);
 		
 		return "utbbs/utbbslist";
 	}
@@ -123,5 +137,21 @@ public class UtBbsController {
 		model.addAttribute("dto", dto);
 		
 		return "utbbs/utbbsdetail";
+	}
+	
+	@GetMapping("tradesuccess.do")
+	public String trSuccess(int seq, Model model) {
+		System.out.println("UtBbsController trSuccess " + new Date());
+		
+		boolean b = service.tradeSuccess(seq);
+		
+		String trsuccessMsg = "TRADE_SUCCESS";
+		if (!b) {
+			trsuccessMsg = "TRADE_FAIL";
+		}
+
+		model.addAttribute("trsuccessMsg", trsuccessMsg);
+		
+		return "message";
 	}
 }
