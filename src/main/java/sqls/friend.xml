@@ -16,25 +16,26 @@
 	 where nickname=#{nickname}
 </select>
 
-<!-- 회원가입 -->
+<!-- 일반 회원가입 -->
 <insert id="addfriend" parameterType="ssg.com.a.dto.FriendDto">
 	insert into friend(id, pw, nickname, name, tel, email, college, major, auth, del, regidate, salt)
 	values (#{id}, #{pw}, #{nickname}, #{name}, #{tel}, #{email}, #{college}, #{major}, 3, 0, now(), #{salt})
 </insert>
 
+<!-- 조교 회원가입 -->
 <insert id="addmajorfriend" parameterType="ssg.com.a.dto.FriendDto">
 	insert into friend(id, pw, nickname, name, tel, email, college, major, auth, del, regidate, salt)
 	values (#{id}, #{pw}, #{nickname}, #{major}, #{tel}, #{email}, #{college}, #{major}, 1, 0, now(), #{salt})
 </insert>
 
-<!-- 아이디 관련정보 확인 -->
+<!-- 아이디 정보 불러오기 -->
 <select id="idInfo" parameterType="String" resultType="ssg.com.a.dto.FriendDto">
 	select salt, del, deldate
 	  from friend 
 	 where id=#{id}
 </select>
 
-<!-- 로그인  -->
+<!-- 로그인 -->
 <select id="login" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
 	select id, pw, nickname, name, tel, email, college, major, auth, del, regidate, introduce
 	  from friend 
@@ -44,7 +45,7 @@
 	select id, name, tel, email, college, auth, del, regidate from friend where email=#{email}
 </select>
 
-<!-- 탈퇴회원 복구 -->
+<!-- 탈퇴한 회원 복구하기 -->
 <update id="restoreAccount" parameterType="String">
 update friend
    set del=0, deldate=null

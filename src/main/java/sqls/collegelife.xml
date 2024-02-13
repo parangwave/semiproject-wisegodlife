@@ -4,6 +4,8 @@
 
 <mapper namespace="collegelife">
 
+<!-- 학과일정 -->
+<!-- 학과일정달력 리스트 -->
 <select id="getCalendarList" parameterType="ssg.com.a.dto.CalendarParam" resultType="ssg.com.a.dto.CalendarDto">
 	select seq, id, title, content, major, college, rdate, auth, wdate
 	  from calendar
@@ -11,23 +13,27 @@
 	    or (substr(rdate, 1, 6)=${yyyyMM} and auth=1 and major=#{major} and college=#{college})
 </select>
 
+<!-- 일정 작성 -->
 <insert id="addCalendarWrite" parameterType="ssg.com.a.dto.CalendarDto">
 	insert into calendar(id, title, content, major, college, auth, rdate, wdate)
 	values (#{id}, #{title}, #{content}, #{major}, #{college}, #{auth}, #{rdate}, now())
 </insert>
 
+<!-- 일정 디테일 보기 -->
 <select id="calendarDetail" parameterType="Integer" resultType="ssg.com.a.dto.CalendarDto">
 	select seq, id, title, content, major, college, rdate, auth, wdate
 	  from calendar
 	 where seq=#{seq}
 </select>
 
+<!-- 일정 수정 -->
 <update id="mycalupdateAf" parameterType="ssg.com.a.dto.CalendarDto">
 	update calendar
 	   set title=#{title}, content=#{content}
 	 where id=#{id} and seq=${seq}
 </update>
 
+<!-- 일정 삭제 -->
 <delete id="mycaldelete" parameterType="Integer">
 	delete from calendar
 	 where seq=${seq}
