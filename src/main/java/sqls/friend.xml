@@ -37,7 +37,7 @@
 
 <!-- 로그인 -->
 <select id="login" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
-	select id, pw, nickname, name, tel, email, college, major, auth, del, regidate, introduce
+	select id, nickname, name, tel, email, college, major, auth, del, regidate, introduce, profile, changeprofile
 	  from friend 
 	 where id=#{id} and pw=#{pw}
 </select>

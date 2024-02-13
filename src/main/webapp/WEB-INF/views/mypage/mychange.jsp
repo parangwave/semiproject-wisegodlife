@@ -47,16 +47,18 @@ a {
 	<main id="mymain">
     <leftmenu id="leftMenu"></leftmenu>
     
-		<form action="mychangeAf.do" method="post">
+		<form action="mychangeAf.do" method="post" enctype="multipart/form-data">
 			<table id="rightContent" border="1">
 				<tr>
 					<th colspan="4"> * 표시가 있는것은 필수 입력란입니다.</th>
 				</tr>
 				<tr>
 					<th rowspan="2">
-						프로필사진칸<br/><br/>
-						<button type="button">프로필 사진변경</button>
-					</th>
+						<img id="profilepreview" src="profile/<%= login.getChangeprofile() %>"/>
+            <br/><br/>
+            프로필 사진 업로드
+            <input type="file" name="filepicture">
+          </th>
 					<th>아이디</th>
 					<td colspan="2"><input type="text" name="id" value="<%=login.getId() %>" readonly="readonly"></td>
 				</tr>
@@ -101,5 +103,24 @@ a {
 			</table>
 		</form>
 	</main>
+
+<% 
+  String fupload = request.getServletContext().getRealPath("/profile");
+%>
+<script>
+  $(document).ready(function() {
+    if ("<%= login.getProfile()%>" != null) {
+      let reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('profilepreview').src = e.target.result;
+      }
+      reader.readAsDataURL("<%= fupload %>");
+    } else {
+      document.getElementById('profilepreview').src = "";
+    }
+  });
+</script>
+
+
 </body>
 </html>

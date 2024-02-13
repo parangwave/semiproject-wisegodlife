@@ -83,13 +83,14 @@
 <!-- 정보 수정 -->
 <update id="changeMyinfor" parameterType="ssg.com.a.dto.FriendDto">
 	update friend
-	   set name=#{name}, email=#{email}
+	   set nickname=#{nickname}, name=#{name}, college=#{college}, tel=#{tel}, email=#{email},
+	   	   introduce=#{introduce}, profile=#{profile}, changeprofile=#{changeprofile}
 	 where id=#{id}
 </update>
 
 <!-- 수정후 재 로그인 -->
 <select id="changelogin" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
-	select id, name, email, auth 
+	select id, nickname, name, tel, email, college, major, auth, del, regidate, introduce, profile, changeprofile
 	  from friend 
 	 where id=#{id}
 </select>
