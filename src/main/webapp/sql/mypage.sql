@@ -12,7 +12,7 @@ create table blacklist(
 );
 
 -- 회원가입 DB생성
--- id, pw, nickname, name, tel, email, college, major, auth, del, deldate, regidate, salt, introduce
+-- id, pw, nickname, name, tel, email, college, major, auth, del, deldate, regidate, salt, introduce, profile, changeprofile
 -- auth = 3 기본 회원, auth = 1 학과 조교, auth = 5 총괄 관리자
 create table friend(
 	id varchar(50) primary key,
@@ -28,7 +28,9 @@ create table friend(
 	deldate timestamp,
 	regidate timestamp not null,
 	salt varchar(1000) not null,
-	introduce varchar(1000)
+	introduce varchar(1000),
+	profile varchar(500),
+	changeprofile varchar(500)
 );
 
 -- 좋아요 DB생성
@@ -76,7 +78,7 @@ ADD UNIQUE INDEX name_UNIQUE (name ASC) VISIBLE;
 ;
 
 -- update table
-ALTER TABLE friend ADD COLUMN introduce varchar(1000);
+ALTER TABLE friend ADD COLUMN changeprofile varchar(500);
 ALTER TABLE friend MODIFY COLUMN pw varchar(1000) not null;
 ALTER TABLE calendar MODIFY COLUMN college varchar(100);
 

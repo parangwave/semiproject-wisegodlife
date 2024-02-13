@@ -1,5 +1,6 @@
 package ssg.com.a.controller;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -7,11 +8,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.CalendarDto;
@@ -21,6 +25,7 @@ import ssg.com.a.dto.FriendDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
 import ssg.com.a.util.CalendarUtil;
+import ssg.com.a.util.ProfileUtil;
 
 
 
@@ -137,9 +142,31 @@ public class MypageController {
 	// TODO 개인정보변경란
 	// 개인정보 수정
 	@PostMapping("mychangeAf.do")
-	public String changeMyinfor(FriendDto dto, Model model, HttpSession se) {
+	public String changeMyinfor(@RequestParam(value = "filepicture", required = false)
+								MultipartFile filepicture, FriendDto dto, Model model, HttpSession se)throws Exception {
 		System.out.println("MypageController changeMyinfor" + new Date());
-		FriendDto login;
+		FriendDto login = (FriendDto)se.getAttribute("login");
+		
+		String originFilename = filepicture.getOriginalFilename();
+		System.out.println("originFilename: " + originFilename);
+		
+		// 프로필 사진을 변경유무 확인
+		if (originFilename == null || originFilename.equals("")) {
+			dto.setProfile(login.getProfile());
+			dto.setChangeprofile(login.getChangeprofile());			
+		} else {
+			dto.setProfile(originFilename);
+
+			String changefilename = ProfileUtil.getNewFileName(originFilename);
+			System.out.println("changefilename: " + changefilename);	
+			dto.setChangeprofile(changefilename);
+		}
+				
+		String fupload = request.getServletContext().getRealPath("/profile");
+		System.out.println("파일업로드 경로:" + fupload);
+		
+		File file = new File(fupload + "/" + dto.getChangeprofile());
+		FileUtils.writeByteArrayToFile(file, filepicture.getBytes());
 		
 		boolean isS = service.changeMyinfor(dto);
 		String changeMsg = "CHANGE_FAIL"; 

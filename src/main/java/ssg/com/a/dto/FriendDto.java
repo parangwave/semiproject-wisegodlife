@@ -16,12 +16,14 @@ public class FriendDto {
 	private String regidate;
 	private String salt;
 	private String introduce;
+	private String profile;
+	private String changeprofile;
 	
 	public FriendDto() {
 	}
 
 	public FriendDto(String id, String pw, String nickname, String name, String tel, String email, String college,
-			int major, int auth, int del, String deldate, String regidate, String salt, String introduce) {
+			int major, int auth, int del, String deldate, String regidate, String salt, String introduce, String profile, String changeprofile) {
 		super();
 		this.id = id;
 		this.pw = pw;
@@ -37,6 +39,24 @@ public class FriendDto {
 		this.regidate = regidate;
 		this.salt = salt;
 		this.introduce = introduce;
+		this.profile = profile;
+		this.changeprofile = changeprofile;
+	}
+
+	public String getChangeprofile() {
+		return changeprofile;
+	}
+
+	public void setChangeprofile(String changeprofile) {
+		this.changeprofile = changeprofile;
+	}
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
 	}
 
 	public String getNickname() {
@@ -156,7 +176,6 @@ public class FriendDto {
 		return "FriendDto [id=" + id + ", pw=" + pw + ", nickname=" + nickname + ", name=" + name + ", tel=" + tel
 				+ ", email=" + email + ", college=" + college + ", major=" + major + ", auth=" + auth + ", del=" + del
 				+ ", deldate=" + deldate + ", regidate=" + regidate + ", salt=" + salt + ", introduce=" + introduce
-				+ "]";
+				+ ", profile=" + profile + ", changeprofile=" + changeprofile + "]";
 	}
-
 }
