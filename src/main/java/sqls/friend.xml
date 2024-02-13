@@ -18,8 +18,8 @@
 
 <!-- 일반 회원가입 -->
 <insert id="addfriend" parameterType="ssg.com.a.dto.FriendDto">
-	insert into friend(id, pw, nickname, name, tel, email, college, major, auth, del, regidate, salt)
-	values (#{id}, #{pw}, #{nickname}, #{name}, #{tel}, #{email}, #{college}, #{major}, 3, 0, now(), #{salt})
+	insert into friend(id, pw, nickname, name, tel, email, college, major, auth, del, regidate, salt, profile, changeprofile)
+	values (#{id}, #{pw}, #{nickname}, #{name}, #{tel}, #{email}, #{college}, #{major}, 3, 0, now(), #{salt}, #{profile}, #{changeprofile})
 </insert>
 
 <!-- 조교 회원가입 -->
