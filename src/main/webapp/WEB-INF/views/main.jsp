@@ -45,7 +45,7 @@
           <div id="mainContainer__leftTab__profile">
             <div id="mainContainer__leftTab__profile__avatarContainer">
               <!-- 프로필 사진 -->
-              <img src="./images/avatar.jpg" alt="프로필 이미지">
+              <img src="./profile/mainprofile.png" alt="프로필 이미지">
 
               <!-- 자기소개란 -->
               <div id="mainContainer__leftTab__profile__avatarContainer__introduction">
@@ -57,7 +57,7 @@
               </div>
             </div>
             <div id="mainContainer__leftTab__profile__BtnContainer">
-              <a class="btn" href="#" role="button">프로필 수정</a>
+              <a class="btn" href="mychange.do" role="button">프로필 수정</a>
               <a class="btn" href="#" role="button">프로필 공유</a>
             </div>
           </div>
@@ -119,7 +119,7 @@
                 <!-- 데이터 불러와야함 -->
               </ul>
               <div class="moreBtnContainer">
-                <a class="btn" href="#" role="button">더보기</a>
+                <a class="btn" href="/findmate.do" role="button">더보기</a>
               </div>
             </div>
             <div id="mainContainer__boardSet__1stCol__public" class="boardSection">
@@ -128,18 +128,37 @@
                 <!-- 데이터 불러와야함 -->
               </ul>
               <div class="moreBtnContainer">
-                <a class="btn" href="#" role="button">더보기</a>
+                <a class="btn" href="/freebbslist.do" role="button">더보기</a>
               </div>
             </div>
           </div>
           <div id="mainContainer__boardSet__2ndCol" class="mainContainer__boardSet-col">
             <div id="mainContainer__boardSet__2ndCol__club" class="boardSection">
               <h1>오늘의 동아리</h1>
-              <ul>
-                <!-- 데이터 불러와야함 -->
-              </ul>
+
+              <!-- 동아리 썸네일 -->
+              <div id="mainContainer__boardSet__2ndCol__club-container">
+                <div class="mainContainer__boardSet__2ndCol__club-content">
+                  <h6>D-1</h6>
+                  <img src="./images/club.png" alt="동아리 썸네일 이미지">
+                  <div class="mainContainer__boardSet__2ndCol__club-content-text">
+                    <h2>1조</h2>
+                    <p>화이팅!!</p>
+                  </div>
+                </div>
+                
+                <div class="mainContainer__boardSet__2ndCol__club-content">
+                  <h6>D-1</h6>
+                  <img src="./images/club2.png" alt="동아리 썸네일 이미지">
+                  <div class="mainContainer__boardSet__2ndCol__club-content-text">
+                    <h2>1조</h2>
+                    <p>가 생겼으면</p>
+                  </div>
+                </div>
+              </div>
+              
               <div class="moreBtnContainer">
-                <a class="btn" href="#" role="button">더보기</a>
+                <a class="btn" href="/clublist.do" role="button">더보기</a>
               </div>
             </div>
             <div id="mainContainer__boardSet__2ndCol__deal" class="boardSection">
@@ -148,7 +167,7 @@
                 <!-- 데이터 불러와야함 -->
               </ul>
               <div class="moreBtnContainer">
-                <a class="btn" href="#" role="button">더보기</a>
+                <a class="btn" href="/utbbslist.do" role="button">더보기</a>
               </div>
             </div>
           </div>

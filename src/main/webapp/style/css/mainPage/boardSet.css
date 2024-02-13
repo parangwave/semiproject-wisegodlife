@@ -56,3 +56,54 @@
 	transform: scale(1.1);
 	transition: transform 0.3s ease;
 }
+
+/* 동아리 게시판 */
+#mainContainer__boardSet__2ndCol__club-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.mainContainer__boardSet__2ndCol__club-content {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--gray-01);
+    border-radius: var(--thumbnail-border-radius);
+}
+
+.mainContainer__boardSet__2ndCol__club-content:first-of-type {
+    margin-right: 2rem;
+}
+
+.mainContainer__boardSet__2ndCol__club-content > h6 {
+    padding: 0.3em 0.5em;
+    color: var(--white);
+    font-weight: var(--header-font-weight);
+    background-color: var(--theme-sub-pink);
+    border-radius: var(--btn-border-radius);
+    width: auto;
+    align-self: flex-end;
+    position: absolute;
+    margin: 0.4em;
+}
+
+.mainContainer__boardSet__2ndCol__club-content > img {
+    width: 12rem;
+}
+
+.mainContainer__boardSet__2ndCol__club-content-text {
+    padding: 0.6em;
+    border-top: 2px solid var(--gray-01);
+    margin-top: 0.5em;
+}
+
+.mainContainer__boardSet__2ndCol__club-content-text > h2 {
+    font-weight: var(--header-font-weight);
+    font-size: var(--nav-bar-font-size);
+}
+
+.mainContainer__boardSet__2ndCol__club-content-text > p {
+    color: var(--gray-02);
+    font-weight: var(--text-font-weight);
+    font-size: var(--text-font-size);
+}
