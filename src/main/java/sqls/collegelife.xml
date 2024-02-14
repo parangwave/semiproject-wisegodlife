@@ -15,13 +15,13 @@
 
 <!-- 일정 작성 -->
 <insert id="addCalendarWrite" parameterType="ssg.com.a.dto.CalendarDto">
-	insert into calendar(id, title, content, major, college, auth, rdate, wdate)
-	values (#{id}, #{title}, #{content}, #{major}, #{college}, #{auth}, #{rdate}, now())
+	insert into calendar(id, nickname, title, content, major, college, auth, rdate, wdate)
+	values (#{id}, #{nickname}, #{title}, #{content}, #{major}, #{college}, #{auth}, #{rdate}, now())
 </insert>
 
 <!-- 일정 디테일 보기 -->
 <select id="calendarDetail" parameterType="Integer" resultType="ssg.com.a.dto.CalendarDto">
-	select seq, id, title, content, major, college, rdate, auth, wdate
+	select seq, id, nickname, title, content, major, college, rdate, auth, wdate
 	  from calendar
 	 where seq=#{seq}
 </select>

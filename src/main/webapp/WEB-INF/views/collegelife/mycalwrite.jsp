@@ -17,6 +17,7 @@ String day = (String)request.getAttribute("day");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="style/css/style.css">
 <link rel="stylesheet" href="style/css/collegelife/comain.css" />
+<link rel="stylesheet" href="style/css/collegelife/calwrite.css" />
 </head>
 <body>
   <script>
@@ -32,17 +33,18 @@ String day = (String)request.getAttribute("day");
 
     <rightcontent id="rightcontent">
 
-      <h2 id="contentTitle">학교생활 - 수강시간표 </h2>
+      <h2 id="contentTitle">학교생활 - 학과일정 작성 </h2>
 
-      <div align="center">
+      <div id="contentTable">
+        <br/>
         <form action="mycalwriteAf.do" method="post">
-          <table border="1">
+          <table id="writeTable">
           <col width="200"/><col width="500"/>
             <tr>
-              <th>아이디</th>
+              <th>닉네임</th>
               <td>
-                <%=login.getId() %>
-                <input type="hidden" name="id" value="<%=login.getId() %>">
+                &nbsp;
+                <%=login.getNickname() %>
               </td>
             </tr>	
             <tr>
@@ -66,7 +68,9 @@ String day = (String)request.getAttribute("day");
             </tr>
           </table>
           <br/>
-          <input type="submit" value="일정추가">
+          <br/>
+          <br/>
+          <input type="submit" id="addcal" value="일정추가">
         </form>
       </div>
     </rightcontent>

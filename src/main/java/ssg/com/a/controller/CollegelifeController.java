@@ -140,6 +140,8 @@ public class CollegelifeController {
 		time = time.replace(":", "");
 		String rdate = date + time;
 		dto.setRdate(rdate);
+		dto.setNickname(login.getNickname());
+		dto.setId(login.getId());
 		dto.setAuth(login.getAuth());
 		dto.setCollege(login.getCollege());
 		dto.setMajor(login.getMajor());

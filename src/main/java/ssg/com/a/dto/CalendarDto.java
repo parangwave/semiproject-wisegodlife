@@ -6,6 +6,7 @@ public class CalendarDto implements Serializable {
 	
 	private int seq;
 	private String id;
+	private String nickname;	// 닉네임
 	private String title;
 	private String content;
 	private int major;			// 학과
@@ -17,11 +18,12 @@ public class CalendarDto implements Serializable {
 	public CalendarDto() {
 	}
 	
-	public CalendarDto(int seq, String id, String title, String content, int major, String college, int auth,
+	public CalendarDto(int seq, String id, String nickname, String title, String content, int major, String college, int auth,
 			String rdate, String wdate) {
 		super();
 		this.seq = seq;
 		this.id = id;
+		this.nickname = nickname;
 		this.title = title;
 		this.content = content;
 		this.major = major;
@@ -29,6 +31,14 @@ public class CalendarDto implements Serializable {
 		this.auth = auth;
 		this.rdate = rdate;
 		this.wdate = wdate;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	public int getMajor() {

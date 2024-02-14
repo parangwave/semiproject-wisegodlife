@@ -46,10 +46,11 @@ create table likelist(
 );
 
 -- 일정 DB생성
--- seq, id, title, content, major, college, rdate, wdate
+-- seq, id, nickname, title, content, major, college, rdate, wdate
 create table calendar(
 	seq int auto_increment primary key,
 	id varchar(50) not null,
+	nickname varchar(50) not null,
 	title varchar(400) not null,
 	content	varchar(2000),
 	major int not null,	-- 학과를 셀렉 옵션으로 밸류값을 숫자로 표현
@@ -78,7 +79,7 @@ ADD UNIQUE INDEX name_UNIQUE (name ASC) VISIBLE;
 ;
 
 -- update table
-ALTER TABLE friend ADD COLUMN changeprofile varchar(500);
+ALTER TABLE calendar ADD COLUMN nickname varchar(50) not null;
 ALTER TABLE friend MODIFY COLUMN pw varchar(1000) not null;
 ALTER TABLE calendar MODIFY COLUMN college varchar(100);
 
