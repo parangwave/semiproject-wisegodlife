@@ -11,6 +11,8 @@ $(document).ready(function () {
   for (let i = 0; i < 3; i++) {
     let tr = document.createElement('tr');
 
+    // day, startTime, endTime, courseNameInput, courseClassInput, color
+    // courses[i].key값
     if (dayOfWeek == courses[i].day) { // 1,3
       let td = document.createElement('td');
       td.innerHTML = courses[i].courseName + "<br/>" + courses[i].startTime + " ~ " + courses[i].endTime + "<br/>";

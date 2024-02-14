@@ -14,6 +14,7 @@ public class UtBbsDto implements Serializable{
 	private String newfilename; //업로드 파일명 2342342423.txt
 	
 	private int readcount;
+	private int trsuccess; 		//중고거래 완료
 	private String regdate;
 	
 	//답글 필요한 경우
@@ -21,7 +22,7 @@ public class UtBbsDto implements Serializable{
 	public UtBbsDto() {
 	}
 
-	public UtBbsDto(int seq, String id, String title, String content, String filename, String newfilename, int readcount,
+	public UtBbsDto(int seq, String id, String title, String content, String filename, String newfilename, int readcount, int trsuccess,
 			String regdate) {
 		super();
 		this.seq = seq;
@@ -31,6 +32,7 @@ public class UtBbsDto implements Serializable{
 		this.filename = filename;
 		this.newfilename = newfilename;
 		this.readcount = readcount;
+		this.trsuccess = trsuccess;
 		this.regdate = regdate;
 	}
 
@@ -98,6 +100,15 @@ public class UtBbsDto implements Serializable{
 		this.readcount = readcount;
 	}
 
+	
+	public int getTrsuccess() {
+		return trsuccess;
+	}
+
+	public void setTrsuccess(int trsuccess) {
+		this.trsuccess = trsuccess;
+	}
+
 	public String getRegdate() {
 		return regdate;
 	}
@@ -108,7 +119,8 @@ public class UtBbsDto implements Serializable{
 
 	@Override
 	public String toString() {
-		return "PdsDto [seq=" + seq + ", id=" + id + ", title=" + title + ", content=" + content + ", filename="
-				+ filename + ", newfilename=" + newfilename + ", readcount=" + readcount + ", regdate=" + regdate + "]";
+		return "UtBbsDto [seq=" + seq + ", id=" + id + ", title=" + title + ", content=" + content + ", filename="
+				+ filename + ", newfilename=" + newfilename + ", readcount=" + readcount + ", trsuccess=" + trsuccess
+				+ ", regdate=" + regdate + "]";
 	}
 }

@@ -112,10 +112,9 @@ table, img {
         </tr>
 		</table>
 		<br/>
+		<button type="button" id="tradesuccess" class="btn btn-primary">중고거래완료</button>
 		<button type="button" class="btn btn-primary" onclick="returnlist()">글목록으로</button>
 	</div>
-	
-	
 	
 <script>
 $(document).ready(function(){
@@ -123,6 +122,25 @@ $(document).ready(function(){
 	$('.note-editable').css('background-color','white');
 	$('.note-toolbar').remove();
 });
+</script>
+
+<script type="text/javascript">
+	$('#tradesuccess').click(function(){
+	 	$.ajax({
+			url : "tradesuccess.do",
+			type : "get",
+			data : {
+				"seq" : <%=dto.getSeq()%>
+			},
+			success:function(){
+				//alert("ok");
+				location.href = "utbbslist.do";
+			},
+			error:function(){
+				//alert("error");
+			}
+		}); 
+	});
 </script>
 
 <script type="text/javascript">
