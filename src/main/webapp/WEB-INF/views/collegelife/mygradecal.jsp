@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>마이페이지 학점계산기</title>
+<title>학교생활 학점계산기</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="style/css/style.css" />
 <link rel="stylesheet" href="style/css/collegelife/comain.css" />

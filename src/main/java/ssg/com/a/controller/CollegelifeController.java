@@ -82,22 +82,22 @@ public class CollegelifeController {
 		
 		// <<	year--
 		String pp = String.format("<a href='mycalendar.do?param=calendarList&year=%d&month=%d' style='text-decoration:none'>"
-								+ "<img src='./images/left.png' width='20px' height='20px'>"
+								+ "<img src='./images/left.png' id='left' width='20px' height='20px'>"
 								+ "</a>", year-1, month);
 		
 		// <	month--
 		String p = String.format("<a href='mycalendar.do?param=calendarList&year=%d&month=%d' style='text-decoration:none'>"
-							+ "<img src='./images/prev.png' width='20px' height='20px'>"
+							+ "<img src='./images/prev.png' id='prev' width='20px' height='20px'>"
 							+ "</a>", year, month-1);
 		
 		// >	month++
 		String n = String.format("<a href='mycalendar.do?param=calendarList&year=%d&month=%d' style='text-decoration:none'>"
-							+ "<img src='./images/next.png' width='20px' height='20px'>"
+							+ "<img src='./images/next.png' id='next' width='20px' height='20px'>"
 							+ "</a>", year, month+1);	
 		
 		// >>	year++
 		String nn = String.format("<a href='mycalendar.do?param=calendarList&year=%d&month=%d' style='text-decoration:none'>"
-				+ "<img src='./images/last.png' width='20px' height='20px'>"
+				+ "<img src='./images/last.png' id='last' width='20px' height='20px'>"
 				+ "</a>", year+1, month);
 		
 		CalendarParam calpa = new CalendarParam(login.getId(), year + CalendarUtil.two(month + ""), login.getMajor(), login.getCollege());

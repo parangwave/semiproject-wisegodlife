@@ -28,7 +28,7 @@ public class CalendarUtil {
 	public static String calwrite(int year, int month, int day) {
 		String str = "";
 		
-		String img = "<img src='./images/pen2.png' width='18px' height='18px' title='일정추가'>";	// title 마우스를 올려두었을때 나타나는것
+		String img = "<img src='./images/plus.svg' id='add' width='12px' height='12px' title='일정추가'>";	// title 마우스를 올려두었을때 나타나는것
 		str = String.format("<a href='mycalwrite.do?&year=%d&month=%d&day=%d'>%s</a>", year, month, day, img);
 		return str;
 	}
@@ -37,9 +37,9 @@ public class CalendarUtil {
 	public static String daylist(int year, int month, int day) {
 		String str = "";
 		
-		str += String.format("&nbsp;<a href='mycaldaylist.do?year=%d&month=%d&day=%d' style='color:black'><b>", year, month, day);
+		str += String.format("&nbsp;<b id='calday'>", year, month, day);
 		str += String.format("%2d", day);
-		str += "</b></a>";
+		str += "</b>";
 		
 		return str;
 	}
@@ -47,8 +47,8 @@ public class CalendarUtil {
 	// TODO 제목이 길 경우에 ...으로 처리하는 함수
 	public static String dot3(String msg) {
 		String str = "";
-		if (msg.length() >= 10) {
-			str = msg.substring(0, 10);
+		if (msg.length() >= 6) {
+			str = msg.substring(0, 6);
 			str += "...";
 		} else {
 			str = msg.trim();
@@ -67,9 +67,9 @@ public class CalendarUtil {
 		for (CalendarDto dto : list) {
 			if (dto.getRdate().substring(0, 8).equals(dates)) {
 				str += "<tr>";
-				str += "	<td style ='padding:0px'>";
+				str += "	<td class='detail'>";
 				str += "		<a href='mycaldetail.do?seq=" + dto.getSeq() + "'>";
-				str += " 			<font style='font-size:10px;color:blue'>";
+				str += " 			<font>";		// detail 폰트사이즈 변경
 				str += 					dot3( dto.getTitle());		
 				str += "			</font>";		
 				str += "		</a>";		
