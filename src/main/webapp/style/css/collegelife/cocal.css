@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+#week {
+  background-color: var(--theme-primary-blue);
+  color: var(--gray-01);
+  font-size: 18px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+#week th {
+  text-align: center;
+  vertical-align: middle;
+}
+#calbody {
+  /* background-color: var(--theme-sub-pink); */
+  background-color: white;
+}
+#week th,
+#calbody tr th,
+#calbody tr td {
+  border: 1px solid var(--gray-02);
+}
+
+thead tr td{
+  vertical-align: middle;
+}
+
+thead tr td a{
+  vertical-align: middle;
+}
+
+#calday {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.detail {
+  padding: 4px 0 0 4px;
+
+  border: none !important;
+}
+.detail a {
+  text-decoration: none;
+  padding: 4px;
+  border-radius: 2px;
+}
+.detail a:visited,
+.detail a:link {
+  color: var(--theme-primary-pink);
+  font-size: 15px;
+  font-weight: 400;
+}
+.detail a:hover {
+  color: white;
+  background-color: var(--theme-primary-pink);
+}

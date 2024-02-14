@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>학교생활 수강시간표</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="style/css/style.css">
 <link rel="stylesheet" href="style/css/collegelife/comain.css" />
@@ -18,10 +18,6 @@
     });
   </script>
 	<nav id="topnav"></nav>
-	
-	<header id="header">	
-
-	</header>
 	
 	<main id="mymain">
     <leftmenu id="leftMenu"></leftmenu>

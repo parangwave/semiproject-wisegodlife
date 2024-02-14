@@ -9,7 +9,7 @@ CalendarDto dto = (CalendarDto)request.getAttribute("dto");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>일정 수정</title>
 </head>
 <body>
 
