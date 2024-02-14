@@ -170,12 +170,14 @@
 			<col width="70" />
 			<col width="600" />
 			<col width="100" />
+			<col width="100" />
 			<col width="150" />
 			<thead>
 				<tr>
 					<th>번호</th>
 					<th>제목</th>
 					<th>조회수</th>
+					<th>좋아요수</th>
 					<th>작성자</th>
 				</tr>
 			</thead>
@@ -210,6 +212,7 @@
 						</a>
 					</td>
 					<td><%=freebbs.getReadcount()%></td>
+					<td><%=freebbs.getLikes()%></td>
 					<td><%=freebbs.getId()%></td>
 				</tr>
 				<%

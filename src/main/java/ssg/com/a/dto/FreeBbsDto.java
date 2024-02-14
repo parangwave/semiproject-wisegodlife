@@ -18,6 +18,8 @@ public class FreeBbsDto implements Serializable{
 	private int del;
 	private int readcount;
 	
+	private int likes;
+	
 	public FreeBbsDto() {
 	}
 
@@ -36,7 +38,7 @@ public class FreeBbsDto implements Serializable{
 	}
 	
 	public FreeBbsDto(int seq, String id, int ref, int step, int depth, String title, String content, String wdate, int del,
-			int readcount) {
+			int readcount, int likes) {
 		super();
 		this.seq = seq;
 		this.id = id;
@@ -48,6 +50,7 @@ public class FreeBbsDto implements Serializable{
 		this.wdate = wdate;
 		this.del = del;
 		this.readcount = readcount;
+		this.likes = likes;
 	}
 
 	public int getSeq() {
@@ -128,6 +131,14 @@ public class FreeBbsDto implements Serializable{
 
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
+	}
+
+	public int getLikes() {
+		return likes;
+	}
+
+	public void setLikes(int likes) {
+		this.likes = likes;
 	}
 
 	@Override

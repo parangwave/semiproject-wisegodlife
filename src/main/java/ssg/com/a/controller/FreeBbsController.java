@@ -17,6 +17,7 @@ import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
 import ssg.com.a.dto.FriendDto;
+import ssg.com.a.dto.LikeDto;
 import ssg.com.a.service.FreeBbsService;
 
 @Controller
@@ -158,7 +159,7 @@ public class FreeBbsController {
 	@ResponseBody
 	@GetMapping("commentlist.do")
 	public List<BbsComment> commentList(int seq){
-		System.out.println("BbcContorller commentList " + new Date());
+		System.out.println("FreeBbsController commentList " + new Date());
 		
 		List<BbsComment> list = service.commentList(seq);
 		return list;
@@ -166,7 +167,7 @@ public class FreeBbsController {
 	
 	@PostMapping("commentwriteaf.do")
 	public String commentWriteAf(BbsComment bc) {
-		System.out.println("BbcContorller CommentWriteAf " + new Date());
+		System.out.println("FreeBbsController CommentWriteAf " + new Date());
 	
 		boolean b = service.commentWrite(bc);
 		
@@ -177,5 +178,47 @@ public class FreeBbsController {
 		}
 		
 		return "redirect:/freebbsdetail.do?seq=" + bc.getSeq();
+	}
+	
+	@ResponseBody
+	@GetMapping("likes.do")
+	public String getLikes(
+			@RequestParam String id,
+			@RequestParam int fbseq) {
+		System.out.println("FreeBbsController getLikes " + new Date());
+
+		LikeDto dto = new LikeDto(id, fbseq);
+		
+		//현재 게시글에 좋아요 있는지 없는지 확인
+		int count = service.findLike(dto);
+		
+		System.out.println(dto.toString());
+		
+		String mes = "";
+		if(count != 0) {
+			//있을때는 테이블에 값을 지워주면 됨.
+			System.out.println(" 현재 좋아요가 있읍니다. ");
+			
+			service.delLike(dto);
+			
+			//지워주면서 토탈 카운트도 한개 낮춤
+			boolean b = service.totalLikeCountDown(fbseq);
+			if(b) {
+				System.out.println("카운트 감소 확인");
+			}
+			mes = "LIKE_DEL";
+		} else {
+			//없을때는 테이블에 값을 넣어주면 됨.
+			System.out.println(" 현재 좋아요가 없읍니다. ");
+			service.addLike(dto);
+			
+			//넣어주면서 토탈 카운트도 한개 올림
+			boolean b = service.totalLikeCountUp(fbseq);
+			if(b) {
+				System.out.println("카운트 증가 확인");
+			}
+			mes = "LIKE_ADD";
+		}
+		return mes;
 	}
 }
