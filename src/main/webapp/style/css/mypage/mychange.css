@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+#contentTitle {
+  padding-left: 15px;
+  margin: 10px 0 20px 0;
+  font-size: 40px;
+  font-weight: var(--header-font-weight);
+  vertical-align: middle;
+}
+
+#contentTable {
+  margin: 10px 0 0 0;
+}
+#contentTable tr th {
+  width: 300px;
+  height: 80px;
+  font-size: 30px;
+  font-weight: 400;
+  vertical-align: middle;
+  border: 1px solid black;
+}
+#contentTable tr td {
+  width: 450px;
+  height: 80px;
+  font-size: 25px;
+  vertical-align: middle;
+  padding-left: 10px;
+  border: 1px solid black;
+}
+/* .contentbox {
+  padding-left: 10px !important;
+} */
+
+#profilepreview {
+  width: 140px;
+  height: 160px;
+  object-fit: fill;
+}
+#profilebox {
+  max-height: 160px;
+}
+input {
+  width: 100%;
+  height: 100%;
+  background-color: var(--gray-02);
+}

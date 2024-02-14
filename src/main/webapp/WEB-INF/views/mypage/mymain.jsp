@@ -19,9 +19,7 @@ contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <% FriendDto login
       });
     </script>
     <nav id="topnav"></nav>
-
-    <header id="header"></header>
-
+    
     <main id="mymain">
       <leftmenu id="leftMenu"></leftmenu>
 
