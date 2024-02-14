@@ -4,7 +4,7 @@ $(document).ready(function () {
   // 과목추가
   $("#addSub").click(function () {
     let add = '<tr>'
-      + '<th><input name="subjectName" placeholder="과목을 입력해주세요"> </th>'
+      + '<th><input name="subjectName" class="subjectName" placeholder="과목 입력란"> </th>'
       + '<th>'
       + '<select name="myGrade">'
       +		'<option value="A+">A+</option>'
@@ -18,8 +18,8 @@ $(document).ready(function () {
       +		'<option value="F">F</option>'
       +	'</select>'
       +	'</th>'
-      +	'<th><input name="credit" placeholder="학점을 입력해주세요"></th>'
-      +	'<th><input type="checkbox" name="major"></th>'
+      +	'<th><input name="credit" class="credit" placeholder="학점"></th>'
+      +	'<th>&nbsp;<input type="checkbox" name="major"></th>'
       + '</tr>';	
     $("#addSubject").append(add);
   });
@@ -162,7 +162,7 @@ $(document).ready(function () {
 
     for (i = 0; i < storedCal.length; i++) {
       let load = '<tr>'
-      + '<th><input name="subjectName" placeholder="과목을 입력해주세요" value="' + cal[i].subjectNameList + '"></th>'
+      + '<th><input name="subjectName" class="subjectName" placeholder="과목 입력란" value="' + cal[i].subjectNameList + '"></th>'
       + '<th>'
       + '<select name="myGrade" id="myGrade' + i + '">'
       +		'<option value="A+">A+</option>'
@@ -176,7 +176,7 @@ $(document).ready(function () {
       +		'<option value="F">F</option>'
       +	'</select>'
       +	'</th>'
-      +	'<th><input name="credit" placeholder="학점을 입력해주세요" value="' +  cal[i].creditList + '"></th>';
+      +	'<th><input name="credit" class="credit" placeholder="학점" value="' +  cal[i].creditList + '"></th>';
       if (cal[i].majorList === true) {
         load = load + '<th><input type="checkbox" name="major" checked="checked"></th>' + '</tr>'
       } else {
