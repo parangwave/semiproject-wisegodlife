@@ -47,7 +47,7 @@ public class CalendarUtil {
 	// TODO 제목이 길 경우에 ...으로 처리하는 함수
 	public static String dot3(String msg) {
 		String str = "";
-		if (msg.length() >= 6) {
+		if (msg.length() >= 7) {
 			str = msg.substring(0, 6);
 			str += "...";
 		} else {
