@@ -10,6 +10,7 @@ import ssg.com.a.dao.FreeBbsDao;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
+import ssg.com.a.dto.LikeDto;
 
 
 @Repository
@@ -77,5 +78,30 @@ public class FreeBbsDaoImpl implements FreeBbsDao{
 	@Override
 	public int commentWrite(BbsComment dto) {
 		return session.update(ns + "commentwrite", dto);
+	}
+
+	@Override
+	public int findLike(LikeDto dto) {
+		return session.selectOne(ns + "findlike", dto);
+	}
+
+	@Override
+	public int delLike(LikeDto dto) {
+		return session.delete(ns + "dellike", dto);
+	}
+
+	@Override
+	public int addLike(LikeDto dto) {
+		return session.insert(ns + "addlike", dto);
+	}
+
+	@Override
+	public int totalLikeCountUp(int seq) {
+		return session.update(ns + "totallikecountup", seq);
+	}
+
+	@Override
+	public int totalLikeCountDown(int seq) {
+		return session.update(ns + "totallikecountdown", seq);
 	}
 }

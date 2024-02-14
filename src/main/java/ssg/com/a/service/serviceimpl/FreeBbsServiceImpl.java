@@ -9,6 +9,7 @@ import ssg.com.a.dao.FreeBbsDao;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
+import ssg.com.a.dto.LikeDto;
 import ssg.com.a.service.FreeBbsService;
 
 @Service
@@ -75,4 +76,28 @@ public class FreeBbsServiceImpl implements FreeBbsService {
 		return dao.commentWrite(dto)> 0 ? true : false;
 	}
 
+	@Override
+	public int findLike(LikeDto dto) {
+		return dao.findLike(dto);
+	}
+
+	@Override
+	public boolean delLike(LikeDto dto) {
+		return dao.delLike(dto) > 0? true : false;
+	}
+
+	@Override
+	public boolean addLike(LikeDto dto) {
+		return dao.addLike(dto) > 0? true : false;	
+	}
+
+	@Override
+	public boolean totalLikeCountUp(int seq) {
+		return dao.totalLikeCountUp(seq) > 0? true : false;
+	}
+
+	@Override
+	public boolean totalLikeCountDown(int seq) {
+		return dao.totalLikeCountDown(seq) > 0? true : false;
+	}
 }

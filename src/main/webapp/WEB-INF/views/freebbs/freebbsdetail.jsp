@@ -125,6 +125,7 @@ img {
     <button type="button" onclick="answerBbs(<%=dto.getSeq()%>)" class="btn btn-primary">답글작성</button>
 <%--     <button type="button" onclick="commentBbs(<%=dto.getSeq()%>)" class="btn btn-primary">댓글작성</button> --%>
 	<button type="button" class="btn btn-primary" onclick="returnlist()">글목록으로</button>
+	<button type="button" class="btn btn-primary" onclick="likeBbs()">좋아요</button>
 </div>
 
 	<%-- 댓글 --%>
@@ -199,6 +200,33 @@ $(document).ready(function(){
 		}
 	});
 });
+</script>
+
+<script type="text/javascript">
+
+	let id = "<%=login.getId()%>";
+	let fbseq = <%=dto.getSeq()%>;
+
+	function likeBbs(){
+		$.ajax({
+			url : "likes.do",
+			type : "get",
+			data : { 
+				id : id,
+				fbseq : fbseq
+			},
+			success : function( str ){
+				if (str == "LIKE_DEL") {
+					alert("좋아요 취소");
+				} else {
+					alert("좋아요");
+				}
+			},
+			error : function(){
+				alert("TT");
+			}
+		});
+	}
 </script>
 
 <script>

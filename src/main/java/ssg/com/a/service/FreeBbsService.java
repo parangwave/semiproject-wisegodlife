@@ -5,6 +5,7 @@ import java.util.List;
 import ssg.com.a.dto.BbsComment;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FreeBbsParam;
+import ssg.com.a.dto.LikeDto;
 
 public interface FreeBbsService {
 
@@ -23,6 +24,16 @@ public interface FreeBbsService {
 	List<BbsComment> commentList(int seq);
 
 	boolean commentWrite(BbsComment dto);
+	
+	int findLike(LikeDto dto);
+	
+	boolean delLike(LikeDto dto);
+	
+	boolean addLike(LikeDto dto);
+	
+	boolean totalLikeCountUp(int seq);
+	
+	boolean totalLikeCountDown(int seq);
 	
 	// 블랙리스트 불러오기 및 제외 글 불러오기
 	FreeBbsParam shareMyBlacklist(String id);
