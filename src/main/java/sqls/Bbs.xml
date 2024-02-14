@@ -130,6 +130,24 @@
 </update>
 
 
-<!-- 중고거래 게시판 end -->
+<!--  	/////////////////////////// 중고거래 게시판 end /////////////////////////////////////		-->
+
+  
+<!-- 메이트 구하기 게시판  -->
+<!-- 글 리스트  -->
+<select id="findmate" parameterType="ssg.com.a.dto.FindMateDto" resultType="ssg.com.a.dto.FindMateDto">
+	select seq, id, profileImg, content from findMate
+	order by wdate desc
+	limit 0, 10
+</select>
+
+<!-- 글작성 -->
+<insert id="writeFindMate" parameterType="ssg.com.a.dto.FindMateComment">
+	insert into findmate(id, nickname, profileImg, content, wdate)
+	values(#{id}, #{nickname}, #{profileImg}, #{content}, now() )
+</insert>
+	
+<!--  	/////////////////////////// 중고거래 게시판 end /////////////////////////////////////		-->
+
 
 </mapper>
