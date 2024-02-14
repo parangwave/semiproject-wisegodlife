@@ -30,6 +30,6 @@ public class FindMateController {
 
 		model.addAttribute("list", list);
 
-		return "findmate";
+		return "findmate/findmate";
 	}
 }
