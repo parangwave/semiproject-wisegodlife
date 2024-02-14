@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="style/css/style.css">
+<link rel="stylesheet" href="style/css/collegelife/comain.css" />
 <style>
   canvas {
       border: 1px solid black;

@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#contentbox tr th,
+#contentbox tr td {
+  height: 30px;
+  padding: 10px 0 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#contentbox tr th{
+  width: 70px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+#buttons {
+  text-align: center;
+}
+
+#contentbox tr th.subject {
+  width: 170px;
+}
+#contentbox tr th #changeAvg,
+.subjectName {
+  width: 170px;
+}
+
+.credit {
+  width: 70px;
+}
+
+#result {
+  overflow: hidden;
+  white-space: nowrap;
+}
