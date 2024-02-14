@@ -143,11 +143,11 @@
 
 <!-- 글작성 -->
 <insert id="writeFindMate" parameterType="ssg.com.a.dto.FindMateComment">
-	insert into findmate(id, nickname, profileImg, content, wdate)
-	values(#{id}, #{nickname}, #{profileImg}, #{content}, now() )
+	insert into findmate(nickname, profileImg, content, wdate)
+	values(#{nickname}, #{profileImg}, #{content}, now() )
 </insert>
 	
-<!--  	/////////////////////////// 중고거래 게시판 end /////////////////////////////////////		-->
+<!--  	/////////////////////////// 메이트 구하기 게시판 end /////////////////////////////////////		-->
 
 
 </mapper>
