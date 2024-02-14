@@ -32,6 +32,40 @@ pageEncoding="UTF-8"%>
     <nav id="topnav"></nav>
     <!-- nav-bar end -->
 
-    <h1>메이트 구하기 입니당</h1>
+    <%-- 글 작성 --%>
+    <div id="app" class="container">
+      <form action="commentwriteaf.do" method="post">
+        <table>
+          <col width="1000px" />
+          <!-- <col width="150px" /> -->
+          <!-- <tr>
+            <td>메이트 구하는 글 작성</td>
+            <td style="padding-left: 30px">올리기</td>
+          </tr> -->
+          <tr
+            style="
+              display: flex; 
+              justify-content: center; 
+              align-items: center
+            "
+          >
+            <td>
+              <textarea
+                rows="3"
+                class="form-control"
+                name="content"
+                placeholder="최대 200자 작성할 수 있습니다"
+                maxlength="200"
+              ></textarea>
+            </td>
+            <td style="padding-left: 1rem">
+              <button type="submit" class="btn btn-primary btn-block p-4 writeBtn">
+                작성완료
+              </button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
   </body>
 </html>
