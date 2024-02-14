@@ -38,6 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
 
+      // 새로운 수업을 추가할 때 밝은 색상을 랜덤 생성
+      const randomColor = getRandomBrightColor();
+      courses.push({ day: day, startTime: startTime, endTime: endTime, courseNameInput: courseNameInput, courseClassInput: courseClassInput, color: randomColor });
+
       if (document.getElementById("courseNameInput").value === "" || document.getElementById("courseClassInput").value === "") {
         alert('수업명 또는 강의실을 제대로 작성해주세요');
         return;
@@ -45,9 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const courseName = document.getElementById("courseNameInput").value + " (" + document.getElementById("courseClassInput").value + ")";
         // console.log(courseName);
 
-        // 새로운 수업을 추가할 때 밝은 색상을 랜덤 생성
-        const randomColor = getRandomBrightColor();
-        courses.push({ day: day, startTime: startTime, endTime: endTime, courseName: courseName, color: randomColor });
+
 
         drawCourses();
         saveCourses();
@@ -63,15 +65,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // 초기 시간표 그리기 함수
   function drawTimetable() {
-      // 그리드 그리기
-      ctx.strokeStyle = "lightgray";
+      // 그리드 그리기 (table border)
+      ctx.strokeStyle = "rgba(135, 196, 242, 1)";
       ctx.lineWidth = 1;
       ctx.beginPath();
-      for (let i = 1; i <= days.length; i++) {
+      for (let i = 0; i <= (days.length + 1); i++) {
           ctx.moveTo(cellWidth * i, 0);
           ctx.lineTo(cellWidth * i, canvas.height);
       }
-      for (let i = 1; i <= times.length; i++) {
+      for (let i = 0; i <= (times.length + 1); i++) {
           ctx.moveTo(0, cellHeight * i);
           ctx.lineTo(canvas.width, cellHeight * i);
       }
@@ -81,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
       ctx.fillStyle = "black";
       ctx.textAlign = "center"; // 텍스트 중앙 정렬
       ctx.textBaseline = "middle"; // 텍스트 세로 중앙 정렬
+      ctx.font = "30px Pretendard";  // 텍스트 크기 조정
       for (let i = 0; i < days.length; i++) {
           ctx.fillText(days[i], cellWidth * (i + 1) + cellWidth / 2, cellHeight / 2);
       }
@@ -103,8 +106,9 @@ document.addEventListener("DOMContentLoaded", function() {
           ctx.fillStyle = course.color;
           ctx.fillRect(cellWidth * (dayIndex + 1), cellHeight * (startTimeIndex + 1), cellWidth, cellHeight * (endTimeIndex - startTimeIndex));
 
-          // 수업 정보 텍스트 그리기 (글자 색상은 항상 검정색)
+          // 수업 정보 텍스트 그리기 
           ctx.fillStyle = "black";
+          ctx.font = "15px Pretendard";
           ctx.fillText(course.courseName, cellWidth * (dayIndex + 1) + cellWidth / 2, cellHeight * (startTimeIndex + 1) + (cellHeight * (endTimeIndex - startTimeIndex)) / 2);
       });
   }
