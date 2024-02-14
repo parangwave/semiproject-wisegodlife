@@ -16,6 +16,7 @@
 <title>마이페이지 작성한 댓글 및 게시글</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="style/css/style.css">
+<link rel="stylesheet" href="style/css/mypage/mymain.css" />
 <style type="text/css">
 #mymain {
 	display: flex;

@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#mymain {
+  display: flex;
+  width: 100%;
+}
+
+/* 왼쪽 nav 바 */
+#leftMenu {
+  width: 380px;
+  margin: 20px 50px 0 30px;
+  background-color: var(--theme-yellow);
+  border-radius: 20px;
+}
+
+#leftMenu ul {
+  padding: 5px;
+  margin: 10px 0 5px 20px;
+}
+#leftMenu ul li {
+  margin: 35px 0 35px 0;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#leftMenu a:link,
+#leftMenu a:visited {
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+}
+#leftMenu a:hover {
+  text-decoration: none;
+  font-size: 30px;
+  color: var(--theme-sub-blue);
+  /*color: violet;*/
+}
+
+/* 오른쪽 컨텐츠 크기제한 */
+#rightContent {
+  width: 750px;
+  padding: 20px 0 10px 40px;
+}
