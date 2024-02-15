@@ -259,7 +259,7 @@
 					<% if(dto.getTrsuccess() != 1){ %>
 					<a href="utbbsdetail.do?seq=<%=dto.getSeq() %>"><%=BbsUtil.dotmain(dto.getTitle()) %></a>
 						<%} else { %>
-						<span>중고거래가 완료된 게시글 입니다.</span>
+						<span style="color: red;">중고거래가 완료된 게시글 입니다.</span>
 					<%} %>
 					</td>
 					<td><%=dto.getReadcount() %></td>
