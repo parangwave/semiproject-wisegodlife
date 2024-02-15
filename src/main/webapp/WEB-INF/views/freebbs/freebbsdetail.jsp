@@ -124,7 +124,8 @@ img {
     <%
         }
     %>
-    <button type="button" onclick="answerBbs(<%=dto.getSeq()%>)" class="btn btn-primary">답글작성</button>
+    <%-- 답글 기능 안넣어서 일단 주석처리 --%>
+    <%-- <button type="button" onclick="answerBbs(<%=dto.getSeq()%>)" class="btn btn-primary">답글작성</button> --%>
 <%--     <button type="button" onclick="commentBbs(<%=dto.getSeq()%>)" class="btn btn-primary">댓글작성</button> --%>
 	<button type="button" class="btn btn-primary" onclick="returnlist()">글목록으로</button>
 	<%
