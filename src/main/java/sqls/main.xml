@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="main">
+
+<select id="mainfreebbslist" resultType="ssg.com.a.dto.FreeBbsDto">
+	select * 
+	from freebbs
+	order by ref desc, step asc
+	limit 0, 5
+</select>
+
+<select id="mainutbbslist" resultType="ssg.com.a.dto.UtBbsDto">
+	select * from utbbs 
+	order by regdate desc
+	limit 0, 3
+</select>
+
+</mapper>

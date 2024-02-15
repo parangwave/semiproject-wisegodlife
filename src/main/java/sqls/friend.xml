@@ -42,7 +42,7 @@
 	 where id=#{id} and pw=#{pw}
 </select>
 <select id="naverlogin" parameterType="ssg.com.a.dto.FriendDto" resultType="ssg.com.a.dto.FriendDto">
-	select id, name, tel, email, college, auth, del, regidate from friend where email=#{email}
+	select id, nickname, name, tel, email, college, major, auth, del, regidate, introduce, profile, changeprofile from friend where email=#{email}
 </select>
 
 <!-- 탈퇴한 회원 복구하기 -->
