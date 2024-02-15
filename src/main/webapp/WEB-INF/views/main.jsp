@@ -251,9 +251,9 @@
 			%>
 				<tr>
 					<% if(dto.getFilename().equals("") || dto.getFilename() == null){ %>
-					<td><img src="./upload/none.PNG"></td>
+					<td><img src="./upload/none.PNG" style="width: 100px; height: 60px"></td>
 						<%} else{ %>
-						<td><img src="./upload/s_<%=dto.getNewfilename()%>"></td>
+						<td><img src="./upload/s_<%=dto.getNewfilename()%>" style="width: 100px; height: 60px"></td>
 					<% } %>
 					<td style="text-align: left">
 					<% if(dto.getTrsuccess() != 1){ %>
