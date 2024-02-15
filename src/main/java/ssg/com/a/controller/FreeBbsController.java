@@ -55,7 +55,6 @@ public class FreeBbsController {
 			pageBbs = pageBbs + 1;
 		}
 		
-		System.out.println(list);
 		model.addAttribute("list", list);
 		model.addAttribute("pageBbs", pageBbs);
 		model.addAttribute("param", param);
@@ -93,16 +92,21 @@ public class FreeBbsController {
 	public String freeBbsDetail(int seq, Model model) {
 		System.out.println("FreeBbsController freeBbsDetail " + new Date());
 
-//		int seq = Integer.parseInt(req.getParameter("seq"));
-
+		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
 		// 접속한 이력을 조사 !참고!
 		// 조회수 증가
 		// service.readcount(seq);
-
 		FreeBbsDto dto = service.getFreeBbs(seq);
 
+		LikeDto likestat = new LikeDto(login.getId(), seq);
+		
+		
+		int likecount = service.findLike(likestat);
+		
+		
+		model.addAttribute("likecount", likecount);
 		model.addAttribute("dto", dto);
-
+		
 		return "freebbs/freebbsdetail";
 	}
 
@@ -193,7 +197,8 @@ public class FreeBbsController {
 		//현재 게시글에 좋아요 있는지 없는지 확인
 		int count = service.findLike(dto);
 		
-		System.out.println(dto.toString());
+		//System.out.println(dto.toString());
+		System.out.println("count : " + count);
 		
 		String mes = "";
 		if(count != 0) {

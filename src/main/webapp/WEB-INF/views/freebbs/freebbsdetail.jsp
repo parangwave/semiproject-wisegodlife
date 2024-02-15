@@ -3,6 +3,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     FreeBbsDto dto = (FreeBbsDto) request.getAttribute("dto");
+	int likecount = (Integer) request.getAttribute("likecount");
+
 %>
 <%
 	FriendDto login = (FriendDto)session.getAttribute("login");
@@ -125,7 +127,17 @@ img {
     <button type="button" onclick="answerBbs(<%=dto.getSeq()%>)" class="btn btn-primary">답글작성</button>
 <%--     <button type="button" onclick="commentBbs(<%=dto.getSeq()%>)" class="btn btn-primary">댓글작성</button> --%>
 	<button type="button" class="btn btn-primary" onclick="returnlist()">글목록으로</button>
-	<button type="button" class="btn btn-primary" onclick="likeBbs()">좋아요</button>
+	<%
+	if ( likecount == 0 ){
+		%>
+			<button type="button" id="like" class="btn btn-primary" onclick="likeBbs()">좋아요</button>
+		<%
+	} else {
+		%>
+			<button type="button" id="like" class="btn btn-primary" onclick="likeBbs()">좋아요 취소</button>
+		<%
+	}
+	%>
 </div>
 
 	<%-- 댓글 --%>
@@ -217,13 +229,15 @@ $(document).ready(function(){
 			},
 			success : function( str ){
 				if (str == "LIKE_DEL") {
-					alert("좋아요 취소");
+					alert("좋아요 취소했습니다.");
+					$("#like").html('좋아요');
 				} else {
-					alert("좋아요");
+					alert("좋아요 했습니다.");
+					$("#like").html('좋아요 취소');
 				}
 			},
 			error : function(){
-				alert("TT");
+				//alert("TT");
 			}
 		});
 	}

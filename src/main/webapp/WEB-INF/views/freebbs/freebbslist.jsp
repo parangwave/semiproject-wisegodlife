@@ -5,7 +5,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%
+  <%
 	FriendDto login = (FriendDto)session.getAttribute("login");
     if(login == null || login.getId().isEmpty()){
         session.setAttribute("prevView", "freebbslist");
@@ -17,21 +17,21 @@
 <%
     }
 %>
-        <%
-    	List<FreeBbsDto> list = (List<FreeBbsDto>)request.getAttribute("list");
-    	int pageBbs = (Integer)request.getAttribute("pageBbs");
-    	FreeBbsParam param = (FreeBbsParam) request.getAttribute("param");
-    	
-    	int pageNumber = param.getPageNumber();
-    	
-    	String choice = param.getChoice();
-    	String search = param.getSearch();
-    	
-    	if(search == null || search.isEmpty()){
-    		search = "";
-    		choice = "start";
-    	}
-    %>
+<%
+	List<FreeBbsDto> list = (List<FreeBbsDto>)request.getAttribute("list");
+	int pageBbs = (Integer)request.getAttribute("pageBbs");
+	FreeBbsParam param = (FreeBbsParam) request.getAttribute("param");
+	
+	int pageNumber = param.getPageNumber();
+	
+	String choice = param.getChoice();
+	String search = param.getSearch();
+	
+	if(search == null || search.isEmpty()){
+		search = "";
+		choice = "start";
+	}
+%>
 <!DOCTYPE html>
 <html>
 	<head>

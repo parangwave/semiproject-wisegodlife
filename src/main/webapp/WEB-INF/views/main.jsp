@@ -1,5 +1,26 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@page import="ssg.com.a.dto.UtBbsDto"%>
+<%@page import="ssg.com.a.util.BbsUtil"%>
+<%@page import="ssg.com.a.dto.FreeBbsDto"%>
+<%@page import="java.util.List"%>
+<%@page import="ssg.com.a.dto.FriendDto"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	FriendDto login = (FriendDto)session.getAttribute("login");
+	if(login == null || login.getId().isEmpty()){
+	       session.setAttribute("prevView", "main");
+%>
+<script>
+	alert("로그인해 주십시오");
+	location.href = "./login.do";
+</script>
+<%
+	}
+%>
+<%
+	List<FreeBbsDto> freeBbslist = (List<FreeBbsDto>)request.getAttribute("freeBbslist");
+	List<UtBbsDto> utBbslist = (List<UtBbsDto>)request.getAttribute("utBbslist");
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,15 +66,20 @@
           <div id="mainContainer__leftTab__profile">
             <div id="mainContainer__leftTab__profile__avatarContainer">
               <!-- 프로필 사진 -->
-              <img src="./profile/mainprofile.png" alt="프로필 이미지">
+              <!-- <img src="./profile/mainprofile.png" alt="프로필 이미지"> -->
+              <img src="./profile/<%=login.getChangeprofile() %>" alt="프로필 이미지">
+              
 
               <!-- 자기소개란 -->
               <div id="mainContainer__leftTab__profile__avatarContainer__introduction">
                 <div id="mainContainer__leftTab__profile__avatarContainer__introduction__idSection">
-                  <h3>닉네임</h3>
-                  <h5>@아이디</h5>
+                  <!-- <h3>닉네임</h3> -->
+                  <h3><%=login.getNickname() %></h3>
+                  <!-- <h5>@아이디</h5> -->
+                  <h5><%=login.getId() %></h5>
                 </div>
-                <p>hello world</p>
+                <!-- <p>hello world</p> -->
+                <p><%=login.getIntroduce() %></p>
               </div>
             </div>
             <div id="mainContainer__leftTab__profile__BtnContainer">
@@ -126,9 +152,51 @@
               <h1>자유 게시판</h1>
               <ul>
                 <!-- 데이터 불러와야함 -->
+		   		<table class="table table-hover">
+					<col width="600" />
+					<col width="100" />
+					<col width="100" />
+					<tbody>
+						<%
+						if (freeBbslist == null || freeBbslist.size() == 0) {
+						%>
+						<tr>
+							<td colspan="5">작성된 글이 없습니다</td>
+						</tr>
+						<%
+						} else {
+							for (int i = 0; i < freeBbslist.size(); i++) {
+								FreeBbsDto freebbs = freeBbslist.get(i);
+						%>
+						<tr>
+							<td style="text-align: left;">
+							<%=BbsUtil.arrow(freebbs.getDepth())%>
+							<%
+								if(freebbs.getDel() == 0){
+							%>
+								<a href="freebbsdetail.do?seq=<%=freebbs.getSeq()%>">
+										<%=BbsUtil.dot3(freebbs.getTitle())%>
+							<%
+								} else {
+							%>
+								<font color="red"> ***** 삭제된 글 입니다 *****</font>
+							<%
+								}
+							%>
+								</a>
+							</td>
+							<td><%=freebbs.getReadcount()%></td>
+							<td><%=freebbs.getLikes()%></td>
+						</tr>
+						<%
+							}
+						}
+						%>
+					</tbody>
+				</table>
               </ul>
               <div class="moreBtnContainer">
-                <a class="btn" href="/freebbslist.do" role="button">더보기</a>
+                <a class="btn" href="freebbslist.do" role="button">더보기</a>
               </div>
             </div>
           </div>
@@ -164,10 +232,48 @@
             <div id="mainContainer__boardSet__2ndCol__deal" class="boardSection">
               <h1>오늘의 중고거래</h1>
               <ul>
-                <!-- 데이터 불러와야함 -->
+   		<table class="table table-hover">
+			<colgroup>
+				<col width="120">
+				<col width="500">
+				<col width="100">
+			</colgroup>
+			<tbody>
+				<%
+			if (utBbslist == null || utBbslist.size() == 0) {
+				%>
+				<tr>
+					<td colspan="3">작성된 글이 없습니다</td>
+				</tr>
+				<%		
+			} else {
+				for(int i = 0; i < utBbslist.size(); i++){
+						UtBbsDto dto = utBbslist.get(i);
+			%>
+				<tr>
+					<% if(dto.getFilename().equals("") || dto.getFilename() == null){ %>
+					<td><img src="./upload/none.PNG"></td>
+						<%} else{ %>
+						<td><img src="./upload/s_<%=dto.getNewfilename()%>"></td>
+					<% } %>
+					<td style="text-align: left">
+					<% if(dto.getTrsuccess() != 1){ %>
+					<a href="utbbsdetail.do?seq=<%=dto.getSeq() %>"><%=dto.getTitle() %></a>
+						<%} else { %>
+						<span>중고거래가 완료된 게시글 입니다.</span>
+					<%} %>
+					</td>
+					<td><%=dto.getReadcount() %></td>
+				</tr>
+				<%
+				}
+			}
+%>
+			</tbody>
+		</table>
               </ul>
               <div class="moreBtnContainer">
-                <a class="btn" href="/utbbslist.do" role="button">더보기</a>
+                <a class="btn" href="utbbslist.do" role="button">더보기</a>
               </div>
             </div>
           </div>
