@@ -45,7 +45,8 @@
 
 <!-- 블랙리스트 정보 Bbs에 연동하기 -->
 <select id="blockBlacklist" parameterType="ssg.com.a.dto.FreeBbsParam" resultType="ssg.com.a.dto.FreeBbsDto">
-	select seq, id, ref, step, depth, title, content, wdate, del, readcount from freebbs
+	select seq, id, ref, step, depth, title, content, wdate, del, readcount, likes
+	  from freebbs
 	<if test="blockid != null and blockid != '' and (word == null or word == '')">
 		where not id = #{blockid}
 	</if>
@@ -105,9 +106,22 @@
 
 <!-- 회원탈퇴 -->
 <update id="closeAccount" parameterType="String">
-update friend
-   set del=del+1, deldate=now()
- where id=#{id}
+	update friend
+	   set del=del+1, deldate=now()
+	 where id=#{id}
 </update>
+
+<!-- 좋아요한 게시글 sequence 획득 -->
+<select id="getlike" parameterType="String"  resultType="ssg.com.a.dto.LikeDto">
+	select fbseq
+	  from likes
+	 where id=#{id}
+</select>
+<!-- 게시글 sequence로 리스트 생성 -->
+<select id="getlikelist" parameterType="Integer" resultType="ssg.com.a.dto.FreeBbsDto">
+	select seq, id, ref, step, depth, title, content, wdate, del, readcount, likes
+	  from freebbs
+	 where seq=#{seq}
+</select>
 
 </mapper>
