@@ -33,7 +33,7 @@ String day = (String)request.getAttribute("day");
 
     <rightcontent id="rightcontent">
 
-      <h2 id="contentTitle">학교생활 - 학과일정 작성 </h2>
+      <h2 id="contentTitle">학과일정 작성 </h2>
 
       <div id="contentTable">
         <br/>

@@ -28,10 +28,10 @@
     <leftmenu id="leftMenu"></leftmenu>
 
     <rightcontent id="rightContent">
-      <h2 id="contentTitle">내정보</h2>
+      <h2 id="contentTitle">개인정보 변경</h2>
     
       <form action="mychangeAf.do" method="post" enctype="multipart/form-data">
-        <P>프로필 사진 변경 : <input type="file" name="filepicture" /></P>        
+        <span>프로필 사진 변경 : <input type="file" id="change" name="filepicture" /></span>        
         <table id="contentTable">
           <tr>
             <th rowspan="2" id="profilebox">
@@ -45,7 +45,9 @@
             <th>닉네임</th>
             <td><input type="text" name="nickname" value="<%=login.getNickname() %>"></td>
             <td>
-              <button type="button" onclick="nick">중복확인</button>
+              <div class="moreBtnContainer">
+                <a class="btn" href="/utbbslist.do" role="button">중복확인</a>
+              </div>
             </td>
           </tr>
           <tr>
@@ -69,15 +71,15 @@
             <td colspan="3"><textarea rows="5" cols="45" name="selfin" placeholder="자기소개를 작성해주세요">
             <% if (login.getIntroduce() == null) {
                 %>
-                
+자기소개 입력란
                 <%	
               } else {
-                %><%=login.getIntroduce() %><%						
+%><%=login.getIntroduce() %><%						
               }					
             %> </textarea></td>					 
           </tr>
         </table>
-        <input type="submit" value="수정완료">
+        <send><input type="submit" id="changeId" value="수정완료"></send>
       </form>
     </rightcontent>
   </main>
