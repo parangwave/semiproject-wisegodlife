@@ -38,6 +38,7 @@
             id="navBar__list__dropdown-board"
             data-mdb-toggle="dropdown"
             aria-expanded="false"
+            onclick="location.href='freebbslist.do'"
           >
             게시판
           </button>
@@ -62,6 +63,7 @@
             id="navBar__list__dropdown-school"
             data-mdb-toggle="dropdown"
             aria-expanded="false"
+            onclick="location.href='mygradecal.do'"
           >
             학교생활
           </button>
@@ -82,6 +84,7 @@
             id="navBar__list__dropdown-mypage"
             data-mdb-toggle="dropdown"
             aria-expanded="false"
+            onclick="location.href='mymain.do'"
           >
             마이페이지
           </button>
