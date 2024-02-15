@@ -37,12 +37,12 @@ public class FindMateController {
 
 		// 하나의 예시
 		System.out.println(list);	
-		if (list == null) {
+		if (list == null || list.size() > 10) {
 			// 하고자하는 프로세스 
 			this.list = service.findMateList();
 		}
-		System.out.println("list가 null이 아님");
-		
+		System.out.println(list);
+
 		// 리턴값 주기
 		model.addAttribute("list", this.list);
 		System.out.println("된다");

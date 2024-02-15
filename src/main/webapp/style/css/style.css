@@ -20,8 +20,13 @@
 /* board-set */
 @import "./mainPage/boardSet.css";
 
-/* board-set */
+
+/* 중고거래 게시판 */
 @import "./utbbslist/utbbslist.css";
+
+/* 메이트 구하기 게시판 */
+@import "./findmate/findmate.css";
+
 
 /* 전체 설정 */
 * {
