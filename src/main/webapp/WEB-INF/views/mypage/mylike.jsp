@@ -54,7 +54,7 @@ a {
       <table>
         <thead>
           <tr>
-            <th>번호</th><th class="title" colspan="2">좋아요한 게시글 - 내용</th><th>조회수</th><th>작성일</th><th>작성자</th>
+            <th>번호</th><th class="title" colspan="2">좋아요한 게시글 - 내용</th><th>좋아요</th><th>작성일</th><th>작성자</th>
           </tr>
         </thead>
         <tbody>
@@ -74,7 +74,7 @@ a {
               <td class="title" colspan="2">
                 <a href="freebbsdetail.do?seq=<%=dto.getSeq() %>" id="link"><%=dto.getTitle() %></a>
               </td>
-              <td><%=dto.getReadcount() %></td>
+              <td><%=dto.getLikes() %></td>
               <td class="day"><%=dto.getWdate().substring(0, 10) %></td>
               <td><%=dto.getId() %></td>
             </tr>	
