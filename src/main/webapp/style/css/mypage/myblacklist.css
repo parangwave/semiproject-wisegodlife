@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+
+tbody tr td ,
+table tr td {
+  font-size: 20px;
+  background-color: white;
+  width: 140px;
+}
+.title {
+  width: 300px;
+  padding-left: 8px;
+  text-align: left;
+}
+
+tbody tr td ,
+table tr td ,
+thead tr th ,
+table tr th {
+  vertical-align: middle;
+  height: 50px;
+  border: 1px solid black;
+}
+
+thead tr th ,
+table tr th {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.num {
+  text-align: center;
+  padding: 0 !important;
+  width: 75px;
+}
+
+#space tr td{
+  border: none !important;
+  height: 20px;
+  background-color: var(--gray-01);
+}

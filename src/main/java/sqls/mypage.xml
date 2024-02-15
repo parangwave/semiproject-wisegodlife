@@ -46,7 +46,15 @@
 <!-- 블랙리스트 정보 Bbs에 연동하기 -->
 <select id="blockBlacklist" parameterType="ssg.com.a.dto.FreeBbsParam" resultType="ssg.com.a.dto.FreeBbsDto">
 	select seq, id, ref, step, depth, title, content, wdate, del, readcount from freebbs
-	where not id = #{blockid} and not title like concat('%', #{word}, '%') and not content like concat('%', #{word}, '%')
+	<if test="blockid != null and blockid != '' and (word == null or word == '')">
+		where not id = #{blockid}
+	</if>
+	<if test="(blockid == null or blockid == '') and word != null and word != ''">
+		where title like concat('%', #{word}, '%') and not content like concat('%', #{word}, '%')
+	</if>
+	<if test="blockid != null and blockid != '' and word != null and word != ''">
+		where not id = #{blockid} and not title like concat('%', #{word}, '%') and not content like concat('%', #{word}, '%')
+	</if>
 	<if test="choice != null and choice != '' and search != null and search != ''">
 		<if test="choice == 'title'">
 			and title like concat('%', #{search}, '%')

@@ -128,3 +128,6 @@ select seq, id, title, content, major, college, rdate,
 select salt, del, deldate
   from friend 
  where id='test1'
+
+ 
+ -- 블랙리스트 게시판 연동
