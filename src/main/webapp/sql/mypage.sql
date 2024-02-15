@@ -61,7 +61,7 @@ create table calendar(
 );
 
 -- DB 삭제 (테이블명만 변경해서 사용)
-drop table calendar;
+drop table blacklist;
 
 -- DB table 전체보기
 select *

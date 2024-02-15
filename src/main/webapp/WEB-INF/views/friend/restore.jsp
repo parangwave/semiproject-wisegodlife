@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>탈퇴한 회원 복구란</title>
+<link rel="icon" href="images/favicon.svg">
 </head>
 <body>
 

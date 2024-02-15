@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+tbody tr td ,
+thead tr td ,
+tbody tr th ,
+thead tr th {
+  vertical-align: middle;
+  height: 60px;
+  border: 1px solid black;
+  width: 85px;
+}
+
+tbody tr td  {
+  font-size: 20px;
+  font-size: 400;
+  background-color: white;
+}
+
+thead tr th ,
+tbody tr th {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: var(--theme-primary-pink);
+}
+
+.title {
+  width: 500px;
+  padding-left: 8px;
+  text-align: left;
+}
+.day {
+  width: 130px;
+}
+
+#link {
+  text-decoration: none;
+  color: black;
+}
+
+#link:hover{
+  background-color: var(--theme-primary-pink);
+  color: white;
+  border-radius: 5px;
+}

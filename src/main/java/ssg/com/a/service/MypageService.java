@@ -27,4 +27,7 @@ public interface MypageService {
 	// 회원탈퇴
 	boolean closeAccount(String id);
 	
+	// 좋아요리스트
+	List<FreeBbsDto> getlikelist(String id);
+	
 }

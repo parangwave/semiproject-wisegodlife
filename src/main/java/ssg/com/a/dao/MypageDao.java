@@ -7,6 +7,7 @@ import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.CalendarParam;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FriendDto;
+import ssg.com.a.dto.LikeDto;
 import ssg.com.a.dto.MyblacklistDto;
 
 public interface MypageDao {
@@ -26,4 +27,10 @@ public interface MypageDao {
 
 	// 회원탈퇴
 	int closeAccount(String id);
+	
+	// 좋아요리스트
+	List<LikeDto> getlike(String id);
+	FreeBbsDto getlikelist(int seq);
+	
+	
 }

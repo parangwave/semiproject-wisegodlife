@@ -12,6 +12,7 @@ import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.CalendarParam;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FriendDto;
+import ssg.com.a.dto.LikeDto;
 import ssg.com.a.dto.MyblacklistDto;
 
 @Repository
@@ -62,6 +63,16 @@ public class MypageDaoImpl implements MypageDao{
 	@Override
 	public int closeAccount(String id) {
 		return session.update(ns + "closeAccount", id);
+	}
+
+	@Override
+	public List<LikeDto> getlike(String id) {
+		return session.selectList(ns + "getlike", id);
+	}
+
+	@Override
+	public FreeBbsDto getlikelist(int seq) {
+		return session.selectOne(ns + "getlikelist", seq);
 	}
 
 }
