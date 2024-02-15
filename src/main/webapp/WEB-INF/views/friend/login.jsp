@@ -43,32 +43,28 @@
 		<table>
 			<tr>
 				<td>
-					<input type="text" class="form-control" id="id" name="id" size="20" style="padding: 25px; margin-bottom: 10px" placeholder="아이디">
+					<input type="text" class="form-control" id="id" name="id" style="padding: 25px; margin-bottom: 10px; width: 400px" placeholder="아이디">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="password" class="form-control" id="pw"	name="pw" size="20" style="padding: 25px; margin-bottom: 10px" placeholder="비밀번호">
+					<input type="password" class="form-control" id="pw"	name="pw" style="padding: 25px; margin-bottom: 10px" placeholder="비밀번호">
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">
+				<td>
+					<span><input type="submit" id="login-btn" class="btn btn-primary" style="width: 100%; padding: 20px; border-radius: 15px; background-color: #F877B1; margin-bottom: 10px;" value="슬갓생 로그인"></span>
 					<div align="center" class="loginNregi">
-						<span><input type="submit" id="login-btn" class="btn btn-primary" style="width: 100%; padding: 20px; border-radius: 15px; background-color: #F877B1; margin-bottom: 10px;" value="슬갓생 로그인"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-
-						<input type="checkbox" id="chk_save_id">&nbsp;&nbsp;id 저장
-						<span><a href="regi.do">회원가입</a></span>
-						<span> / </span>
-						<span><a href="assiregi.do">조교 회원가입</a></span>
+						<span><input type="checkbox" id="chk_save_id">&nbsp;&nbsp;id 저장</span>
+						<span><a href="regi.do">회원가입</a> / <a href="assiregi.do">조교 회원가입</a></span>
 					</div>
 				</td>
 			</tr>
 		</table>
 	</form>
-	<hr/>
-	<button type="button" style="width: 100%; padding: 20px; border-radius: 15px; background-color: #F6F5FF; margin-bottom: 10px;" onclick="location.href='${url}'">
+	<hr style="width:400px"/>
+	<button type="button" style="width: 400px; padding: 20px; border-radius: 15px; background-color: #F6F5FF; margin-bottom: 10px;" onclick="location.href='${url}'">
 		<b>네이버 로그인</b>
-		<!-- <img alt="이미지 없음" src="./images/naver_logo.png" style="width: 360px; height: 80px" onclick="location.href='${url}'">  -->
 	</button>
 </div>
 
