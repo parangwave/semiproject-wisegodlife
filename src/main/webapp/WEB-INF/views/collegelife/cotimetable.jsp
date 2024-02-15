@@ -24,7 +24,7 @@
 
     <rightcontent id="rightcontent">
 
-      <h2 id="contentTitle">학교생활 - 수강시간표 </h2>
+      <h2 id="contentTitle">수강시간표 </h2>
 
       <canvas id="timetableCanvas" width="800" height="600"></canvas>
     </rightcontent>

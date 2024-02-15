@@ -26,7 +26,7 @@
 	<main id="mymain">
     <leftmenu id="leftMenu"></leftmenu>
     <rightcontent id="rightcontent">
-      <h2 id="contentTitle">학교생활 - 수강시간표 </h2>
+      <h2 id="contentTitle">수강시간표 </h2>
       <div align="center">
         <table border="1">
           <colgroup>

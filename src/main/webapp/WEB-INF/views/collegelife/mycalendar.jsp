@@ -48,7 +48,7 @@
 
     <rightcontent id="rightcontent">
 
-      <h2 id="contentTitle">학교생활 - 학과일정 </h2>
+      <h2 id="contentTitle">학과일정 </h2>
 
       <calender>
         <table id="calendar">

@@ -28,7 +28,7 @@
 		
     <rightcontent id="rightContet">
 
-      <h2 id="contentTitle">학교생활 - 학점계산기 </h2>
+      <h2 id="contentTitle">학점계산기 </h2>
 
       <table id="contentbox">
         <thead>

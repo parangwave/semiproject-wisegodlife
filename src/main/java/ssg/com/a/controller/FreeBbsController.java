@@ -55,6 +55,7 @@ public class FreeBbsController {
 			pageBbs = pageBbs + 1;
 		}
 		
+		System.out.println(list);
 		model.addAttribute("list", list);
 		model.addAttribute("pageBbs", pageBbs);
 		model.addAttribute("param", param);
