@@ -7,8 +7,16 @@
 FriendDto login = (FriendDto)session.getAttribute("login");
 String year = (String)request.getAttribute("year");
 String month = (String)request.getAttribute("month");
-String day = (String)request.getAttribute("day");
+String day = (String)request.getAttribute("day"); 
+  if(login == null || login.getId().isEmpty()) { 
 %>
+<script>
+  alert("로그인해 주십시오");
+  location.href = "./login.do";
+</script>
+<% 
+  } 
+%> 
 <!DOCTYPE html>
 <html>
 <head>

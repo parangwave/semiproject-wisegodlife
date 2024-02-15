@@ -2,9 +2,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%
-	FriendDto login = (FriendDto)session.getAttribute("login");
+<% 
+  FriendDto login = (FriendDto)session.getAttribute("login"); 
+  if(login == null || login.getId().isEmpty()) { 
 %>
+<script>
+  alert("로그인해 주십시오");
+  location.href = "./login.do";
+</script>
+<% 
+  } 
+%> 
 <!DOCTYPE html>
 <html>
 <head>

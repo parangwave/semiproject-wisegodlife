@@ -1,5 +1,17 @@
+<%@page import="ssg.com.a.dto.FriendDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+  FriendDto login = (FriendDto)session.getAttribute("login"); 
+  if(login == null || login.getId().isEmpty()) { 
+%>
+<script>
+  alert("로그인해 주십시오");
+  location.href = "./login.do";
+</script>
+<% 
+  } 
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,24 +21,6 @@
 <link rel="icon" href="images/favicon.svg">
 <link rel="stylesheet" href="style/css/style.css">
 <link rel="stylesheet" href="style/css/mypage/mymain.css" />
-<style type="text/css">
-#mymain {
-	display: flex;
-	width: 100%;
-}
-#leftMenu tr th{
-	text-align: left;
-}
-#lefteMenu {
-	width: 10%;	
-}
-#rightContet {
-	width: 90%;
-}
-a {
-	text-decoration: none;
-}
-</style>
 </head>
 <body>
   <script>

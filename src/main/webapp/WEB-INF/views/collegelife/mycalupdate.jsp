@@ -1,10 +1,20 @@
+<%@page import="ssg.com.a.dto.FriendDto"%>
 <%@page import="ssg.com.a.dto.CalendarDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
-CalendarDto dto = (CalendarDto)request.getAttribute("dto");
+  CalendarDto dto = (CalendarDto)request.getAttribute("dto");
+  FriendDto login = (FriendDto)session.getAttribute("login"); 
+  if(login == null || login.getId().isEmpty()) { 
 %>
+<script>
+  alert("로그인해 주십시오");
+  location.href = "./login.do";
+</script>
+<% 
+  } 
+%> 
 <!DOCTYPE html>
 <html>
 <head>
