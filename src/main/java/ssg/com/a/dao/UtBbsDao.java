@@ -17,4 +17,6 @@ public interface UtBbsDao {
 	
 	int tradeSuccess(int seq);
 	
+	void readcountUtBbs(int seq);
+	
 }

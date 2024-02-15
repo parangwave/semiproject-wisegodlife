@@ -42,4 +42,9 @@ public class UtBbsDaoImpl implements UtBbsDao{
 	public int tradeSuccess(int seq) {
 		return session.update(ns + "tradesuccess", seq);
 	}
+
+	@Override
+	public void readcountUtBbs(int seq) {
+		session.update(ns + "readcountutbbs", seq);
+	}
 }

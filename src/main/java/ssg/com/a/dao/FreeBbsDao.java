@@ -24,15 +24,16 @@ public interface FreeBbsDao {
 	
 	int commentWrite(BbsComment dto);
 	
+	//좋아요 부분
 	int findLike(LikeDto dto);
-	
 	int delLike(LikeDto dto);
-	
 	int addLike(LikeDto dto);
-	
 	int totalLikeCountUp(int seq);
 	int totalLikeCountDown(int seq);
 
+	//조회수 증가
+	void readcount(int seq);
+	
 	// 블랙리스트 불러오기 및 제외 글 불러오기
 	FreeBbsParam shareMyBlacklist(String id);
 	List<FreeBbsDto> blockBlacklist(FreeBbsParam param);

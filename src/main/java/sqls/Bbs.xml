@@ -108,7 +108,12 @@
 	where seq = #{seq}
 </update>
 
-
+<!-- 조회수 증가 -->
+<update id="readcount" parameterType="Integer">
+	update freebbs
+	set readcount=readcount+1
+	where seq=#{seq}
+</update>
 <!--  	/////////////////////////// 자유게시판 end /////////////////////////////////////		-->
 
 <!-- 중고거래 게시판 -->
@@ -186,5 +191,12 @@
 	
 <!--  	/////////////////////////// 메이트 구하기 게시판 end /////////////////////////////////////		-->
 
+<!-- 조회수 증가 -->
+<update id="readcountutbbs" parameterType="Integer">
+	update utbbs
+	set readcount=readcount+1
+	where seq=#{seq}
+</update>
+<!--  	/////////////////////////// 중고거래 게시판 end /////////////////////////////////////		-->
 
 </mapper>

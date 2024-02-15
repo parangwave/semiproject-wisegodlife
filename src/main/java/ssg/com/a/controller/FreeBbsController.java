@@ -93,9 +93,11 @@ public class FreeBbsController {
 		System.out.println("FreeBbsController freeBbsDetail " + new Date());
 
 		FriendDto login = (FriendDto)request.getSession().getAttribute("login");
+		
 		// 접속한 이력을 조사 !참고!
 		// 조회수 증가
-		// service.readcount(seq);
+		service.readcount(seq);
+		
 		FreeBbsDto dto = service.getFreeBbs(seq);
 
 		LikeDto likestat = new LikeDto(login.getId(), seq);

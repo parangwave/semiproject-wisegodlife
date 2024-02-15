@@ -21,39 +21,42 @@
   
   <style>
   	.center {
-  		margin: auto;
+  		margin: 70px auto;
   		width: 400px;
-  		border: 1px solid #a1a1a1;
   		padding: 10px;
-  		border-radius: 30px
+
+  	}
+  	
+  	.loginNregi {
+  	  	display: flex;
+  		justify-content: space-between;
   	}
   </style>
 </head>
 <body>
 
-<h2>login</h2>
-
 <div class="center">
+	<img style="width: 400px;" alt="슬갓생 로고" src="./images/lifegodlogo.png">
 	<!-- <form action="loginAf.do" method="post"> -->
   <form id="login">
 		<br />
-		<table class="table">
+		<table>
 			<tr>
-				<th>아이디</th>
-				<td><input type="text" class="form-control" id="id" name="id"
-					size="20"></td>
+				<td>
+					<input type="text" class="form-control" id="id" name="id" size="20" style="padding: 25px; margin-bottom: 10px" placeholder="아이디">
+				</td>
 			</tr>
 			<tr>
-				<th>패스워드</th>
-				<td><input type="password" class="form-control" id="pw"
-					name="pw" size="20"></td>
+				<td>
+					<input type="password" class="form-control" id="pw"	name="pw" size="20" style="padding: 25px; margin-bottom: 10px" placeholder="비밀번호">
+				</td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<div align="center">
-						<input type="checkbox" id="chk_save_id">&nbsp;&nbsp;id 저장<br/>
-						<br/>
-						<span><input type="submit" id="login-btn" class="btn btn-primary" value="login"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+					<div align="center" class="loginNregi">
+						<span><input type="submit" id="login-btn" class="btn btn-primary" style="width: 100%; padding: 20px; border-radius: 15px; background-color: #F877B1; margin-bottom: 10px;" value="슬갓생 로그인"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+
+						<input type="checkbox" id="chk_save_id">&nbsp;&nbsp;id 저장
 						<span><a href="regi.do">회원가입</a></span>
 						<span> / </span>
 						<span><a href="assiregi.do">조교 회원가입</a></span>
@@ -62,11 +65,10 @@
 			</tr>
 		</table>
 	</form>
-	<br/>
 	<hr/>
-	<br/>
-	<button type="button">
-		<img alt="이미지 없음" src="./images/naver_logo.png" style="width: 360px; height: 80px" onclick="location.href='${url}'">
+	<button type="button" style="width: 100%; padding: 20px; border-radius: 15px; background-color: #F6F5FF; margin-bottom: 10px;" onclick="location.href='${url}'">
+		<b>네이버 로그인</b>
+		<!-- <img alt="이미지 없음" src="./images/naver_logo.png" style="width: 360px; height: 80px" onclick="location.href='${url}'">  -->
 	</button>
 </div>
 
