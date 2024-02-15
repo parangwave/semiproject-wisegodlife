@@ -17,6 +17,7 @@ tbody tr td ,
 table tr td ,
 thead tr th ,
 table tr th {
+  text-align: center;
   vertical-align: middle;
   height: 50px;
   border: 1px solid black;

@@ -75,7 +75,7 @@
 자기소개 입력란
                 <%	
               } else {
-%><%=login.getIntroduce() %><%						
+%><%=login.getIntroduce().trim() %><%						
               }					
             %> </textarea></td>					 
           </tr>
