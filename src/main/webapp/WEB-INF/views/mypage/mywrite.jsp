@@ -1,3 +1,4 @@
+<%@page import="ssg.com.a.dto.FriendDto"%>
 <%@page import="ssg.com.a.dto.FreeBbsDto"%>
 <%@page import="ssg.com.a.dto.BbsComment"%>
 <%@page import="java.util.List"%>
@@ -7,7 +8,16 @@
 <%
 	List<BbsComment> commentList = (List<BbsComment>)request.getAttribute("commentList");
 	List<FreeBbsDto> writeList = (List<FreeBbsDto>)request.getAttribute("writeList");
+  FriendDto login = (FriendDto)session.getAttribute("login"); 
+  if(login == null || login.getId().isEmpty()) { 
 %>
+<script>
+  alert("로그인해 주십시오");
+  location.href = "./login.do";
+</script>
+<% 
+  } 
+%> 
     
 <!DOCTYPE html>
 <html>

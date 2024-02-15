@@ -1,3 +1,4 @@
+<%@page import="ssg.com.a.dto.FriendDto"%>
 <%@page import="ssg.com.a.dto.CalendarDto"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Calendar"%>
@@ -15,7 +16,16 @@
 	int month = (int)request.getAttribute("month");
 	Calendar cal = (Calendar)request.getAttribute("cal");
 	int dayOfWeek = (int)request.getAttribute("dayOfWeek");
+  FriendDto login = (FriendDto)session.getAttribute("login"); 
+  if(login == null || login.getId().isEmpty()) { 
 %>
+<script>
+  alert("로그인해 주십시오");
+  location.href = "./login.do";
+</script>
+<% 
+  } 
+%> 
 <!DOCTYPE html>
 <html>
 <head>

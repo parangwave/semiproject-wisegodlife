@@ -1,10 +1,21 @@
+<%@page import="ssg.com.a.util.CalendarUtil"%>
+<%@page import="ssg.com.a.dto.FriendDto"%>
 <%@page import="ssg.com.a.dto.CalendarDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
 	CalendarDto dto = (CalendarDto)request.getAttribute("dto");
+  FriendDto login = (FriendDto)session.getAttribute("login"); 
+  if(login == null || login.getId().isEmpty()) { 
 %>
+<script>
+  alert("로그인해 주십시오");
+  location.href = "./login.do";
+</script>
+<% 
+  } 
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +25,7 @@
 <link rel="icon" href="images/favicon.svg">
 <link rel="stylesheet" href="style/css/style.css">
 <link rel="stylesheet" href="style/css/collegelife/comain.css" />
+<link rel="stylesheet" href="style/css/collegelife/caldetail.css" />
 </head>
 <body>
   <script>
@@ -29,7 +41,7 @@
     <rightcontent id="rightcontent">
       <h2 id="contentTitle">수강시간표 </h2>
       <div align="center">
-        <table border="1">
+        <table id="detail">
           <colgroup>
             <col style="width: 200px"/>
             <col style="width: 400px"/>
@@ -44,22 +56,23 @@
           </tr>
           <tr>
             <th>일정일</th>
-            <td><%=dto.getRdate() %></td>
+            <td><%=CalendarUtil.toDates(dto.getRdate()) %></td>
           </tr>
           <tr>
             <th>일정 내용</th>
             <td><%=dto.getTitle() %></td>
           </tr>
           <tr>
-            <th>일정 상세내용 및 메모</th>
-            <td>
-              <textarea rows="15" cols="90" readonly="readonly"><%=dto.getContent() %></textarea>
+            <th class="contentN">일정 상세내용 <br/> 및 <br/> 메모</th>
+            <td class="content">
+              <%=dto.getContent() %>
+              <!-- <textarea rows="15" cols="90" readonly="readonly"><%=dto.getContent() %></textarea> -->
             </td>
           </tr>
         </table>
         <br/>
-        <button type="button" onclick="updateCal(<%=dto.getSeq() %>)">수정</button>
-        <button type="button" onclick="deleteCal(<%=dto.getSeq() %>)">삭제</button>
+        <button type="button" class="buttons" onclick="updateCal(<%=dto.getSeq() %>)">수정</button>
+        <button type="button" class="buttons" onclick="deleteCal(<%=dto.getSeq() %>)">삭제</button>
       </div>
     </rightcontent>
   </main>
