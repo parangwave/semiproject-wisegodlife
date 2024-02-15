@@ -41,4 +41,9 @@ public class UtBbsServiceImpl implements UtBbsService{
 	public int allUtBbs(UtBbsParam param) {
 		return dao.allUtBbs(param);
 	}
+
+	@Override
+	public void readCountUtBbs(int seq) {
+		dao.readcountUtBbs(seq);
+	}
 }

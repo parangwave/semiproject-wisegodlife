@@ -100,4 +100,9 @@ public class FreeBbsServiceImpl implements FreeBbsService {
 	public boolean totalLikeCountDown(int seq) {
 		return dao.totalLikeCountDown(seq) > 0? true : false;
 	}
+
+	@Override
+	public void readcount(int seq) {
+		dao.readcount(seq);
+	}
 }

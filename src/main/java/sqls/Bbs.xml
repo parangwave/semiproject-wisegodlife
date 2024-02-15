@@ -108,7 +108,12 @@
 	where seq = #{seq}
 </update>
 
-
+<!-- 조회수 증가 -->
+<update id="readcount" parameterType="Integer">
+	update freebbs
+	set readcount=readcount+1
+	where seq=#{seq}
+</update>
 <!--  	/////////////////////////// 자유게시판 end /////////////////////////////////////		-->
 
 <!-- 중고거래 게시판 -->
@@ -178,8 +183,13 @@
 	insert into findmate(id, nickname, profileImg, content, wdate)
 	values(#{id}, #{nickname}, #{profileImg}, #{content}, now() )
 </insert>
-	
-<!--  	/////////////////////////// 중고거래 게시판 end /////////////////////////////////////		-->
 
+<!-- 조회수 증가 -->
+<update id="readcountutbbs" parameterType="Integer">
+	update utbbs
+	set readcount=readcount+1
+	where seq=#{seq}
+</update>
+<!--  	/////////////////////////// 중고거래 게시판 end /////////////////////////////////////		-->
 
 </mapper>

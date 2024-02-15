@@ -151,7 +151,6 @@
             <div id="mainContainer__boardSet__1stCol__public" class="boardSection">
               <h1>자유 게시판</h1>
               <ul>
-                <!-- 데이터 불러와야함 -->
 		   		<table class="table table-hover">
 					<col width="600" />
 					<col width="100" />
@@ -175,7 +174,7 @@
 								if(freebbs.getDel() == 0){
 							%>
 								<a href="freebbsdetail.do?seq=<%=freebbs.getSeq()%>">
-										<%=BbsUtil.dot3(freebbs.getTitle())%>
+										<%=BbsUtil.dotmain(freebbs.getTitle())%>
 							<%
 								} else {
 							%>
@@ -258,7 +257,7 @@
 					<% } %>
 					<td style="text-align: left">
 					<% if(dto.getTrsuccess() != 1){ %>
-					<a href="utbbsdetail.do?seq=<%=dto.getSeq() %>"><%=dto.getTitle() %></a>
+					<a href="utbbsdetail.do?seq=<%=dto.getSeq() %>"><%=BbsUtil.dotmain(dto.getTitle()) %></a>
 						<%} else { %>
 						<span>중고거래가 완료된 게시글 입니다.</span>
 					<%} %>
