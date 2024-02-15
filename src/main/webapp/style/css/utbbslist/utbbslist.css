@@ -1,4 +1,5 @@
-	th, td {
+#utbbs th,
+#utbbs td {
 		border : 1px solid lightgray;
 		text-align: center;
 		vertical-align: middle;
