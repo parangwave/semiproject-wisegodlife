@@ -51,6 +51,14 @@ h1 {
 	border-radius: var(--header-border-radius);
 }
 
+a {
+	text-decoration : none;
+	color: black;
+}
+
+a:hover {
+	color: dodgerblue;
+}
 #mainContainer {
 	display: flex;
 	padding: var(--section-margin);
