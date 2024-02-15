@@ -86,7 +86,7 @@ FriendDto login = (FriendDto)session.getAttribute("login");
 			<button type="button" class="btn btn-primary" onclick="searchBtn()">검색</button>
 			
 		</div>
-		<table class="table table-hover">
+		<table class="table table-hover" id="utbbs">
 			<colgroup>
 				<col width="70">
 				<col width="100">
