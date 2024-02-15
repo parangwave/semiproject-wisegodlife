@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학교생활 학점계산기</title>
+<title>학교생활</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="icon" href="images/favicon.svg">
 <link rel="stylesheet" href="style/css/style.css" />
@@ -43,13 +43,15 @@
               </select>
             </th>
             <th colspan="2" style="text-align: left;">&nbsp;<input id="fcheck" type="checkbox">&nbsp;F학점 포함</th>
-            <th><input type="button" value="과목추가" id="addSub"></th>		
+            <th>
+              <input type="button" value="과목추가" id="addSub" class="buttons">
+            </th>		
           </tr>	
           <tr>
-            <th class="subject">과목</th>
-            <th>점수</th>
-            <th>학점</th>
-            <th>전공</th>
+            <td class="subject">과목</td>
+            <td>점수</td>
+            <td>학점</td>
+            <td>전공</td>
           </tr>
         </thead>		
         <tbody id="addSubject">
@@ -77,9 +79,9 @@
         <tfoot>
           <tr>
             <th colspan="4" id="buttons">
-              <button type="button" id="gradeCal">학점계산</button>
-              <button type="button" id="saveCal">저장하기</button>
-              <button type="button" id="loadCal">불러오기</button>
+              <button type="button" id="gradeCal" class="buttons">학점계산</button>
+              <button type="button" id="saveCal" class="buttons">저장하기</button>
+              <button type="button" id="loadCal" class="buttons">불러오기</button>
             </th>
           </tr>
         </tfoot>
