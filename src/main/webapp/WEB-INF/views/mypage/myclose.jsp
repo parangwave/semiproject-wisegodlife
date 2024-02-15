@@ -9,24 +9,7 @@
 <link rel="icon" href="images/favicon.svg">
 <link rel="stylesheet" href="style/css/style.css">
 <link rel="stylesheet" href="style/css/mypage/mymain.css" />
-<style type="text/css">
-#mymain {
-	display: flex;
-	width: 100%;
-}
-#leftMenu tr th{
-	text-align: left;
-}
-#lefteMenu {
-	width: 10%;	
-}
-#rightContet {
-	width: 90%;
-}
-a {
-	text-decoration: none;
-}
-</style>
+<link rel="stylesheet" href="style/css/mypage/myclose.css" />
 </head>
 <body>	
   <script>
@@ -36,23 +19,31 @@ a {
     });
   </script>
 	<nav id="topnav"></nav>
-	
-	<header id="header">	
-		<h1>내정보</h1>
-	</header>
-	
-	<main id="mymain">
+
+  <main id="mymain">
     <leftmenu id="leftMenu"></leftmenu>
-		
-		<table>
-			<tr>
-				<th>정말로 회원탈퇴를 하겠습니까?</th>
-			</tr>
-			<tr>
-				<td><button type="button" onclick="closeAccount()">회원탈퇴</button></td>
-			</tr>
-		</table>
-	</main>
+
+    <rightcontent id="rightContent">
+      <h2 id="contentTitle">회원탈퇴</h2>
+      
+      <div class="close">
+        <table>
+          <tr>
+            <th>정말로 회원탈퇴를 하겠습니까?</th>
+          </tr>
+          <tr><th></th></tr>
+          <tr><th></th></tr>
+          <tr>
+            <td>
+              <div class="moreBtnContainer">
+                <a class="btn" onclick="closeAccount()" role="button">회원탈퇴</a>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+	  </rightcontent>
+  </main>
 	
 	<script type="text/javascript">
 		function closeAccount() {

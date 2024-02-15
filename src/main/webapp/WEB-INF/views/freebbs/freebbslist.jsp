@@ -159,12 +159,12 @@
 		<button type="button" class="btn btn-primary" onclick="writeFreeBbs()">글작성</button>
 	</div>
 
-
 	<script type="text/javascript">
 		function writeFreeBbs(){
 			location.href = "freebbswrite.do";
 		}
 	</script>
+	
 	<script type="text/javascript">
 	
 	let search = "<%=search%>";

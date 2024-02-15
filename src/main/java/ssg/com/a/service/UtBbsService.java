@@ -17,4 +17,6 @@ public interface UtBbsService {
 	
 	boolean tradeSuccess(int seq);
 	
+	//조회수 증가
+	void readCountUtBbs(int seq);
 }

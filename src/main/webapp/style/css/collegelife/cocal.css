@@ -15,10 +15,15 @@
   /* background-color: var(--theme-sub-pink); */
   background-color: white;
 }
+
 #week th,
 #calbody tr th,
 #calbody tr td {
   border: 1px solid var(--gray-02);
+}
+#calbody tr td {
+text-align: left;
+vertical-align: top;
 }
 
 thead tr td{
@@ -53,4 +58,8 @@ thead tr td a{
 .detail a:hover {
   color: white;
   background-color: var(--theme-primary-pink);
+}
+
+#calendar thead tr td {
+  border: none;
 }

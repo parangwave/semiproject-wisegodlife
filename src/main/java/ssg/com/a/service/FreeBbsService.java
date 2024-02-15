@@ -25,15 +25,15 @@ public interface FreeBbsService {
 
 	boolean commentWrite(BbsComment dto);
 	
+	// 좋아요 부분
 	int findLike(LikeDto dto);
-	
 	boolean delLike(LikeDto dto);
-	
 	boolean addLike(LikeDto dto);
-	
 	boolean totalLikeCountUp(int seq);
-	
 	boolean totalLikeCountDown(int seq);
+	
+	//조회수 증가
+	void readcount(int seq);
 	
 	// 블랙리스트 불러오기 및 제외 글 불러오기
 	FreeBbsParam shareMyBlacklist(String id);

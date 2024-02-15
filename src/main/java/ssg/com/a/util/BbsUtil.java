@@ -15,6 +15,19 @@ public class BbsUtil {
 
 	return str;
 	}
+	
+	public static String dotmain(String title){
+		String str = "";
+	
+		if(title.length() >= 25){
+			str = title.substring(0, 25);
+			str += "...";
+		}else{
+			str = title.trim();
+		}
+	
+		return str;
+	}
 
 	// 답글의 화살표와 공백을 추가하는 함수
 	public static String arrow(int depth){

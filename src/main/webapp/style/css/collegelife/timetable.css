@@ -23,3 +23,16 @@ th, td {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.buttons {
+  border: 3px solid var(--theme-primary-blue);
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px;
+  background-color: white;
+}
+.buttons:hover {
+  background-color: var(--theme-primary-blue);
+  color: white;
+}

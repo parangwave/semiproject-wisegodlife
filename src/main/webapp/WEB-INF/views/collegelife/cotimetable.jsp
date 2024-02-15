@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>학교생활 수강시간표</title>
+<title>학교생활</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="icon" href="images/favicon.svg">
 <link rel="stylesheet" href="style/css/style.css">
@@ -79,8 +79,8 @@
           <input type="text" id="courseClassInput" size="5">
         </li>
         <li>
-          <button id="addCourseBtn">수강 추가</button>
-          <button id="resetBtn">초기화</button>
+          <button id="addCourseBtn" class="buttons">수강 추가</button>
+          <button id="resetBtn" class="buttons">초기화</button>
         </li>
       </ul>
     </div>

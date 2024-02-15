@@ -131,7 +131,7 @@ public class UtBbsController {
 	public String utBbsDetail(int seq, Model model) {
 		System.out.println("UtBbsController utBbsDetail " + new Date());
 		
-		//service.readCount(seq);
+		service.readCountUtBbs(seq);
 		
 		UtBbsDto dto = service.getUtBbs(seq);
 		model.addAttribute("dto", dto);

@@ -104,4 +104,9 @@ public class FreeBbsDaoImpl implements FreeBbsDao{
 	public int totalLikeCountDown(int seq) {
 		return session.update(ns + "totallikecountdown", seq);
 	}
+
+	@Override
+	public void readcount(int seq) {
+		session.update(ns + "readcount", seq);
+	}
 }
