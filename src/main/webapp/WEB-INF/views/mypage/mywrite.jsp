@@ -17,23 +17,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="style/css/style.css">
 <link rel="stylesheet" href="style/css/mypage/mymain.css" />
+<link rel="stylesheet" href="style/css/mypage/mywrite.css" />
 <style type="text/css">
-#mymain {
-	display: flex;
-	width: 100%;
-}
-#leftMenu tr th{
-	text-align: left;
-}
-#lefteMenu {
-	width: 10%;	
-}
-#rightContet {
-	width: 90%;
-}
-a {
-	text-decoration: none;
-}
 </style>
 </head>
 <body>
@@ -45,18 +30,17 @@ a {
   </script>
 	<nav id="topnav"></nav>
 	
-	<header id="header">	
-		<h1>내정보</h1>
-	</header>
-	
-	<main id="mymain">
+  <main id="mymain">
     <leftmenu id="leftMenu"></leftmenu>
+
+    <rightcontent id="rightContent">
+      <h2 id="contentTitle">내가 쓴 댓글 및 게시글</h2>
 		
 		<table border="1">
-		<col width="70"/><col width="600"/><col width="100"/><col width="150"/>		
+		<col width="70"/><col width="450"/><col width="150"/><col width="120"/>
 			<thead>
 				<tr>
-					<th>번호</th><th>내가작성한 댓글</th><th>내용</th><th>작성일</th><th>작성자</th>
+					<th>번호</th><th>내가작성한 댓글 - 내용</th><th>작성일</th><th>작성자</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -65,23 +49,23 @@ a {
 					BbsComment bc = commentList.get(i);
 					%>
 				<tr>
-					<td><%=i + 1 %></td>
-					<td style="text-align: left;" colspan="2">
+					<td class="num"><%=i + 1 %></td>
+					<td style="text-align: left;" >
 						<%=bc.getContent() %>
 					</td>
-					<td><%=bc.getWdate() %></td>
-					<td><%=bc.getId() %></td>
+					<td class="num"><%= bc.getWdate().substring(0, 10) %></td>
+					<td class="num"><%=bc.getId() %></td>
 				</tr>	
 					<%
 				}
 				%>
 			</tbody>
+      <tr>
+        <th colspan="5" id="space">&nbsp;</th>
+      </tr>
 			<tfoot>
 				<tr>
-					<th colspan="5">&nbsp;</th>
-				</tr>
-				<tr>
-					<th>번호</th><th>내가작성한 게시글</th><th>제목</th><th>조회수</th><th>작성자</th>
+					<th>번호</th><th>내가작성한 게시글 - 제목</th><th>조회수</th><th>작성자</th>
 				</tr>
 				<%
 				if(writeList == null || writeList.size() == 0){
@@ -95,17 +79,17 @@ a {
 						FreeBbsDto bbs = writeList.get(i);
 					%>
 					<tr>
-						<td><%=i + 1 %></td>
-						<td style="text-align: left;" colspan="2">
+						<td class="num"><%=i + 1 %></td>
+						<td style="text-align: left;">
 						<% if(bbs.getDel() == 0){ %>
-							<a href="bbsdetail.do?seq=<%=bbs.getSeq() %>"><%=bbs.getTitle() %></a>
+							<a href="freebbsdetail.do?seq=<%=bbs.getSeq() %>" id="link"><%=bbs.getTitle() %></a>
 						<% }else{ %>
 							<font color="#ff0000">[삭제한 글입니다]</font>
-							<a href="bbsdetail.do?seq=<%=bbs.getSeq() %>"><%=bbs.getTitle() %></a>
+							<span><%=bbs.getTitle() %></span>
 						<% } %>
 						</td>
-						<td><%=bbs.getReadcount() %></td>
-						<td><%=bbs.getId() %></td>
+						<td class="num"><%=bbs.getReadcount() %></td>
+						<td class="num"><%=bbs.getId() %></td>
 					</tr>		
 					<%
 					}
