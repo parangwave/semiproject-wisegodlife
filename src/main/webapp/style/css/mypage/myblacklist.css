@@ -40,3 +40,8 @@ table tr th {
   height: 20px;
   background-color: var(--gray-01);
 }
+
+tbody tr th div a {
+  color: var(--theme-primary-pink);
+  border: 2px solid var(--theme-primary-pink);
+}

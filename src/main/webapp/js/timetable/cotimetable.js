@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
       const day = document.getElementById("daySelect").value;
       const startTime = document.getElementById("startTimeSelect").value;
       const endTime = document.getElementById("endTimeSelect").value;
+      const courseNameInput = document.getElementById("courseNameInput").value;
+      const courseClassInput = document.getElementById("courseClassInput").value;
+      
       // console.log(document.getElementById("courseNameInput").value);
       
       const storedCourses = localStorage.getItem("courses");
@@ -38,18 +41,16 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
 
-      // 새로운 수업을 추가할 때 밝은 색상을 랜덤 생성
-      const randomColor = getRandomBrightColor();
-      courses.push({ day: day, startTime: startTime, endTime: endTime, courseNameInput: courseNameInput, courseClassInput: courseClassInput, color: randomColor });
-
       if (document.getElementById("courseNameInput").value === "" || document.getElementById("courseClassInput").value === "") {
         alert('수업명 또는 강의실을 제대로 작성해주세요');
         return;
       } else {
         const courseName = document.getElementById("courseNameInput").value + " (" + document.getElementById("courseClassInput").value + ")";
         // console.log(courseName);
-
-
+        
+              // 새로운 수업을 추가할 때 밝은 색상을 랜덤 생성
+      	const randomColor = getRandomBrightColor();
+    	courses.push({ day: day, startTime: startTime, endTime: endTime, courseName: courseName, courseNameInput: courseNameInput, courseClassInput: courseClassInput, color: randomColor });
 
         drawCourses();
         saveCourses();

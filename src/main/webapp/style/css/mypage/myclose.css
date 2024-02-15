@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.close {
+  margin: 200px 0 0 30px;
+}
+
+.close table tr th,
+.close table tr td {
+  border: none !important;
+  width: 650px;
+  height: 50px;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.close table tr td div a {
+  width: 150px;
+  height: 50px;
+  font-size: var(--nav-bar-font-size);
+  font-weight: 800;
+  color: var(--theme-primary-pink);
+  border: 2px solid var(--theme-primary-pink);
+}
