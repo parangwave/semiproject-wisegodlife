@@ -20,7 +20,8 @@ public class FindMateServiceImpl implements FindMateService  {
 	}
 
 	@Override
-	public int writeFindMate(FindMateDto dto) {
-		return dao.writeFindMate(dto);
+	public void writeFindMate(FindMateDto dto) {
+		dao.writeFindMate(dto);
 	}
+
 }

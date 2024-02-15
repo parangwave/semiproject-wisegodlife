@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>슬갓생 회원등록</title>
+<link rel="icon" href="images/favicon.svg">
 <!-- 부트스트랩 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>

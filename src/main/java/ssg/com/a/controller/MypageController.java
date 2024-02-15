@@ -38,6 +38,9 @@ public class MypageController {
 	@Autowired
 	HttpServletRequest request;
 	
+	@Autowired
+	HttpSession se;
+	
 	// TODO 페이지 이동란
 	// 마이페이지 메인화면 이동
 	@GetMapping("mymain.do")
@@ -57,8 +60,13 @@ public class MypageController {
 	
 	// 마이페이지 좋아요게시글 이동
 	@GetMapping("mylike.do")
-	public String mylike() {
+	public String mylike(Model model) {
 		System.out.println("MypageController mylike" + new Date());
+		
+		FriendDto login = (FriendDto) se.getAttribute("login");
+		List<FreeBbsDto> list = service.getlikelist(login.getId());
+		
+		model.addAttribute("list", list);
 		
 		return "mypage/mylike";
 	}

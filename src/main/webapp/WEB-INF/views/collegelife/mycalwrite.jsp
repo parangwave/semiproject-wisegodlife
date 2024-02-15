@@ -15,6 +15,7 @@ String day = (String)request.getAttribute("day");
 <meta charset="UTF-8">
 <title>일정작성</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="icon" href="images/favicon.svg">
 <link rel="stylesheet" href="style/css/style.css">
 <link rel="stylesheet" href="style/css/collegelife/comain.css" />
 <link rel="stylesheet" href="style/css/collegelife/calwrite.css" />

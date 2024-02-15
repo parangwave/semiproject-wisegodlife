@@ -1,5 +1,6 @@
 package ssg.com.a.service.serviceimpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import ssg.com.a.dto.CalendarDto;
 import ssg.com.a.dto.CalendarParam;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.FriendDto;
+import ssg.com.a.dto.LikeDto;
 import ssg.com.a.dto.MyblacklistDto;
 import ssg.com.a.service.MypageService;
 
@@ -58,6 +60,19 @@ public class MypageServiceImpl implements MypageService {
 	@Override
 	public boolean closeAccount(String id) {
 		return dao.closeAccount(id)>0?true:false;
+	}
+
+	@Override
+	public List<FreeBbsDto> getlikelist(String id) {
+		List<LikeDto> seqlist = dao.getlike(id);
+		
+		List<FreeBbsDto> list = new ArrayList<FreeBbsDto>();
+		
+		for (LikeDto like : seqlist) {
+			list.add(dao.getlikelist(like.getFbseq()));
+		}
+		
+		return list;
 	}
 	
 }
