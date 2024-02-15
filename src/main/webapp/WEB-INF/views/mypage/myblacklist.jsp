@@ -14,24 +14,8 @@ List<MyblacklistDto> bllist = (List<MyblacklistDto>)request.getAttribute("bllist
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="style/css/style.css">
 <link rel="stylesheet" href="style/css/mypage/mymain.css" />
-<style type="text/css">
-#mymain {
-	display: flex;
-	width: 100%;
-}
-#leftMenu tr th{
-	text-align: left;
-}
-#lefteMenu {
-	width: 10%;	
-}
-#rightContet {
-	width: 90%;
-}
-a {
-	text-decoration: none;
-}
-</style>
+<link rel="stylesheet" href="style/css/mypage/myblacklist.css" />
+
 </head>
 <body>	
   <script>
@@ -42,72 +26,108 @@ a {
   </script>
 	<nav id="topnav"></nav>
 	
-	<header id="header">	
-    <h1>내정보 - 블랙리스트</h1>
-	</header>
-	
-	<main id="mymain">
+  <main id="mymain">
     <leftmenu id="leftMenu"></leftmenu>
+
+    <rightcontent id="rightContent">
+      <h2 id="contentTitle">내정보</h2>
 		
-		<table border="1">
+		<table>
 			<tr>
 				<!-- 닉네임 또는 아이디로 차단하기 -->
-				<th colspan="2">아이디 차단리스트</th>
-				<th></th>
-				<th><button type="button" onclick="idBlockAdd()">아이디 추가</button></th>
+				<th colspan="3">아이디 차단리스트</th>
+				<th>
+          <div class="moreBtnContainer">
+            <a class="btn" role="button" onclick="idBlockAdd()">아이디 추가</a>
+          </div>
+        </th>
 			</tr>
 				
 			<tbody>
 				<tr>
 					<td>번호</td>
 					<td>차단 아이디</td>
-					<td style="text-align: left;">차단 사유</td>
+					<td class="title">차단 사유</td>
 					<td>차단일</td>
 				</tr>	
 				<%
+        if (bllist.size() == 0 || bllist == null) {
+          %>
+					<tr>
+						<td colspan="4">차단한 사람이 없습니다.</td>
+					</tr>	
+          <%
+        }
 				for (int i = 0;i < bllist.size(); i++) {
 					MyblacklistDto bl = bllist.get(i);
-					
-					if (bl.getWord() == null || bl.getWord().equals("")) {			
-					%>
+					if (bl.getBlockid() == null || bl.getBlockid().equals("")) {
+	         			%>
+		 					<tr>
+								<td colspan="4">차단한 사람이 없습니다.</td>
+							</tr>
+	         			<%
+						} else {
+	         			%>
 					<tr>
-						<td><%=i + 1 %></td>
-						<td><%=bl.getBlockid() %></td>
+						<td class="num"><%=i + 1 %></td>
+						<td class="num"><%=bl.getBlockid() %></td>
 						<td style="text-align: left;"><%=bl.getReason() %></td>
-						<td><%=bl.getAdddate() %></td>
+						<td ><%=bl.getAdddate().substring(0, 10) %></td>
 					</tr>	
 					<%
 					}
 				}
 				%>	
-			</tbody>	
-		<tr>
-			<th colspan="2">특정단어 차단리스트</th>
-			<th></th>
-			<th><button type="button" onclick="wordBlockAdd()">단어 추가</button></th>
-		</tr>
-			<tbody>
+			</tbody>
+
+      <tbody id="space">
+        <tr><td colspan="4"></td></tr>
+      </tbody>
+
+      <tr>
+        <th colspan="3">특정단어 차단리스트</th>
+        <th>
+          <div class="moreBtnContainer">
+            <a class="btn" role="button" onclick="wordBlockAdd()">단어 추가</a>
+          </div>
+        </th>
+      </tr>
+
+      <tbody>
 				<tr>
 					<td>번호</td>
 					<td>차단 단어</td>
-					<td style="text-align: left;">차단 사유</td>
+					<td class="title">차단 사유</td>
 					<td>차단일</td>
 				</tr>	
-				<%
+        <%
+        if (bllist.size() == 0 || bllist == null) {
+          %>
+					<tr>
+						<td colspan="4">차단한 단어가 없습니다.</td>
+					</tr>	
+          <%
+        }
 				for (int i = 0;i < bllist.size(); i++) {
 					MyblacklistDto bl = bllist.get(i);
 					
-					if (bl.getBlockid() == null || bl.getBlockid().equals("")) {			
-					%>
+					if (bl.getWord() == null || bl.getWord().equals("")) {
+         			%>
+	 					<tr>
+							<td colspan="4">차단한 단어가 없습니다.</td>
+						</tr>
+         			<%
+					} else {
+         			%>
 					<tr>
-						<td><%=i + 1 %></td>
-						<td><%=bl.getBlockid() %></td>
-						<td style="text-align: left;"><%=bl.getReason() %></td>
+						<td class="num"><%=i + 1 %></td>
+						<td class="num"><%=bl.getWord()%></td>
+						<td style="text-align: left;"> <%=bl.getReason() %></td>
 						<td><%=bl.getAdddate() %></td>
 					</tr>	
 					<%
-					}
-				}
+     				}
+        		}
 				%>	
 			</tbody>
 		</table>	

@@ -68,7 +68,7 @@
           </tr>
           <tr>
             <th>자기소개</th>
-            <td colspan="3"><textarea rows="5" cols="45" name="selfin" placeholder="자기소개를 작성해주세요">
+            <td colspan="3"><textarea rows="5" cols="45" name="introduce" placeholder="자기소개를 작성해주세요">
             <% if (login.getIntroduce() == null) {
                 %>
 자기소개 입력란
