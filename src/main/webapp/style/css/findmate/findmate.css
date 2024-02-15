@@ -1,0 +1,60 @@
+/* #findmateList h1 {
+        font-weight: var(--header-font-weight);
+        font-size: calc(var(--header-font-size) * 2);
+        color: var(--black);
+        margin: calc(var(--section-margin) * 1.5) calc(var(--section-margin) * 2);
+        margin-right: 0;
+      } 
+ */
+
+#findMateTable {
+  margin: 1rem auto;
+  width: 70%;
+  border-collapse: separate;
+  border-spacing: 0 var(--section-margin);
+  overflow: hidden;
+  border-style: none;
+}
+
+#findMateTable th,
+td {
+  vertical-align: middle;
+}
+
+.findMateTable__comment__avatarImg {
+  width: 80%;
+  border-radius: 50%;
+}
+
+#mateCmtSection > form {
+  display: flex;
+  justify-content: center;
+}
+
+#mateCmtSection__iNcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: calc(var(--section-margin) * 2) 0;
+}
+
+/* 말풍선 */
+.findMateTable__comment__content {
+  background-color: var(--white);
+  border-radius: var(--header-border-radius);
+  margin: var(--section-margin);
+}
+
+/* 남의 말풍선 */
+.findMateTable__othercomment__content{
+  text-align: left;
+  padding-left: var(--section-margin);
+  border-bottom-left-radius: 0;
+}
+
+/* 내 말풍선 */
+.findMateTable__mycomment__content {
+  text-align: right;
+  padding-right: var(--section-margin);
+  border-bottom-right-radius: 0;
+}
