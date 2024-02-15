@@ -54,14 +54,8 @@ FriendDto login = (FriendDto)session.getAttribute("login");
 		margin: auto;
 		width: 1000px;
 		text-align: center;
-	}
-
-	th, td {
-		border : 1px solid lightgray;
-		text-align: center;
 		vertical-align: middle;
 	}
-
 </style>
 <body class="light-mode" data-bs-theme="light">
 	<!-- nav-bar start -->

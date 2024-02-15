@@ -21,6 +21,10 @@
 @import "./mainPage/boardSet.css";
 
 
+/* board-set */
+@import "./utbbslist/utbbslist.css";
+
+
 /* 전체 설정 */
 * {
 	font-family: "Pretendard" !important;
