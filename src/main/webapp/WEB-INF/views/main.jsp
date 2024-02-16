@@ -200,6 +200,8 @@
                 <a class="btn" href="findmate.do" role="button">더보기</a>
               </div>
             </div>
+            
+            <!-- 자유게시판  -->
             <div id="mainContainer__boardSet__1stCol__public" class="boardSection">
               <h1>자유 게시판</h1>
               <ul>
@@ -252,14 +254,18 @@
             </div>
           </div>
           <div id="mainContainer__boardSet__2ndCol" class="mainContainer__boardSet-col">
+          
+          	<!-- 동아리 게시판 -->
             <div id="mainContainer__boardSet__2ndCol__club" class="boardSection">
               <h1>오늘의 동아리</h1>
 
               <!-- 동아리 썸네일 -->
               <div id="mainContainer__boardSet__2ndCol__club-container">
                 <div class="mainContainer__boardSet__2ndCol__club-content">
-                  <h6>D-1</h6>
-                  <img src="./images/club.png" alt="동아리 썸네일 이미지">
+                  <div class="mainContainer__boardSet__2ndCol__club-content-img">
+                    <h6>D-1</h6>
+                    <img src="./images/club.png" alt="동아리 썸네일 이미지">
+                  </div>
                   <div class="mainContainer__boardSet__2ndCol__club-content-text">
                     <h2>1조</h2>
                     <p>화이팅!!</p>
@@ -267,8 +273,10 @@
                 </div>
                 
                 <div class="mainContainer__boardSet__2ndCol__club-content">
-                  <h6>D-1</h6>
-                  <img src="./images/club2.png" alt="동아리 썸네일 이미지">
+                  <div class="mainContainer__boardSet__2ndCol__club-content-img">
+                    <h6>D-1</h6>
+                    <img src="./images/club2.png" alt="동아리 썸네일 이미지">
+                  </div>
                   <div class="mainContainer__boardSet__2ndCol__club-content-text">
                     <h2>1조</h2>
                     <p>가 생겼으면</p>
