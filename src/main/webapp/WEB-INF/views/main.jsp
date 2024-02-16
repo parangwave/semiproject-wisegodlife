@@ -1,6 +1,7 @@
  <%@page import="ssg.com.a.dto.UtBbsDto"%>
 <%@page import="ssg.com.a.util.BbsUtil"%>
 <%@page import="ssg.com.a.dto.FreeBbsDto"%>
+<%@page import="ssg.com.a.dto.FindMateDto"%>
 <%@page import="java.util.List"%>
 <%@page import="ssg.com.a.dto.FriendDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,7 +19,11 @@
 	}
 %>
 <%
+	/* 메이트 구하기 게시판 */
+	List<FindMateDto> findMateList = (List<FindMateDto>)request.getAttribute("findMateList");
+	/* 자유게시판 */
 	List<FreeBbsDto> freeBbslist = (List<FreeBbsDto>)request.getAttribute("freeBbslist");
+	/* 중고거래 게시판 */
 	List<UtBbsDto> utBbslist = (List<UtBbsDto>)request.getAttribute("utBbslist");
 %>
 <!DOCTYPE html>
@@ -139,13 +144,60 @@
         <!-- board-set(게시판 집합 영역) start -->
         <section id="mainContainer__boardSet" class="w-75 ">
           <div id="mainContainer__boardSet__1stCol" class="mainContainer__boardSet-col">
+          
+          	<!-- 메이트 구하기 게시판  -->
+          	<!-- 여기서 findmatelist를 가져와서 데이터를 가져와야 하는데  list가 null로 떠요  -->
             <div id="mainContainer__boardSet__1stCol__mate" class="boardSection">
               <h1>메이트 구하기</h1>
-              <ul>
-                <!-- 데이터 불러와야함 -->
-              </ul>
+              <table>
+					      <!-- <colgroup>
+                  <col width="20" />
+					        <col width="10" />
+					        <col width="70" />
+                </colgroup> -->
+                <tbody>
+                  <%
+                    System.out.println(findMateList);
+                    if (findMateList == null || findMateList.size() == 0) {
+                  %>
+                  <tr>
+                    <td colspan="3">작성된 글이 없습니다</td>
+                  </tr>
+                  <%
+                  } else {
+                    for (int i = 0; i < findMateList.size(); i++) {
+                      FindMateDto findmate = findMateList.get(i);
+/*                        System.out.println("findmate.getContent().length(): " + findmate.getContent().length());
+                       System.out.println(findmate.getContent().length() > 20); */
+                      System.out.println(findmate.getContent().length() >= 20 ? findmate.getContent().substring(0, 19) + "..." : findmate.getContent());
+                  %>
+                  <tr>
+                    <td>
+                      <img
+                        class="findMateTable__comment__avatarImg findMateTable__othercomment__avatarImg"
+                        src="profile/<%=findmate.getProfileImg()%>"
+                        alt="프로필 이미지"
+                      />
+                    </td>
+                    <td
+                      class="findMateTable__comment__writer findMateTable__othercomment__writer"
+                    >
+                      <%=findmate.getNickname()%>
+                    </td>
+                    <td
+                      class="findMateTable__comment__content findMateTable__othercomment__content"
+                    >
+                      <%=findmate.getContent().length() >= 20 ? findmate.getContent().substring(0, 24) + " ..." : findmate.getContent()%>
+                    </td>
+                  </tr>
+                  <%
+                    }
+                  }
+                  %>
+                </tbody>
+				      </table>
               <div class="moreBtnContainer">
-                <a class="btn" href="/findmate.do" role="button">더보기</a>
+                <a class="btn" href="findmate.do" role="button">더보기</a>
               </div>
             </div>
             <div id="mainContainer__boardSet__1stCol__public" class="boardSection">
