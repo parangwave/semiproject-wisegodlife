@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+body {
+  background-image: url('../images/regiback.png');
+  width: 100%;
+  height: 100%;
+}
+
+.regi {
+  margin: 0 auto;
+  background-color: white;
+  width: 700px;
+}
+
+.banner {
+  margin-top: 70px;
+  padding-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 45px;
+  font-weight: 800;
+}
+.center {
+  width: 500px;
+  margin: 25px auto;
+  vertical-align: middle;
+}
+
+input {
+  width: 190px;
+  height: 28px;
+  background-color: rgb(246, 245, 255);
+}
+
+.form-control{
+  border: none !important;
+  border-radius: 5px;
+}
+
+.table tr td,
+.table tr th {
+  width: 200px;
+  height: 70px;
+  vertical-align: middle;
+}
+
+.table tr th {
+  text-align: left;
+  font-size: 25px;
+  font-weight: 600;
+}
+.table tr td {
+  text-align: center;
+}
+
+#major {
+  width: 190px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.button {
+  width: 100px;
+  height: 35px;
+  margin-top: 10px;
+  background-color: white;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--theme-primary-pink);
+  border: 3px solid var(--theme-primary-pink);
+  border-radius: var(--section-border-radius);
+}
+.button:hover {
+  background-color: var(--theme-primary-pink);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+} 
+.buttons {
+  width: 110px !important;
+}
