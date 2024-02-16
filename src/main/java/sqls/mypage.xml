@@ -44,6 +44,7 @@
 </select>
 
 <!-- 블랙리스트 정보 Bbs에 연동하기 -->
+<!-- 현재 블랙리스트 1인 및 단어 1개만 적용됨 -->
 <select id="blockBlacklist" parameterType="ssg.com.a.dto.FreeBbsParam" resultType="ssg.com.a.dto.FreeBbsDto">
 	select seq, id, ref, step, depth, title, content, wdate, del, readcount, likes
 	  from freebbs

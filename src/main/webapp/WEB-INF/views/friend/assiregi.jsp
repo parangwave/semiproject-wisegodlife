@@ -6,96 +6,92 @@
 <meta charset="UTF-8">
 <title>조교 회원가입</title>
 <link rel="icon" href="images/favicon.svg">
-<!-- 부트스트랩 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<style>
-  	.center {
-  		margin: auto;
-  		width: 400px;
-  		border: 1px solid #a1a1a1;
-  		padding: 10px;
-  		border-radius: 30px
-  	}
-  </style>
+<link rel="stylesheet" href="style/css/style.css">
+<link rel="stylesheet" href="style/css/friend/regi.css" />
 </head>
 <body>
+<div class="regi">
+  <div class="banner">
+    <img src="images/lifegodlogo.png" / id="logo">
+  </div>
 
-<h2>조교 회원가입</h2>
+  <div class="center">
+    <form action="regiAf.do" id="frm" method="post">
+      <table class="table">
+        <tr>
+          <th>아이디</th>
+          <td>
+            <input type="text" class="form-control" name="id" id="id" placeholder="아이디">
+            <p id="idcheck" style="font-size: 17px"></p>
+          </td>
+          <td class="buttons">
+            <input type="button" class="button" id="id_chk_btn" value="id확인">
+          </td>
+        </tr>
+        <tr>
+          <th>패스워드</th>
+          <td>
+            <input type="text" class="form-control" name="pw" placeholder="패스워드">
+          </td>
+        </tr>
+        <tr>
+          <th>애칭</th>
+          <td>
+            <input type="text" class="form-control" name="nickname" id="nickname" placeholder="애칭">
+            <p id="nickname_check" style="font-size: 17px"></p>
+          </td>
+          <td  class="buttons">
+            <input type="button" class="button" id="nickname_chk_btn" value="애칭확인">
+          </td>
+        </tr>
+        <tr>
+          <th>이름</th>
+          <td>
+            <input type="text" class="form-control" name="name" placeholder="이름">
+          </td>
+        </tr>
+        <tr>
+          <th>전화번호</th>
+          <td>
+            <input type="text" class="form-control" name="tel" placeholder="전화번호">
+          </td>
+        </tr>
+        <tr>
+          <th>이메일</th>
+          <td>
+            <input type="text" class="form-control" name="email" placeholder="이메일">
+          </td>
+        </tr>
+        <tr>
+          <th>재학중인 대학교</th>
+          <td>
+            <input type="text" class="form-control" name="college" placeholder="재학중인 대학교">
+          </td>
+        </tr>
+        <tr>
+          <th>학과선택</th>
+          <td>
+            <select name="major" id="major">
+              <option value="1">영어영문학과</option>
+              <option value="2">재료공학과</option>
+              <option value="3">화학공학과</option>
+            </select>
+          </td>
+        </tr>
 
-<div class="center">
-
-  <form action="assiregiAf.do" id="frm" method="post">
-    <table class="table">
-      <tr>
-        <th>아이디</th>
-        <td>
-          <input type="text" class="form-control" name="id" id="id" size="20">
-          <p id="idcheck" style="font-size: 16px"></p>
-          <input type="button" class="btn btn-primary" id="id_chk_btn" value="id확인">
-        </td>
-      </tr>
-      <tr>
-        <th>패스워드</th>
-        <td>
-          <input type="text" class="form-control" name="pw" size="20">
-        </td>
-      </tr>
-      <tr>
-        <th>닉네임</th>
-        <td>
-          <input type="text" class="form-control" name="nickname" size="20">
-        </td>
-      </tr>
-      <tr>
-        <th>이름</th>
-        <td>
-          <input type="text" class="form-control" name="name" size="20">
-        </td>
-      </tr>
-      <tr>
-        <th>전화번호</th>
-        <td>
-          <input type="text" class="form-control" name="tel" size="20">
-        </td>
-      </tr>
-      <tr>
-        <th>이메일</th>
-        <td>
-          <input type="text" class="form-control" name="email" size="20">
-        </td>
-      </tr>
-      <tr>
-        <th>대학교</th>
-        <td>
-          <input type="text" class="form-control" name="college" size="20">
-        </td>
-      </tr>
-      <tr>
-        <th>학과</th>
-        <td>
-          <select name="major" id="major">
-            <option value="1">영어영문학과</option>
-            <option value="2">재료공학과</option>
-            <option value="3">화학공학과</option>
-          </select>
-        </td>
-      </tr>
-      
-      <tr>
-        <td colspan="2">
-          <div align="center">
-            <input type="button" id="regibtn" class="btn btn-primary" value="회원가입">
-          </div>
-        </td>
-      </tr>
-    </table>
-  </form>
+        <tr>
+          <td colspan="2">
+            <div align="center">
+              <input type="button" id="regibtn" class="button" value="회원가입">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -138,13 +134,48 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+  $('#nickname_chk_btn').click(function(){
+		
+		//빈칸검사
+		if($("#nickname").val() === ""){
+			alert("별칭을 기입해주세요.");
+			return;
+		}
+
+		// id 글자의 갯수 > ? 
+				
+		// id 규칙 : 대소문자 포함 + 특수기호 로그인API - ( 카카오API, 구글API, 네이버API )
+				
+		// id 가 사용중? 
+		$.ajax({
+			url : "./nicknamecheck.do",
+			type : "get",
+			data : { 
+				"nickname" : $("#nickname").val()
+			},
+			success:function(str){
+				// alert("success");
+				if(str === "YES"){
+					$("#nickname_check").css("color","#0000ff");
+					$("#nickname_check").text("사용할수 있는 닉네임입니다.");
+					
+				} else {
+					$("#nickname_check").css("color","#ff0000");
+					$("#nickname_check").text("사용중인 애칭입니다.");
+					$("#nickname").val("");
+				}
+			},
+			error:function(){
+				alert("error");
+			}
+		});
+	});
 	
 	$("#regibtn").click(function(){
 		
 		// 빈칸검사
-		// id, pw, name
-		
-		
+		// id, pw, name		
 		$("#frm").submit();
 		
 	});
