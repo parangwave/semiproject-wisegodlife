@@ -34,4 +34,9 @@ public class MainController {
 		
 		return "main";
 	}
+	
+	@GetMapping("clublist.do")
+	public String clublist() {
+		return "club/clublist";
+	}
 }
