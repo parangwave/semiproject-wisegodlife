@@ -57,6 +57,35 @@
 	transition: transform 0.3s ease;
 }
 
+/* 메이트 구하기 게시판 */
+#mainContainer__boardSet__1stCol__mate > table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 var(--margin-default);
+    padding: calc(var(--section-margin) * 1.1);
+}
+
+/* #mainContainer__boardSet__1stCol__mate > table > tbody {
+    padding: calc(var(--section-margin) * 1.5);
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+} */
+
+/* 말풍선 */
+#mainContainer__boardSet__1stCol__mate > table > tbody > tr > 
+td.findMateTable__comment__content.findMateTable__othercomment__content {
+    width: 70%;
+    background-color: var(--gray-01);
+    padding: 0.3rem;
+}
+
+#mainContainer__boardSet__1stCol__mate .findMateTable__comment__content:hover {
+    background-color: var(--gray-01);
+    transform: scale(1.05);
+	transition: transform 0.3s ease-in-out;
+}
+
 /* 동아리 게시판 */
 #mainContainer__boardSet__2ndCol__club-container {
     display: flex;
