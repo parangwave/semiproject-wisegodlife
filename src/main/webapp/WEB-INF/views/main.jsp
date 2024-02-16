@@ -240,8 +240,14 @@
 							%>
 								</a>
 							</td>
-							<td><%=freebbs.getReadcount()%></td>
-							<td><%=freebbs.getLikes()%></td>
+							<td width="15%">
+								<i class="bi bi-eye"></i>
+								<%=freebbs.getReadcount()%>
+							</td>
+							<td>
+								♥
+								<%=freebbs.getLikes()%>
+							</td>
 						</tr>
 						<%
 							}
@@ -324,7 +330,10 @@
 						<span>중고거래가 완료된 게시글 입니다.</span>
 					<%} %>
 					</td>
-					<td><%=dto.getReadcount() %></td>
+					<td> 
+						<i class="bi bi-eye"></i>
+						<%=dto.getReadcount() %>
+					</td>
 				</tr>
 				<%
 				}
