@@ -63,11 +63,29 @@
 		</table>
 	</form>
 	<hr style="width:400px"/>
-	<button type="button" style="width: 400px; padding: 20px; border-radius: 15px; background-color: #F6F5FF; margin-bottom: 10px;" onclick="location.href='${url}'">
+	<button type="button" class="naver" style="width: 400px; padding: 20px; border: none; border-radius: 15px; background-color: #2DB400; margin-bottom: 10px; font-size: 25px;" onclick="location.href='${url}'">
 		<b>네이버 로그인</b>
 	</button>
 </div>
-
+<style>
+  #login-btn {
+    border: none;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  #login-btn:hover {
+    background-color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);    
+    color: black; 
+  }
+  .naver{
+    color: white;
+  }
+  .naver:hover{
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+</style>
 
 <script type="text/javascript">
 
