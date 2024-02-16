@@ -287,7 +287,7 @@
               </div>
               
               <div class="moreBtnContainer">
-                <a class="btn" href="/clublist.do" role="button">더보기</a>
+                <a class="btn" href="clublist.do" role="button">더보기</a>
               </div>
             </div>
             <div id="mainContainer__boardSet__2ndCol__deal" class="boardSection">
