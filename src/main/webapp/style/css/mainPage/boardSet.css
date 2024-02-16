@@ -145,7 +145,7 @@ td.findMateTable__comment__content.findMateTable__othercomment__content {
     margin-top: 0.5em; */
 }
 
-/* 내용 */
+/* 제목 */
 .mainContainer__boardSet__2ndCol__club-content-text > h2 {
     font-weight: var(--header-font-weight);
     font-size: var(--nav-bar-font-size);
