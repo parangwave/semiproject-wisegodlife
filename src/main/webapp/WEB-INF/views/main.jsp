@@ -132,9 +132,11 @@
             <h1>오늘의 학교생활</h1>
 
             <!-- 수강시간표 -->
-            <ul id="mainContainer__leftTab__school__lectures">
-              <table><tbody></tbody></table>
-            </ul>
+            <div id="mainContainer__leftTab__school__lectures">
+              <table>
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
 
         </section>
