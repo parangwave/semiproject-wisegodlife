@@ -19,6 +19,7 @@
   <head>
         <meta charset="UTF-8" />
         <title>메이트 구하기 게시판</title>
+        <link rel="icon" href="images/favicon.svg">
         <!-- bootstrap -->
         <link
           rel="stylesheet"

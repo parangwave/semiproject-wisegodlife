@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>슬갓생</title>
 <link rel="icon" href="images/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 부트스트랩 -->

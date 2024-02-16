@@ -56,18 +56,27 @@
 			</thead>
 			<tbody>
 				<%
-				for (int i = 0;i < commentList.size(); i++) {
-					BbsComment bc = commentList.get(i);
+				System.out.println(commentList);
+				if(commentList == null || commentList.size() == 0){
 					%>
-				<tr>
-					<td class="num"><%=i + 1 %></td>
-					<td style="text-align: left;" >
-						<%=bc.getContent() %>
-					</td>
-					<td class="num"><%= bc.getWdate().substring(0, 10) %></td>
-					<td class="num"><%=bc.getId() %></td>
-				</tr>	
+					<tr>
+						<td colspan="4">작성한 댓글이 없습니다</td>
+					</tr>
 					<%
+				}else{
+					for (int i = 0;i < commentList.size(); i++) {
+						BbsComment bc = commentList.get(i);
+						%>
+					<tr>
+						<td class="num"><%=i + 1 %></td>
+						<td style="text-align: left;" >
+							<%=bc.getContent() %>
+						</td>
+						<td class="num"><%= bc.getWdate().substring(0, 10) %></td>
+						<td class="num"><%=bc.getId() %></td>
+					</tr>	
+						<%
+					}
 				}
 				%>
 			</tbody>
