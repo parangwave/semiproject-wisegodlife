@@ -14,7 +14,7 @@
 <select id="mainutbbslist" resultType="ssg.com.a.dto.UtBbsDto">
 	select * from utbbs 
 	order by regdate desc
-	limit 0, 3
+	limit 0, 2
 </select>
 
 <select id="mainfindmatelist" resultType="ssg.com.a.dto.FindMateDto">

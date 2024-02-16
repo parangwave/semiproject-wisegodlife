@@ -4,6 +4,7 @@
 .dark-mode, [data-bs-theme=dark] {
     color-scheme: dark;
     --bs-body-color: var(--gray-01);
+    background-color: var(--dark-bg-color);
     --theme-yellow: var(--dark-nav-bg-color);
     color: var(--gray-01);
 }
