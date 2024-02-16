@@ -132,7 +132,7 @@ td.findMateTable__comment__content.findMateTable__othercomment__content {
 /* 이미지 */
 .mainContainer__boardSet__2ndCol__club-content-img > img {
     margin: auto;
-    height: 50%;
+    height: 80%;
     display: flex;
     align-self: center;
 }
