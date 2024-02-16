@@ -45,7 +45,9 @@
 .moreBtnContainer > a {
     color: var(--theme-sub-pink);
     border-radius: var(--btn-border-radius);
-    border: 2px solid var(--theme-sub-pink);
+    border: 3px solid var(--theme-sub-pink);
+    font-size: var(--header-font-size);
+    font-weight: var(--header-font-weight);
 }
 
 /* 더보기 버튼 hover */
