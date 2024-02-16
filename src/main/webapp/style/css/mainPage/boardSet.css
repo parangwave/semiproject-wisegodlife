@@ -109,7 +109,7 @@ td.findMateTable__comment__content.findMateTable__othercomment__content {
 .mainContainer__boardSet__2ndCol__club-content-img {
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 80%;
     border-bottom: 2px solid var(--gray-01);
     /* height: 70%; */
 }
