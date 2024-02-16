@@ -42,6 +42,8 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <!-- favicon -->
+    <link rel="icon" href="images/favicon.svg">
     <!-- css -->
     <link rel="stylesheet" href="./style/css/style.css" />
     <!-- jquery -->
@@ -240,8 +242,14 @@
 							%>
 								</a>
 							</td>
-							<td><%=freebbs.getReadcount()%></td>
-							<td><%=freebbs.getLikes()%></td>
+							<td width="15%">
+								<i class="bi bi-eye"></i>
+								<%=freebbs.getReadcount()%>
+							</td>
+							<td>
+								♥
+								<%=freebbs.getLikes()%>
+							</td>
 						</tr>
 						<%
 							}
@@ -324,7 +332,10 @@
 						<span style="color: red;">중고거래가 완료된 게시글 입니다.</span>
 					<%} %>
 					</td>
-					<td><%=dto.getReadcount() %></td>
+					<td> 
+						<i class="bi bi-eye"></i>
+						<%=dto.getReadcount() %>
+					</td>
 				</tr>
 				<%
 				}

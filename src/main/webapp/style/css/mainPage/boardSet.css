@@ -45,13 +45,15 @@
 .moreBtnContainer > a {
     color: var(--theme-sub-pink);
     border-radius: var(--btn-border-radius);
-    border: 2px solid var(--theme-sub-pink);
+    border: 3px solid var(--theme-sub-pink);
+    font-size: var(--header-font-size);
+    font-weight: var(--header-font-weight);
 }
 
 /* 더보기 버튼 hover */
-.moreBtnContainer > a:hover,
-.moreBtnContainer > a:active {
-	color: var(--white) !important;
+.light-mode .moreBtnContainer > a:hover,
+.light-mode .moreBtnContainer > a:active {
+	color: var(--white);
 	background-color: var(--theme-sub-pink) !important;
 	transform: scale(1.1);
 	transition: transform 0.3s ease;
@@ -73,11 +75,12 @@
 } */
 
 /* 말풍선 */
-#mainContainer__boardSet__1stCol__mate > table > tbody > tr > 
+.light-mode #mainContainer__boardSet__1stCol__mate > table > tbody > tr > 
 td.findMateTable__comment__content.findMateTable__othercomment__content {
     width: 70%;
     background-color: var(--gray-01);
     padding: 0.3rem;
+    color: var(--dark-bg-color);
 }
 
 #mainContainer__boardSet__1stCol__mate .findMateTable__comment__content:hover {
@@ -109,7 +112,7 @@ td.findMateTable__comment__content.findMateTable__othercomment__content {
 .mainContainer__boardSet__2ndCol__club-content-img {
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 80%;
     border-bottom: 2px solid var(--gray-01);
     /* height: 70%; */
 }
@@ -130,7 +133,7 @@ td.findMateTable__comment__content.findMateTable__othercomment__content {
 /* 이미지 */
 .mainContainer__boardSet__2ndCol__club-content-img > img {
     margin: auto;
-    height: 50%;
+    height: 80%;
     display: flex;
     align-self: center;
 }
@@ -143,7 +146,7 @@ td.findMateTable__comment__content.findMateTable__othercomment__content {
     margin-top: 0.5em; */
 }
 
-/* 내용 */
+/* 제목 */
 .mainContainer__boardSet__2ndCol__club-content-text > h2 {
     font-weight: var(--header-font-weight);
     font-size: var(--nav-bar-font-size);
