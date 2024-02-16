@@ -17,4 +17,10 @@
 	limit 0, 3
 </select>
 
+<select id="mainfindmatelist" resultType="ssg.com.a.dto.FindMateDto">
+	select profileImg, nickname, content from findmate 
+	order by wdate desc
+	limit 0, 4
+</select>
+
 </mapper>

@@ -112,11 +112,35 @@
 /* 검색 */
 #mainContainer__leftTab__search-placeholder {
   font-family: "Pretendard";
-  font-size: calc(var(--header-font-size) - 0.2rem);
 }
 
 
 /* 학교생활 */
+#mainContainer__leftTab__school {
+  margin-left: var(--section-margin);
+}
+
 #mainContainer__leftTab__school h1 {
   background-color: var(--theme-primary-blue);
+}
+
+#mainContainer__leftTab__school__lectures {
+  margin-top: var(--section-margin);
+  margin-left: var(--section-margin);
+}
+
+/* 수업명 + 시작시간 */
+#mainContainer__leftTab__school__lectures > table > tbody > tr > td {
+  font-size: var(--nav-bar-font-size);
+  font-weight: var(--header-font-weight);
+}
+
+/* 시작시간 */
+#mainContainer__leftTab__school__lectures > table > tbody > tr > td > span {
+  display: inline-block;
+  text-align: right;
+  /* margin-left: 3rem; */
+  font-size: var(--header-font-size);
+  font-weight: var(--text-font-weight);
+  color: var(--gray-02);
 }

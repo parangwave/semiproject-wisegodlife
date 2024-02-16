@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ssg.com.a.dao.MainDao;
+import ssg.com.a.dto.FindMateDto;
 import ssg.com.a.dto.FreeBbsDto;
 import ssg.com.a.dto.UtBbsDto;
 import ssg.com.a.service.MainService;
@@ -15,6 +16,11 @@ public class MainServiceImpl implements MainService{
 
 	@Autowired
 	MainDao dao;
+	
+	@Override
+	public List<FindMateDto> mainFindMateList() {
+		return dao.mainFindMateList();
+	}
 
 	@Override
 	public List<FreeBbsDto> mainFreeBbsList() {
