@@ -51,9 +51,9 @@
 }
 
 /* 더보기 버튼 hover */
-.moreBtnContainer > a:hover,
-.moreBtnContainer > a:active {
-	color: var(--white) !important;
+.light-mode .moreBtnContainer > a:hover,
+.light-mode .moreBtnContainer > a:active {
+	color: var(--white);
 	background-color: var(--theme-sub-pink) !important;
 	transform: scale(1.1);
 	transition: transform 0.3s ease;
@@ -75,11 +75,12 @@
 } */
 
 /* 말풍선 */
-#mainContainer__boardSet__1stCol__mate > table > tbody > tr > 
+.light-mode #mainContainer__boardSet__1stCol__mate > table > tbody > tr > 
 td.findMateTable__comment__content.findMateTable__othercomment__content {
     width: 70%;
     background-color: var(--gray-01);
     padding: 0.3rem;
+    color: var(--dark-bg-color);
 }
 
 #mainContainer__boardSet__1stCol__mate .findMateTable__comment__content:hover {

@@ -129,18 +129,18 @@
   margin-left: var(--section-margin);
 }
 
-/* 수업명 + 시작시간 */
+/* 수업명 + 시작시각 */
 #mainContainer__leftTab__school__lectures > table > tbody > tr > td {
   font-size: var(--nav-bar-font-size);
   font-weight: var(--header-font-weight);
 }
 
-/* 시작시간 */
-#mainContainer__leftTab__school__lectures > table > tbody > tr > td > span {
+/* 시작시각 */
+.light-mode #mainContainer__leftTab__school__lectures > table > tbody > tr > td > span {
   display: inline-block;
   text-align: right;
   /* margin-left: 3rem; */
   font-size: var(--header-font-size);
   font-weight: var(--text-font-weight);
-  color: var(--gray-02);
+  /* color: var(--gray-02); */
 }

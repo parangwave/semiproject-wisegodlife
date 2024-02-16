@@ -63,21 +63,31 @@
     color: var(--gray-01);
 }
 
+/* 학교생활 - 수강시간표 */
+.dark-mode #mainContainer__leftTab__school__lectures {
+    color: var(--gray-01);
+}
+
+.dark-mode #mainContainer__leftTab__school__lectures > table > tbody > tr > td > span {
+    color: var(--gray-01);
+    opacity: 0.8;
+}
+
 
 /* main-container */
 .dark-mode #mainContainer {
     background-color: var(--dark-bg-color);
 }
 
+/* 게시판 섹션 */
+
+/* 더보기 버튼 */
+.dark-mode .moreBtnContainer > a:hover,
+.dark-mode .moreBtnContainer > a:active {
+	color: var(--dark-section-bg-color) !important;
+}
+
 /* 동아리 섹션 */
 .dark-mode .mainContainer__boardSet__2ndCol__club-content {
     border: 2px solid var(--gray-01);
 }
-
-.dark-mode .mainContainer__boardSet__2ndCol__club-content-text > p {
-    color: var(--gray-01);
-    opacity: 0.6;
-}
-/* .dark-mode .mainContainer__boardSet__2ndCol__club-content-text > p {
-    color: var(--gray-02);
-} */
