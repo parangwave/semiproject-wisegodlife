@@ -6,7 +6,7 @@
 
 <select id="getMyCommentList" parameterType="String" resultType="ssg.com.a.dto.BbsComment">
 	select seq, id, content, wdate
-	  from freebbs
+	  from comment
 	 where id=#{id}
 </select>
 
