@@ -30,7 +30,7 @@
     --dark-section-bg-color: rgba(93, 90, 136, 1);
 
 
-    /* margin, pad프로필 수정ding */
+    /* margin, padding */
     --section-margin: 1rem;
     --margin-default: 0.5rem;
     --btn-padding: var(--margin-default);
